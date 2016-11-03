@@ -204,6 +204,23 @@ $(document).ready(function() {
         $("#e1").select2()
           .on("change", function(e) {
           log("change val=" + e.val);
+
+          id_asset = <?php echo $_GET['id'];?>;
+          ids_tags = '';
+          for(var t in e.val){ids_tags=ids_tags+e.val[t]+',';}
+
+          $.ajax({  
+               url:"save_tags.php",  
+               method:"POST",  
+               data:{ids_tags:ids_tags, id:id_asset},  
+               dataType:"text",  
+               success:function(data)  
+               {  
+
+               }  
+          }); 
+
+
         })
 
 
