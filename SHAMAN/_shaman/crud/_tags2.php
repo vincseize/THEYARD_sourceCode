@@ -4,7 +4,20 @@
   <link rel="stylesheet" href="select2.css">
   <link rel="stylesheet" href="select2-bootstrap.css">
 
-<div id="tags_title" style="width: 100%;border-width:1px;border-color:#d3dded;border-style:solid;background-color: #d3dded;">
+
+
+
+
+<div style="background-color: #303030;width:100%;color:#A9A9A9;">
+
+
+
+
+
+
+
+
+<div id="tags_title" style="width: 100%;border-width:1px;border-color:#262626;border-style:solid;background-color: #262626;">
 
 Tags
 </div>
@@ -14,12 +27,12 @@ Tags
 
 
 
-<div class="select2-wrapper" style='vertical-align:top;padding:0px;width:100%;'>
+<div class="select2-wrapper" style='vertical-align:top;padding:0px;width:100%;background-color: #262626;'>
 <!-- <div  style='vertical-align:top;background-color: red;padding:0px;'> -->
 
-    <div style='display:inline-block;'>
+    <div style='display:inline-block;background-color:#262626;'>
         <!-- .select2-container-multi .select2-choices .select2-search-field input.select2-active -->
-        <select class="form-control input-md select2 myTags" multiple id="e1" style="min-width:400px;padding:0px;">
+        <select class="form-control input-md select2 myTags" multiple id="e1" style="min-width:400px;padding:0px;background-color: #262626;">
                             <?php
                                   if(!empty($datas_tags)){ 
                                       foreach($datas_tags as $data3){ 
@@ -59,6 +72,20 @@ Tags
             <input type="hidden" name="id_asset" id="id_asset" value='<?php echo $_GET['id'];?>'>    
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
 
 
 <!-- s -->
@@ -241,11 +268,39 @@ $("#e1").select2()
 
 
 
+$('select').each(function(){
+   //$(this).attr('data-search-term', $(this).text().toLowerCase());
+   // alert($(this));
+
+
+          $(this).on('change', function() {
+            alert( this.value ); // or $(this).val()
+          });
+
+
+
+});
 
 
 
 
 
+$(function() {
+    $("select").each(function(i){
+        //alert($(this).text() + " : " + $(this).val());
+
+                    $(this).change(function() {
+                            // Do soomething with the previous value after the change
+                           // alert($(this).text() + " : " + $(this).val());
+                           alert($(this).val());
+                            
+                           
+                        });
+
+
+
+    });
+});
 
 
 

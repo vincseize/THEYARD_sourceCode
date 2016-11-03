@@ -312,15 +312,15 @@ header
 </div>
 
 
-<div class="section group" style="background-color:#000;">
+<div class="section group" style="background-color:#262626;">
 	<div class="col span_1_of_3 " style=" border: 1px solid black;width:<?php echo W_V_EDIT;?>px;height:<?php echo H_V_EDIT;?>px;);background-size: cover;">
 
 	<?php include('_vignette.php'); ?>
 	</div>
-	<div class="col span_1_of_3 " style="height:<?php echo H_V_EDIT;?>px;);">
+	<div class="col span_1_of_3 " style="height:<?php echo H_V_EDIT;?>px;);background-color:#303030;">
 	<?php include('_description.php'); ?>
 	</div>
-	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);">
+	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);background-color:#303030;">
 	<?php include('_tags2.php'); ?>
 	</div>
 
