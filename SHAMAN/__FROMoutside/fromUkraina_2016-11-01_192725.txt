@@ -1,0 +1,1 @@
+{'mode':'C','id_project':'1','asset_name':'FION_DE_HAMSTER','id_user':'7','id_tags':6-8-9[3]-12[3,2]}

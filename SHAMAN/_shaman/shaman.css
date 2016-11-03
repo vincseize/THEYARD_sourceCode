@@ -1,0 +1,107 @@
+:root {
+  --main-bg-color1: #333333;
+  --main-bg-color2: #444444;
+  --main-bg-color3: #555555;
+
+  --main-txt-color2: #CACACA;
+  --main-txt-color3: #EEEEEE;
+  
+
+  --main-blue-color2: #4286f4;
+  --main-blue-color3: #337AB2;
+
+}
+
+
+
+
+
+
+
+body {
+    background-color: var(--main-bg-color3);
+}
+
+
+.g {
+      padding: 0.25em;
+      overflow: hidden;
+    }
+    .g li {
+      float: left;
+      width: 50%;
+      padding: 0.25em;
+    }
+    .g img {
+      display: block;
+    }
+    .g li:nth-child(odd) {
+      clear: left;
+    }
+  
+    @media screen and (min-width: 40em) {
+      .g li {
+          width: 33.3333333333333333%; 
+        }
+        .g li:nth-child(3n+1) {
+          clear: left;
+        }
+        .g li:nth-child(odd) {
+        clear: none;
+      }
+    }
+    @media screen and (min-width: 55em) {
+      .g li {
+          width: 25%; 
+        }
+        .g li:nth-child(4n+1) {
+          clear: left;
+        }
+        .g li:nth-child(3n+1) {
+        clear: none;
+      }
+    }
+    @media screen and (min-width: 72em) {
+      .g li {
+          width: 20%; 
+        }
+        .g li:nth-child(5n+1) {
+          clear: left;
+        }
+        .g li:nth-child(4n+1) {
+        clear: none;
+      }
+    }
+    @media screen and (min-width: 90em) {
+      .g li {
+          width: 16.666666666%; 
+        }
+        .g li:nth-child(6n+1) {
+          clear: left;
+        }
+        .g li:nth-child(5n+1) {
+        clear: none;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+#recipes .mix{
+    opacity: 0;
+    display: none;
+}
+
+div.filter li {float:left; margin-left: 17px;}
+/*div.filter li a {outline: 2px solid #E74C3C; color: #E74C3C; padding: 5px;}*/
+div.filter li a:hover, div.filter li a:focus {text-decoration: none; background-color: #ECF0F1;}
+div.thumbnails li {margin: 20px 0;}
+div.thumbnails li a {color: #E74C3C;}
+div.thumbnails li a:hover {text-decoration: none; background-color: #ECF0F1; color: #EC8783;}
+
