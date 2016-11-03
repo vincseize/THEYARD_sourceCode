@@ -20,8 +20,8 @@ $tblName = 'assets';
 		fclose($myfile);
 
 */
-if(isset($_POST['ids_tags'])){
-      $data = array('ids_tags' => $_POST['ids_tags']);
+if(isset($_POST['id'])){
+      $data = array('ids_tags' => $_POST['ids_tags'],'ids_tags_steps' => $_POST['ids_tags_steps']);
       $condition = array('id' => $_POST['id']);
       $update = $db->update($tblName,$data,$condition);
 
