@@ -122,23 +122,23 @@ $datas_getTags  = $db->getRows('tags',array('where'=>array('id'=>$val[0]),'retur
 
 
 
-            $result = $result."{id:".$val[0].",text:'".$datas_getTags['tag']." <select>";
-           if (isset($val[1]) and sizeof($val[1])>0) {
+          $result = $result."{id:".$val[0].",text:'".$datas_getTags['tag']." <select>";
+          if (isset($val[1]) and sizeof($val[1])>0) {
 
 
                         foreach ($val[1] as $key1 => $val1) {
-$datas_getSteps  = $db->getRows('steps',array('where'=>array('id'=>$val1),'return_type'=>'single'));
-                                       $result = $result."<option>".$datas_getSteps['step']." ".$datas_getSteps['color']."</option>";
+                                        $datas_getSteps  = $db->getRows('steps',array('where'=>array('id'=>$val1),'return_type'=>'single'));
+                                        $result = $result."<option>".$datas_getSteps['step']." ".$datas_getSteps['color']."</option>";
                         }
 
 
 
-           }else{
-            $result = $result."<option></option><option>steps defaults ,2,3 ...</option>";
-           }
+          }else{
+              $result = $result."<option></option><option>steps defaults ,2,3 ...</option>";
+          }
 
 
-            $result = $result."</select>'},";
+          $result = $result."</select>'},";
 
    }
 
@@ -192,43 +192,116 @@ $(document).ready(function() {
 
 
 
-        function log(text) {
-          $('#logs').append(text + '<br>');
-        }
+function log(text) {
+    $('#logs').append(text + '<br>');
+}
 
 
 
-        //$("#e1").select2().on("select2:open", function (e) { log("select2:open", e); });
+$("#e1").select2()
 
 
-        $("#e1").select2()
-          .on("change", function(e) {
+
+
+.on("change", function(e) {
+
+    log("change val=" + e.val);
+
+    id_asset = <?php echo $_GET['id'];?>;
+    ids_tags = '';
+    for(var t in e.val){ids_tags=ids_tags+e.val[t]+',';}
+    ids_tags_steps = '';
+    for(var s in e.val){ids_tags_steps=ids_tags_steps+e.val[s]+'-';}
+    ids_tags_steps = ids_tags_steps.slice(0, -1);
+        $.ajax({  
+             url:"save_tagsDes.php",  
+             method:"POST",  
+             data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
+             dataType:"text",  
+             success:function(data)  
+             {  
+
+             }  
+        }); 
+
+})
+
+
+
+.on("select2-selecting", function(e) {
+          log("selecting val=" + e.val + " choice=" + e.object.text);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+.on("change", function(e) {
+          // mostly used event, fired to the original element when the value changes
           log("change val=" + e.val);
-
-          id_asset = <?php echo $_GET['id'];?>;
-          ids_tags = '';
-          for(var t in e.val){ids_tags=ids_tags+e.val[t]+',';}
-          ids_tags_steps = '';
-          for(var s in e.val){ids_tags_steps=ids_tags_steps+e.val[s]+'-';}
-          ids_tags_steps = ids_tags_steps.slice(0, -1);
-          $.ajax({  
-               url:"save_tags.php",  
-               method:"POST",  
-               data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
-               dataType:"text",  
-               success:function(data)  
-               {  
-
-               }  
-          }); 
-
-
         })
+        .on("select2-opening", function() {
+          log("opening");
+        })
+        .on("select2-open", function() {
+          // fired to the original element when the dropdown opens
+          log("open");
+        })
+        .on("select2-close", function() {
+          // fired to the original element when the dropdown closes
+          log("close");
+        })
+        .on("select2-highlight", function(e) {
+          log("highlighted val=" + e.val + " choice=" + e.choice.text);
+        })
+        .on("select2-selecting", function(e) {
+          log("selecting val=" + e.val + " choice=" + e.object.text);
+        })
+        .on("select2-removed", function(e) {
+          log("removed val=" + e.val + " choice=" + e.choice.text);
+        })
+        .on("select2-loaded", function(e) {
+          log("loaded (data property omitted for brevitiy)");
+        })
+        .on("select2-focus", function(e) {
+          log("focus");
+        });
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+*/
 
 
 
