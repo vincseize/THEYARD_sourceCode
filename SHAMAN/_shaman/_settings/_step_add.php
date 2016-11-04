@@ -8,21 +8,26 @@ $tblName = 'steps';
 $now = date("Y-m-d H:i:s");
 
 $editval = str_replace("<br>", "", $_POST["editval"]);
-        $data = array(
-
-            'step' => $editval,
-            'id_creator' => $_SESSION['id'],
-            'created' => $now,
-            'modified' => $now,
-            'active' => 1,
-            'modified_by' => $_SESSION['id']
-
-        );
 
 
-$insert = $db->insert($tblName,$data);
+if(strlen($_POST["editval"])>1){
 
 
+			        $data = array(
+
+			            'step' => $editval,
+			            'id_creator' => $_SESSION['id'],
+			            'created' => $now,
+			            'modified' => $now,
+			            'active' => 1,
+			            'modified_by' => $_SESSION['id']
+
+			        );
+
+
+			$insert = $db->insert($tblName,$data);
+
+}
 
 
 ?>

@@ -8,6 +8,11 @@ $tblName = 'tags';
 $now = date("Y-m-d H:i:s");
 
 $editval = str_replace("<br>", "", $_POST["editval"]);
+
+
+if(strlen($_POST["editval"])>1){
+
+
         $data = array(
 
             'tag' => $editval,
@@ -20,8 +25,10 @@ $editval = str_replace("<br>", "", $_POST["editval"]);
         );
 
 
-$insert = $db->insert($tblName,$data);
+		$insert = $db->insert($tblName,$data);
 
+
+}
 
 
 

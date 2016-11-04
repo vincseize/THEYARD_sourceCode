@@ -137,10 +137,10 @@ foreach($NEW_ar_tags_steps as $tags){
   }
 
 
-/*echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
 print_r($NEW_ar_tags_steps2);
 
-*/
+
 
 
 $result = '';
@@ -156,8 +156,8 @@ $datas_getTags  = $db->getRows('tags',array('where'=>array('id'=>$val[0]),'retur
 
 
 
-          $result = $result."{id:".$val[0].",text:'".$datas_getTags['tag']." ";
-/*                    if (isset($val[1]) and sizeof($val[1])>0) {
+          $result = $result."{id:".$val[0].",text:'".$datas_getTags['tag']." <select>";
+                    if (isset($val[1]) and sizeof($val[1])>0) {
 
 
                                   foreach ($val[1] as $key1 => $val1) {
@@ -169,18 +169,10 @@ $datas_getTags  = $db->getRows('tags',array('where'=>array('id'=>$val[0]),'retur
 
                     }else{
                         $result = $result."<option></option><option>steps defaults ,2,3 ...</option>";
-                    }*/
-  if($datas_getTags['tag']=='MODELING'){
-      $result = $result."<select>";
-      foreach ($steps as $keyS => $step) {
-
-          $result = $result."<option>".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
-      }
-      $result = $result."</select>";
-}
+                    }
 
 
-          $result = $result."'},";
+          $result = $result."</select>'},";
 
    }
 
@@ -287,39 +279,47 @@ $("#e1").select2()
 
 
 
+
+
+
+
+
+
+
+/*$('select').each(function(){
+          $(this).on('change', function() {
+            alert( this.value ); // or $(this).val()
+          });
+});*/
+
+
+
+
 $(function() {
     $("select").each(function(){
-                    var ids_tags = '';
+        //alert($(this).text() + " : " + $(this).val());
 
                     $(this).change(function(e) {
+                            // Do soomething with the previous value after the change
+                           // alert($(this).text() + " : " + $(this).val());
+                           // alert($(this).val());
+                            
+                           ids_tags_steps = '';
+
                                 $("select").each(function(){
-                                    var n = ($(this).val()).includes("[");
-                                    if(n==false){
-                                      ids_tags = $(this).val();
+                                    //alert($(this).attr('id'));
+                                    
+                                    if($(this).attr('id')==undefined){
+                                       //log($(this).val());
+                                       var step = ($(this).val()).split(' ');
+                                       ids_tags_steps = step[0]+'-'+ids_tags_steps;
                                     }
+                                    
                                 });
-
-var tmp = ($(this).val()).split(" ");
-var ids_mod = tmp[0];
-var result = ids_tags + ',' + ids_mod;
-
-//log($(this).val());
-log(result);
-var tmp = (result).split(",");
-
-var ids_ref = [];
-
-
-for(
-      var n = tmp[t].includes("]");
-      if(n==true){
-        ids_ref.push(tmp[t]);
-      }
-}
-
-log(ids_ref);
-
-
+// var ids_tags_steps = ids_tags_steps.slice(0, -1);
+if(ids_tags_steps.slice(-2)=='--'){var ids_tags_steps = ids_tags_steps.slice(0, -2);}
+if(ids_tags_steps.slice(-1)=='-'){var ids_tags_steps = ids_tags_steps.slice(0, -1);}
+log(ids_tags_steps);
                         });
 
 
@@ -360,7 +360,7 @@ log(ids_ref);
 
 
 $(function() {
-    $("selectDES").each(function(){
+    $("select2").each(function(){
         //alert($(this).text() + " : " + $(this).val());
 
                     $(this).change(function(e) {

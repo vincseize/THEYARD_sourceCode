@@ -176,14 +176,14 @@ include('back_ui.php');
  -->
 
 
-    <div class='item add-item box_shadow box' style='width:350px;height:350px;padding-left:15px;padding-right:15px;'>
+    <div class='item add-item box_shadow box' style='width:850px;height:800px;padding-left:15px;padding-right:15px;'>
 
-            <table class="tbl-qa" style="table-layout:fixed;">
+            <table class="tbl-qa" style="table-layout:fixed;width:100%;">
               <thead>
                 <tr  class='data-name'>
                 <th class="table-header" width="10%">Pos.</th>
                 <th class="table-header" width="70%">Tag</th>
-                <th class="table-header" width="20%">Color</th>
+                <th class="table-header" width="50px">Color</th>
                 </tr>
               </thead>
               <tbody>
@@ -252,14 +252,14 @@ include('back_ui.php');
 
 
 
-    <div class='item add-item box_shadow box' style='width:350px;height:350px;padding-left:15px;padding-right:15px;'>
+    <div class='item add-item box_shadow box' style='width:550px;height:800px;padding-left:15px;padding-right:15px;'>
 
-            <table class="tbl-qa" style="table-layout:fixed;">
+            <table class="tbl-qa" style="table-layout:fixed;width:100%;">
               <thead>
                 <tr  class='data-name'>
                 <th class="table-header" width="10%">Pos.</th>
                 <th class="table-header" width="70%">Step</th>
-                <th class="table-header" width="20%">Color</th>
+                <th class="table-header" width="50px">Color</th>
                 </tr>
               </thead>
               <tbody>

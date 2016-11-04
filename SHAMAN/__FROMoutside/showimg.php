@@ -27,7 +27,7 @@ if (isset($_POST['vignette'])){
 */
 
 
-if(isset($_POST['image'])){
+if(isset($_GET['image'])){
 	// echo 'toto';
 	$curlUrl='showimg.php';	
 /*	$ch = curl_init();
@@ -43,7 +43,7 @@ if(isset($_POST['image'])){
 
 
 
-$base64Image=$_POST['image'];
+$base64Image=$_GET['image'];
 $newImageName= time();
 $getImageMimeType=substr($base64Image, 5, strpos($base64Image, ';')-5);
 $imageTypeArray=array('image/png'=>'png','image/jpeg'=>'jpg','image/gif');

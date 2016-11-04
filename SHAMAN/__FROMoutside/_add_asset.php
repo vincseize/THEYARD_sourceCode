@@ -113,8 +113,8 @@ if($mode='C'){
 		$myfile = fopen($file, "w");
 
 		/*$current = file_get_contents($myfile);*/
-		file_put_contents($file, $_GET['json']);
-		fclose($myfile);
+/*		file_put_contents($file, $_GET['json']);
+		fclose($myfile);*/
 
 		// echo file_get_contents($file);
 
@@ -253,7 +253,7 @@ echo $DATASstoreFolderComments;*/
 
 
 
-echo "[1,".$id_asset."]";
+echo "[1,".$id_asset.",".$folder_name."]";
 
 
 
