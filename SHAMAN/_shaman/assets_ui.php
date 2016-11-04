@@ -113,7 +113,7 @@ echo "</a>";
             echo "</div>";
 
             echo "<div style='clear:both;'></div>";
-            echo "<div class='data-commenttxt2' style='font-family: Arial;color:#A8A8A8;background-color:#444444;width:100%;height:120px;max-height:120px;overflow:hidden;text-overflow: ellipsis;padding-left:3px;padding-right:3px;'/>".$comment."</div>";
+            echo "<div class='data-commenttxt2' style='font-family: Arial;color:#222;background-color:#444444;width:100%;height:120px;max-height:120px;overflow:hidden;text-overflow: ellipsis;padding-left:3px;padding-right:3px;'/>".$comment."</div>";
             echo "<div class='item-lastupdate'>";
                 echo "<div style='float:left; text-align:left;'>&nbsp;<span class='data-creationdate'>".$modified."</span></div>";
                 echo "<div style='float:right; text-align:right;'><span class='data-comment_user'>".$modified_byUser."</span>&nbsp;</div>";  

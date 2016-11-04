@@ -186,6 +186,15 @@ body, html {
 .forgot-password:focus{
     color: rgb(12, 97, 33);
 }
+
+
+a:link { text-decoration: none; } 
+a:visited { text-decoration: none; } 
+a:hover { text-decoration: none; } 
+a:active { text-decoration: none; }
+
+
+
     </style>
 
 
@@ -193,13 +202,13 @@ body, html {
 
   </head>
 
-  <body>
+  <body style="background-color:#555555;">
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#333333;">
+      <div class="container-fluid" style="background-color:#333333;">
        <!-- navbar-header -->
-        <div class="navbar-header">
+        <div class="navbar-header" style="background-color:#333333;">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>

@@ -321,7 +321,7 @@ header
 	<?php include('_description.php'); ?>
 	</div>
 	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);background-color:#303030;">
-	<?php include('_tags2.php'); ?>
+	<?php include('_tags.php'); ?>
 	</div>
 
 </div>

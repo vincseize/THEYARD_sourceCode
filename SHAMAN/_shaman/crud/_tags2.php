@@ -5,7 +5,11 @@
   <link rel="stylesheet" href="select2-bootstrap.css">
 
 
-
+<style>
+.select2-choice { background-color: #262626 !important; }
+ .select2-results { background-color: #262626 !important;  }
+  .select2-container { background-color: #262626 !important;  }
+</style>
 
 
 <div style="background-color: #303030;width:100%;color:#A9A9A9;">
@@ -155,7 +159,7 @@ $datas_getTags  = $db->getRows('tags',array('where'=>array('id'=>$val[0]),'retur
 
                         foreach ($val[1] as $key1 => $val1) {
                                         $datas_getSteps  = $db->getRows('steps',array('where'=>array('id'=>$val1),'return_type'=>'single'));
-                                        $result = $result."<option>".$datas_getSteps['step']." ".$datas_getSteps['color']."</option>";
+                                        $result = $result."<option>".$datas_getTags['id']."[".$datas_getSteps['id']."] ".$datas_getSteps['step']." ".$datas_getSteps['color']."</option>";
                         }
 
 
@@ -232,14 +236,25 @@ $("#e1").select2()
 
 .on("change", function(e) {
 
-    log("change val=" + e.val);
+    // log("change val=" + e.val);
 
     id_asset = <?php echo $_GET['id'];?>;
+    // tags
     ids_tags = '';
     for(var t in e.val){ids_tags=ids_tags+e.val[t]+',';}
+    // steps
     ids_tags_steps = '';
     for(var s in e.val){ids_tags_steps=ids_tags_steps+e.val[s]+'-';}
     ids_tags_steps = ids_tags_steps.slice(0, -1);
+
+    log(ids_tags+'|'+ids_tags_steps);
+
+
+
+
+
+
+
         $.ajax({  
              url:"save_tagsDes.php",  
              method:"POST",  
@@ -268,33 +283,106 @@ $("#e1").select2()
 
 
 
-$('select').each(function(){
-   //$(this).attr('data-search-term', $(this).text().toLowerCase());
-   // alert($(this));
-
-
+/*$('select').each(function(){
           $(this).on('change', function() {
             alert( this.value ); // or $(this).val()
           });
+});*/
 
 
 
+
+$(function() {
+    $("select").each(function(){
+        //alert($(this).text() + " : " + $(this).val());
+
+                    $(this).change(function(e) {
+                            // Do soomething with the previous value after the change
+                           // alert($(this).text() + " : " + $(this).val());
+                           // alert($(this).val());
+                            
+                           ids_tags_steps = '';
+
+                                $("select").each(function(){
+                                    //alert($(this).attr('id'));
+                                    
+                                    if($(this).attr('id')==undefined){
+                                       //log($(this).val());
+                                       var step = ($(this).val()).split(' ');
+                                       ids_tags_steps = step[0]+'-'+ids_tags_steps;
+                                    }
+                                    
+                                });
+var ids_tags_steps = ids_tags_steps.slice(0, -1);
+log(ids_tags_steps);
+                        });
+
+
+
+    });
 });
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(function() {
-    $("select").each(function(i){
+    $("select2").each(function(){
         //alert($(this).text() + " : " + $(this).val());
 
-                    $(this).change(function() {
+                    $(this).change(function(e) {
                             // Do soomething with the previous value after the change
                            // alert($(this).text() + " : " + $(this).val());
-                           alert($(this).val());
-                            
+                           // alert($(this).val());
+                            log($(this).val());
                            
+
+
+/*        $.ajax({  
+             url:"save_tagsDes.php",  
+             method:"POST",  
+             data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
+             dataType:"text",  
+             success:function(data)  
+             {  
+
+             }  
+        });*/
+
+
+
+
+
+
+
                         });
 
 
@@ -372,14 +460,20 @@ $(function() {
 
 
 <script>
+
+/*   
+
       $(function(){
 
         // display logs
+
+
+
         function log(text) {
           $('#logs').append(text + '<br>');
         }
 
-/*        $('#e1').select2()
+     $('#e1').select2()
         .on("change", function(e) {
           // mostly used event, fired to the original element when the value changes
           log("change val=" + e.val);
@@ -409,8 +503,16 @@ $(function() {
         })
         .on("select2-focus", function(e) {
           log("focus");
-        });*/
+        });
 
       });
+
+
+
+      */
+
+
     </script>
-<div class="well" id="logs">logs</div>
+
+
+<div class="well" id="logs"></div>
