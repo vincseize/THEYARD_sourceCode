@@ -234,9 +234,7 @@ $(document).ready(function() {
 
 
 
-function log(text) {
-    $('#logs').append(text + '<br>');
-}
+
 
 
 
@@ -267,7 +265,7 @@ $("#e1").select2()
 
 
         $.ajax({  
-             url:"save_tagsDes.php",  
+             url:"save_tags.php",  
              method:"POST",  
              data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
              dataType:"text",  
@@ -296,7 +294,7 @@ $(function() {
                                     var n = ($(this).val()).includes("[");
                                     if(n==false){
                                       ids_tags = $(this).val();
-                                    }
+                                      }
                                 });
 
 var tmp = ($(this).val()).split(" ");
@@ -304,88 +302,61 @@ var ids_mod = tmp[0];
 var result = ids_tags + ',' + ids_mod;
 
 //log($(this).val());
-log(result);
+//log(result);
 var tmp = (result).split(",");
 
-var ids_ref = [];
+var ids_ref = '';
 
 
-for(
+for(var t in tmp){
       var n = tmp[t].includes("]");
       if(n==true){
-        ids_ref.push(tmp[t]);
+        var res = (tmp[t]).split("[");
+        ids_ref=res[0];
       }
+      
 }
 
-log(ids_ref);
+//log(ids_ref);
 
+ids_tags_steps = '';
+for(var t in tmp){
+      if(tmp[t]!=ids_ref){
+          ids_tags_steps = tmp[t] + '-' + ids_tags_steps;
+      }
 
-                        });
+}
 
-
-
-    });
-});
-
-
-
-
-
+ids_tags_steps = ids_tags_steps.slice(0, -1);
 
 
 
 
+ids_tags_string = '';
+for(var t in ids_tags){
+      ids_tags_string = ids_tags[t] + ',' + ids_tags_string;
+}
+ids_tags_string = ids_tags_string.slice(0, -1);
 
 
 
+id_asset = <?php echo $_GET['id'];?>;
+
+log(id_asset);
+log(ids_tags_string);
+log(ids_tags_steps);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(function() {
-    $("selectDES").each(function(){
-        //alert($(this).text() + " : " + $(this).val());
-
-                    $(this).change(function(e) {
-                            // Do soomething with the previous value after the change
-                           // alert($(this).text() + " : " + $(this).val());
-                           // alert($(this).val());
-                            log($(this).val());
-                           
-
-
-/*        $.ajax({  
-             url:"save_tagsDes.php",  
+        $.ajax({  
+             url:"save_tags.php",  
              method:"POST",  
-             data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
+             data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps, id:id_asset},  
              dataType:"text",  
              success:function(data)  
              {  
 
              }  
-        });*/
-
-
-
-
-
+        });
 
 
                         });
@@ -393,7 +364,125 @@ $(function() {
 
 
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function parse_tags(text) {
+                    var tmp = ($(this).val()).split(" ");
+                    var ids_mod = tmp[0];
+                    var result = ids_tags + ',' + ids_mod;
+
+                    //log($(this).val());
+                    //log(result);
+                    var tmp = (result).split(",");
+
+                    var ids_ref = '';
+
+
+                    for(var t in tmp){
+                          var n = tmp[t].includes("]");
+                          if(n==true){
+                            var res = (tmp[t]).split("[");
+                            ids_ref=res[0];
+                          }
+                          
+                    }
+
+                    //log(ids_ref);
+
+                    ids_tags_steps = '';
+                    for(var t in tmp){
+                          if(tmp[t]!=ids_ref){
+                              ids_tags_steps = tmp[t] + '-' + ids_tags_steps;
+                          }
+
+                    }
+
+                    ids_tags_steps = ids_tags_steps.slice(0, -1);
+
+
+
+
+                    ids_tags_string = '';
+                    for(var t in ids_tags){
+                          ids_tags_string = ids_tags[t] + ',' + ids_tags_string;
+                    }
+                    ids_tags_string = ids_tags_string.slice(0, -1);
+
+
+
+                    id_asset = <?php echo $_GET['id'];?>;
+
+                    log(id_asset);
+                    log(ids_tags_string);
+                    log(ids_tags_steps);
+}
+
+
+function parse_steps(text) {
+    $('#logs').append(text + '<br>');
+}
+
+
+
+function log(text) {
+    $('#logs').append(text + '<br>');
+}
+
+
+
+
+
+
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -463,61 +552,6 @@ $(function() {
 
 
 
-
-<script>
-
-/*   
-
-      $(function(){
-
-        // display logs
-
-
-
-        function log(text) {
-          $('#logs').append(text + '<br>');
-        }
-
-     $('#e1').select2()
-        .on("change", function(e) {
-          // mostly used event, fired to the original element when the value changes
-          log("change val=" + e.val);
-        })
-        .on("select2-opening", function() {
-          log("opening");
-        })
-        .on("select2-open", function() {
-          // fired to the original element when the dropdown opens
-          log("open");
-        })
-        .on("select2-close", function() {
-          // fired to the original element when the dropdown closes
-          log("close");
-        })
-        .on("select2-highlight", function(e) {
-          log("highlighted val=" + e.val + " choice=" + e.choice.text);
-        })
-        .on("select2-selecting", function(e) {
-          log("selecting val=" + e.val + " choice=" + e.object.text);
-        })
-        .on("select2-removed", function(e) {
-          log("removed val=" + e.val + " choice=" + e.choice.text);
-        })
-        .on("select2-loaded", function(e) {
-          log("loaded (data property omitted for brevitiy)");
-        })
-        .on("select2-focus", function(e) {
-          log("focus");
-        });
-
-      });
-
-
-
-      */
-
-
-    </script>
 
 
 <div class="well" id="logs"></div>
