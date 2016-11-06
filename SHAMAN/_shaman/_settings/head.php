@@ -46,7 +46,7 @@ require '../../inc/crud.php';
 <style type="text/css">
 
 
-body { background: #555555; padding:1.8em 0;overflow:hidden; }
+body { background: #555555; padding:1.8em 0;overflow-x:hidden; }
 
 .header { padding:0; }
 

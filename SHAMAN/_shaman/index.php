@@ -110,10 +110,7 @@ a:active {
 
 
 
-
-
-
-
+<br>
   
 
 <div id="content-item" class="content-item"  style="padding-top:50px;">
@@ -121,26 +118,28 @@ a:active {
 
 
 
-<div style="width:400px;padding:0px;">
-<select id="e1" class="form-control input-md select2 myTags" multiple id="e1">
- <?php
-                                  if(!empty($datas_tags)){ 
-                                      foreach($datas_tags as $data3){ 
-                                          if($data3['active']=='1'){ 
-                                              echo "<option value='".$data3['id']."'/>".$data3['tag']."</option>";
-                                           } 
-                                      }
-                                  }
-                              ?>
-    </select>
-</div>
 
 
-					     <div class='pattern' id="recipes">
-					        <ul class="g" >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <div class='pattern' id="recipes">
+                  <ul class="g" >
                   <font color=white>
 
-					        <?php
+                  <?php
 /*if ( $_SERVER["SERVER_ADDR"] == "127.0.0.1" ) {
                       echo getcwd();
                       echo "<br>";
@@ -167,26 +166,57 @@ a:active {
 
 
 
-    					        if(!empty($datas_assets)){ 
-    					            include('assets_ui.php');
-    					       }
+                      if(!empty($datas_assets)){ 
+                          include('assets_ui.php');
+                     }
                       if($_SESSION['id_status_user']=='2'){
-    								      include('asset_add_ui.php');
+                          include('asset_add_ui.php');
                       }
-					        ?>
+                  ?>
 
 
                   </font>
 
-					        </ul>
-							</div>
+                  </ul>
+              </div>
 
-			        <div class="dropdown bootstrapMenu" style="z-index: 10000; position: absolute; display: none; height: 69px; width: 158px; top: 169.004px; left: 985px;">
-			        <ul class="dropdown-menu" style="position:static;display:block;font-size:0.9em;">
+
+
+
+
+
+
+
+              <div class="dropdown bootstrapMenu" style="z-index: 10000; position: absolute; display: none; height: 69px; width: 158px; top: 169.004px; left: 985px;">
+              <ul class="dropdown-menu" style="position:static;display:block;font-size:0.9em;">
               </div>
 
 </div>
+
+
+
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -213,23 +243,51 @@ a:active {
 
 
 
-    <script>
-        $(document).ready(function() { 
+<script>
+$(document).ready(function() { 
+
+      
+      $container = $('#filter');
+      //$container.mixItUp({});
+
+      $("#e1").select2({
+          placeholder: "Tags",
+
+      });
 
 
-          $("#e1").select2({
-    placeholder: "filters"
+      $("#e1").select2().on("change", function(e) {
+
+        $('.mix').hide();
+
+        
+
+var data = $('#e1').select2('data');
+
+//alert(data.length);
+
+if(data.length>0){
+    for(var t in data){
+            var class_tag = '.'+data[t]['text'];
+            //$(data[t]['text']).show();
+            $(class_tag).show();
+            
+            console.log(data[t]['text']);
+
+    }
+}
+else{$('.mix').show();}
+
+ 
+        
+
+      });
+
 });
+</script>
 
 
-
-
-
-        });
-    </script>
-
-
-
+<!-- <li class='filter' data-filter='".$data2['tag']."'><a href='#''>".$data2['tag']."</a></li> -->
 
 
 

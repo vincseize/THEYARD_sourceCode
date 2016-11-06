@@ -26,7 +26,7 @@ $id_project = '1';
 $datas_projects     = $db->getRows('projects',array('where'=>array('id'=>$id_project),'return_type'=>'single'));
 
 
-foreach($datas_assets as $data){ 
+foreach($assets_modified as $data){ 
         if($data['active']=="1"){ 
 
 

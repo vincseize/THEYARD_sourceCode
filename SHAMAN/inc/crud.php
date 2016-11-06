@@ -16,6 +16,7 @@ $steps_pos_asc 			= $db->getRows('steps',array('order_by'=>'position ASC'));
 $steps_pos_desc 		= $db->getRows('steps',array('order_by'=>'position DESC'));
 $flags 					= $db->getRows('flags',array('order_by'=>'id DESC'));
 $assets 				= $db->getRows('assets',array('order_by'=>'id DESC'));
+$assets_modified 		= $db->getRows('assets',array('order_by'=>'modified DESC'));
 $comments 				= $db->getRows('comments',array('order_by'=>'id DESC'));
 $comments_asc 			= $db->getRows('comments',array('order_by'=>'id ASC'));
 

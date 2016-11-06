@@ -175,28 +175,89 @@
         <!-- nav-collapse -->
         <div id="navbar" class="navbar-collapse collapse" style="background-color: #333333;margin-top:35px;border:none;">
 
+
+
+
+
+
+
+
+<div style="width:90%;padding:0px;">
+<select id="e1" class="form-control input-md select2 myTags" multiple id="e1">
+ <?php
+                                  if(!empty($datas_tags)){ 
+                                      foreach($datas_tags as $data3){ 
+                                          if($data3['active']=='1'){ 
+                                              echo "<option value='".$data3['id']."'/>".$data3['tag']."</option>";
+                                              // <li class='filter' data-filter='".$data2['tag']."'>
+                                           } 
+                                      }
+                                  }
+                              ?>
+    </select>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               <ul class="nav navbar-nav navbar-middle">
                   <div>
 
-<div class="filter"  style="position:relative;left:-5px">
-<li class="filter active" data-filter="all"><a href="#">ALL</a></li>
-<!--     <li class="filter" data-filter="antipasto"><a href="#">tag1</a></li>
-  <li class="filter" data-filter="main"><a href="#">tag2</a></li>
-  <li class="filter" data-filter="desert"><a href="#">tag3</a></li> -->
-
+<!-- <div class="filter"  style="position:relative;left:-5px">
+<li class="filter active" data-filter="all"><a href="#">ALL</a></li> -->
                           <?php
-                                if(!empty($datas_tags)){ 
-                                    foreach($datas_tags as $data2){ 
-                                        if($data2['active']==1){ 
-                                            echo "<li class='filter' data-filter='".$data2['tag']."'><a href='#''>".$data2['tag']."</a></li>";
-                                        }
-                                    }
-                                }
+                                //if(!empty($datas_tags)){ 
+                                    //foreach($datas_tags as $data2){ 
+                                        //if($data2['active']==1){ 
+                                            //echo "<li class='filter' data-filter='".$data2['tag']."'><a href='#''>".$data2['tag']."</a></li>";
+                                        //}
+                                    //}
+                                //}
                             ?>
+<!-- </div> -->
 
 
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                   </div>
@@ -204,9 +265,6 @@
                 </ul>
 
         </div><!--/.nav-collapse -->
-
-
-
 
 
 

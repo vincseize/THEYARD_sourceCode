@@ -11,6 +11,8 @@ if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
 
 <?php include('head.php'); ?>
 
+
+
 <style>
 
 tr:hover{
@@ -354,6 +356,11 @@ include('back_ui.php');
   function setTextColor(picker) {
     document.getElementsByTagName('body')[0].style.color = '#' + picker.toString()
   }
+
+
+
+
+
   </script>
 
 
