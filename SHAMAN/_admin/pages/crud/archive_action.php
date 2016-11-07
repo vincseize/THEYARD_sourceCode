@@ -22,3 +22,4 @@ if($_REQUEST['action_type'] == 'archive'){
 
         }
 }
+?>

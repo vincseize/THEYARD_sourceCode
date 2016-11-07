@@ -257,10 +257,9 @@
                     </a>
                     <!-- <ul class="dropdown-menu dropdown-user"> -->
                     <ul role="menu" class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> My Settings</a>
-                        </li>
-<!--                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li> -->
+                    
+<!--                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a></li> -->
+
                         <li class="divider"></li>
                         <li><a href="../../_shaman/index.php"><i class="fa fa-sign-out fa-fw"></i> <?php echo ucfirst(WEB_APP_NAME);?></a>
                         </li>

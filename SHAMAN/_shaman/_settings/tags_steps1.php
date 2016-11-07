@@ -11,9 +11,7 @@ if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
 
 <?php include('head.php'); ?>
 
-<link href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
 
 <style>
 
@@ -361,8 +359,8 @@ include('back_ui.php');
 
 
 
-// $( "tbody" ).sortable();
-  
+
+
   </script>
 
 

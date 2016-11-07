@@ -14,7 +14,7 @@ $timestamp_id_creator = date("Ymd_his")."_".$_SESSION['id'];
 
 $ds = DIRECTORY_SEPARATOR;
 
-
+$get_user  = $db->getRows('users',array('where'=>array('id'=>$_SESSION['id']),'return_type'=>'single'));
 
 
 ?>
@@ -141,7 +141,67 @@ header
 
 
 
+<div id="content-asset-crud"></div>
 
+<div id="content-item" class="content-item"  style="padding-top:0px;align-content: center;width:50%;">
+
+
+        <div class="panel-body" style="background-color:#444; ">
+
+        <h4 class="modal-title" id="myModalLabel"><font color=white>NEW ASSET</font></h4>
+
+
+              <form method="post" action="_user_edit.php" class="form" id="assetForm">
+
+                      <div class="form-group">
+                          <label><font color=white>Name</font></label>
+                          <input type="text" class="form-control" name="name" value="<?php echo $get_user['name']; ?>"/>
+                      </div>
+                      <div class="form-group">
+                          <label><font color=white>Pseudo</font></label>
+                          <input type="text" class="form-control" name="pseudo" value="<?php echo $get_user['pseudo']; ?>"/>
+                      </div>
+                      <div class="form-group">
+                          <label><font color=white>Login</font></label>
+                          <input type="text" class="form-control" name="login"  value="<?php echo $get_user['login']; ?>" disabled/>
+                      </div>
+
+
+                      <div class="form-group">
+                          <label><font color=white>Password</font></label>
+                          <input type="password" class="form-control" name="password"  value="<?php echo $get_user['password']; ?>" required/>
+                      </div>
+
+                      <div class="form-group">
+                          <label><font color=white>Mail</font></label>
+                          <input type="text" class="form-control" name="mail"  value="<?php echo $get_user['mail']; ?>" required/>
+                      </div>
+
+                      <input type="hidden" name="modified_by" value="<?php echo $_SESSION['id']; ?>"/>
+                      <input type="hidden" name="id" value="<?php echo $get_user['id']; ?>"/>
+
+
+                    
+                      
+
+                            <div class="modal-footer">
+                              
+                              <!--  <button type="submit" class="form-control btn btn-primary" name="submit" id="submit_asset2">Create Asset</button>
+                            <input type="submit" class="form-control btn-default" name="submit" value="Create Asset"/> -->
+                             <input type="submit" class="form-control btn-primary" name="submit" value="Update"/>
+                          <!--    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button> -->
+                            </div>
+
+
+              </form>
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>
+          </div>
+
+
+</div>    
+</div>
 
 
 

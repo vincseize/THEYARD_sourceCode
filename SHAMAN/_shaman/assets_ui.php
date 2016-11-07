@@ -94,6 +94,7 @@ foreach($assets_modified as $data){
       }
 
 
+
 echo "<div class='mix ".$tags." mix_all' data-name='".$data['id']."'  class='item-spacer' style='margin: 0px 8px;' id='".$data['id']."'>";
 
 

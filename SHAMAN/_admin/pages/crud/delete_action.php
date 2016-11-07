@@ -14,3 +14,4 @@ if($_REQUEST['action_type'] == 'delete'){
             header("Location:../".$tblName.".php");
         }
 }
+?>
