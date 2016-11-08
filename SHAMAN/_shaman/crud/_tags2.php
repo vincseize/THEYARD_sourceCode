@@ -175,46 +175,19 @@ $datas_getTags  = $db->getRows('tags',array('where'=>array('id'=>$val[0]),'retur
                     }else{
                         $result = $result."<option></option><option>steps defaults ,2,3 ...</option>";
                     }*/
-
-
-
-
   if($datas_getTags['tag']=='MODELING' or $datas_getTags['tag']=='LOOKDEV'){
     
     //$sel = substr($datas_getTags['id'], 2,1);
-      $datas_ts  = $db->getRows('assets',array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
-      $ts = $datas_ts['ids_tags_steps'];
     
-      if($datas_getTags['tag']=='MODELING'){
-                $result = $result."<select>";
-                foreach ($steps_pos_asc as $keyS => $step) {
-                    $selected_step = "";
-                    if($step['id']== $datas_getTags['id']){$selected_step = ' selected';}
-                    // if($step['id']== '6'){$selected_step = ' selected';}
-                    $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
-                }
-                $result = $result."</select>";
+
+      $result = $result."<select>";
+      foreach ($steps_pos_asc as $keyS => $step) {
+          $selected_step = "";
+          if($step['id']== $datas_getTags['id']){$selected_step = ' selected';}
+          $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
       }
-
-
-      if($datas_getTags['tag']=='LOOKDEV'){
-
-                $result = $result."<select>";
-                foreach ($steps_pos_asc as $keyS => $step) {
-                    $selected_step = "";
-                    if( strpos($datas_getTags['id']."[".$step['id']."]" , $ts)!== false){$selected_step = ' selected';}
-                    // if($step['id']== '6'){$selected_step = ' selected';}
-                    $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
-                }
-                $result = $result."</select>";
-      }
-
-
+      $result = $result."</select>";
 }
-
-
-
-
 
 
           $result = $result."'},";
@@ -302,7 +275,7 @@ $("#e1").select2()
 
 
         $.ajax({  
-             url:"save_tags.php",  
+             url:"save_tags1.php",  
              method:"POST",  
              data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
              dataType:"text",  
@@ -352,10 +325,6 @@ $(function() {
                                         ids_ref=res[0];
                                       }
                                       
-
-
-
-
                                 }
 
                                 //log(ids_ref);
@@ -370,15 +339,12 @@ $(function() {
 
                                 ids_tags_steps = ids_tags_steps.slice(0, -1);
 
-                                // ids_tags_steps = ids_tags_steps+$(this).val();
-
 
                                 ids_tags_string = '';
                                 for(var t in ids_tags){
                                       ids_tags_string = ids_tags[t] + ',' + ids_tags_string;
                                 }
                                 ids_tags_string = ids_tags_string.slice(0, -1);
-                              
 
 
                                 id_asset = <?php echo $_GET['id'];?>;
@@ -389,7 +355,7 @@ $(function() {
 
 
                                 $.ajax({  
-                                     url:"save_tags.php",  
+                                     url:"save_tags2.php",  
                                      method:"POST",  
                                      data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps, id:id_asset},  
                                      dataType:"text",  

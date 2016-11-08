@@ -68,6 +68,19 @@ if (!file_exists($path)) {
 
 
 
+if (pathinfo($name, PATHINFO_EXTENSION)=='mp4'){
+		$ffmpeg = '/usr/bin/ffmpeg';  
+		$video = $_FILES["files"]["tmp_name"][$f];  
+		$image = $path.'thumb_'.$name;   
+		$interval = 5;   
+		$size = W_THUMB_COM."x".W_THUMB_COM;  
+		$cmd = "$ffmpeg -i $video -deinterlace -an -ss $interval -f mjpeg -t 1 -r 1 -y -s $size $image 2>&1";
+		exec($cmd);
+}
+
+
+
+
 
 
 	            if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name))
