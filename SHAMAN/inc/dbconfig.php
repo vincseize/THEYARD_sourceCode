@@ -14,7 +14,7 @@ if ( $_SERVER["SERVER_ADDR"] == "127.0.0.1" ) {
 	$db_user = "root";
 	$db_pass = "shaman";*/	
 	$db_host = "82.223.10.101";
-	$db_name = "theyard";
+	$db_name = "minuscule2";
 	$db_user = "Mimi";
 	$db_pass = "Coccinelle2016";
 

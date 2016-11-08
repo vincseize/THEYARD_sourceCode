@@ -303,7 +303,6 @@ $(document).ready(function() {
 
 
 
-
 });
 
 
@@ -311,108 +310,104 @@ $(document).ready(function() {
 
 
 
+$(function() {
+
+        function log(text) {
+          $('#logs').append(text + '<br>');
+        }
+
+        $("select").each(function(){
+                $(this).change(function(e) {
+                  var ids_tags_steps =  '';
+                    var ids_tags = $(this).val();
+                    
+                                                  $("select").each(function(){
+                                                      // log($(this).val());
+                                                      var n = ($(this).val()).includes("[");
+                                                                if(n==true){
+                                                                  //ids_tags_steps = $(this).val()+'-'+ids_tags_steps;
+                                                                  var tmp = ($(this).val()).split(" ");
+                                                                  ids_tags_steps = tmp[0]+','+ids_tags_steps;
+                                                                  //log($(this).val());
+                                                                  
+                                                                  }
+                                                                 // log(ids_tags_steps); 
+  
+                                                  });
 
 
+log('-----------------------------');
+log(ids_tags);
 
-$("#e1").select2()
-
-
-
-
-.on("change", function(e) {
-
-    // log(e.val);
-    //alert(e.val);
-    id_asset = <?php echo $_GET['id'];?>;
-    // tags
-    var ids_tags = '';
-    for(var t in e.val){ids_tags=ids_tags+e.val[t]+',';}
-      //alert(ids_tags);
-    // steps
-    ids_tags_steps = '';
-    /*for(var s in e.val){ids_tags_steps=ids_tags_steps+e.val[s]+'-';}
-    ids_tags_steps = ids_tags_steps.slice(0, -1);
-    alert(ids_tags_steps);*/
-
-
-//var ids_tags = '';
-$("select").each(function(){
-                                    
-                                    var n = ($(this).val()).includes("[");
-                                    if(n==true){
-                                      //alert($(this).val());
-                                      var t = $(this).val();
-                                      var tmp = t.split(" ");
-                                      //var get = ($(this).val()).split(" ");
-                                      ids_tags_steps = tmp[0]+'-'+ids_tags_steps;
-
-                                      }
-
-
-                                });
-ids_tags_steps = ids_tags_steps.slice(0, -1);
- //alert(ids_tags_steps);
-
-var st = '';
-var tmp = ids_tags.split(",");
- for(var t in tmp){
-
-      st = st+'-'+tmp[t];
-
- }
-
-ids_tags_steps = ids_tags_steps + st;
+ids_tags_steps = ids_tags + ',' + ids_tags_steps;
 ids_tags_steps = ids_tags_steps.slice(0, -1);
 
- //alert(ids_tags_steps);
+log(ids_tags_steps);
+
+
+id_asset = <?php echo $_GET['id'];?>;
+
+
+                      var type_edit = 'update_tags';
+                              $.ajax({  
+                                   url:"save_tags_select2.php",  
+                                   method:"POST",  
+                                   data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset, type_edit:type_edit},  
+                                   dataType:"text",  
+                                   success:function(data)  
+                                   {  
+
+                                   }  
+                              }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+                });
+
+            });
+
+
+
+    });
+
+
+
+
 
 
 /*
-                                    var ids_tags = '';
-                                    var n = ($(this).val()).includes("[");
-                                    if(n==true){
-                                      ids_tags = $(this).val();
+
+$(function(){
 
 
-                                      var tmp = ($(this).val()).split(" ");
-                                      //ids_tags = tmp[0]+'-'+ids_tags;
-
-                                      }
-*/
+        function log(text) {
+          $('#logs').append(text + '<br>');
+        }
 
 
+        $("#e1").select2()
 
-/*     log(ids_tags+'|'+ids_tags_steps);
+        .on("change", function(e) {
+            log(e.val);
+            alert(e.val);
+        })
 
-
-                               log(id_asset);
-                                log(ids_tags_steps);
-                                log(ids_tags);*/
-
-
-        //alert(ids_tags);
-        var type_edit = 'update_tags';
-        $.ajax({  
-             url:"save_tags_select.php",  
-             method:"POST",  
-             data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset, type_edit:type_edit},  
-             dataType:"text",  
-             success:function(data)  
-             {  
-
-             }  
-        }); 
-
-})
+});*/
 
 
 
-.on("select2-selecting", function(e) {
-          log("selecting val=" + e.val + " choice=" + e.object.text);
-})
 
-
-
+// update_selects
 $(function() {
     $("select").each(function(){
                     var ids_tags = '';
@@ -501,11 +496,14 @@ $(function() {
 
 
 
+/*
 
 
+.on("select2-selecting", function(e) {
+          log("selecting val=" + e.val + " choice=" + e.object.text);
+})
 
-
-
+*/
 
 
 

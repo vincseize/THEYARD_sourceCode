@@ -24,7 +24,7 @@ class DB{
 
     private $dbHost     = "82.223.10.101";
 /*    private $dbHost_dev     = "127.0.0.1";*/
-    private $dbName     = "theyard";
+    private $dbName     = "minuscule2";
     private $dbUsername = "Mimi";
     private $dbPassword = "Coccinelle2016";
 
