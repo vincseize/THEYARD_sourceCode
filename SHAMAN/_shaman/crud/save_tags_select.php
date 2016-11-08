@@ -8,6 +8,26 @@ $tblName = 'assets';
 
 
 
+
+/*		$myfile = fopen("save_tags.txt", "w") or die("Unable to open file!");
+
+		$ids_tags = $_POST['ids_tags'];
+		$txt = $ids_tags."\n";
+		fwrite($myfile, $txt);
+		$txt = $_POST['ids_tags_steps']."\n";
+		fwrite($myfile, $txt);
+		$txt = $_POST['id']."\n";
+		fwrite($myfile, $txt);
+		fclose($myfile);*/
+
+// data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps, id:id_asset}, 
+
+/*		echo $_POST['id'];
+		echo "<br>";
+		echo $_POST['ids_tags'];
+		echo "<br>";
+		echo $_POST['ids_tags_steps'];*/
+
 $datas_assets  		= $db->getRows('assets',array('where'=>array('id'=>'112'),'return_type'=>'single'));
 $datas_tags_steps   = $datas_assets['ids_tags_steps'];
 // echo $datas_tags_steps;
@@ -18,9 +38,9 @@ $old = (explode("-",$datas_tags_steps));
 
 
 // $old = 6-8-11-15-9[5]-10[5];
-$new = array('8','11','15'); // 9[6]-6-8-10-11-15
+//$new = array('6','8','11','15','10[3]'); // 9[6]-6-8-10-11-15
 
-// $new = explode("-",$_POST['ids_tags_steps']);
+$new = explode("-",$_POST['ids_tags_steps']);
 
 $ids_tags_steps_conc = array_unique (array_merge ($old, $new));
 // print_r($ids_tags_steps_conc);
