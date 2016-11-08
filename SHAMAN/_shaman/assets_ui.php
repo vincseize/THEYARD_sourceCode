@@ -86,10 +86,10 @@ foreach($assets_modified as $data){
 
       // ../_DATAS_LOCALHOST/1_M2/assets/1_55_MIMI/vignette.jpg
       /*<img class='item-vignette data-vignette' src='ShotTracker_fichiers/drax.jpg' alt=''>*/
-      $vignette = "<img class='item-vignette data-vignette' src='".$path_vignette."' style='width:192px;height:102px; alt=''>";
+      $vignette = "<img class='item-vignette data-vignette' src='".$path_vignette."' style='width:".W_THUMB_HOME."px;height:".H_THUMB_HOME."px; alt=''>";
      //echo strlen($datas['vignette']);
      if (!file_exists($path_vignette)) {
-            $vignette = "<img class='item-vignette data-vignette' src='images/vignette_default.jpg' style='width:192px;height:102px;' alt=''>";
+            $vignette = "<img class='item-vignette data-vignette' src='images/vignette_default.jpg' style='width:".W_THUMB_HOME."px;height:".H_THUMB_HOME."px;' alt=''>";
              //echo  'NO';
       }
 
@@ -103,7 +103,7 @@ echo "<div class='mix ".$tags." mix_all' data-name='".$data['id']."'  class='ite
 echo "<div id='box_shadow' class='item box_shadow'>";
 
 
-    echo "<div class='data-name'>".$data['name']."</div>";
+    echo "<div class='data-name' style='font-size:0.7em;padding-top:2px;'>".$data['name']."</div>";
 echo "<a href='crud/assets_edit.php?id=".$data['id']."'>";
         echo $vignette;
 echo "</a>";

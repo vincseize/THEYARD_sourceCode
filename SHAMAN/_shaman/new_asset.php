@@ -30,7 +30,7 @@ $title_user = "Hi' ".$_SESSION['login']." [ ".$_SESSION['status']." ]";
 
 <style>
 body, html {
-overflow-y: hidden;
+overflow-x: hidden;
 }
 </style>
 

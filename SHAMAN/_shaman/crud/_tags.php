@@ -327,7 +327,7 @@ $("#e1").select2()
     // tags
     var ids_tags = '';
     for(var t in e.val){ids_tags=ids_tags+e.val[t]+',';}
-      alert(ids_tags);
+      //alert(ids_tags);
     // steps
     ids_tags_steps = '';
     /*for(var s in e.val){ids_tags_steps=ids_tags_steps+e.val[s]+'-';}
@@ -364,10 +364,7 @@ var tmp = ids_tags.split(",");
 ids_tags_steps = ids_tags_steps + st;
 ids_tags_steps = ids_tags_steps.slice(0, -1);
 
- alert(ids_tags_steps);
-
-
-
+ //alert(ids_tags_steps);
 
 
 /*
@@ -385,17 +382,6 @@ ids_tags_steps = ids_tags_steps.slice(0, -1);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /*     log(ids_tags+'|'+ids_tags_steps);
 
 
@@ -404,12 +390,12 @@ ids_tags_steps = ids_tags_steps.slice(0, -1);
                                 log(ids_tags);*/
 
 
-
-
+        //alert(ids_tags);
+        var type_edit = 'update_tags';
         $.ajax({  
              url:"save_tags_select.php",  
              method:"POST",  
-             data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset},  
+             data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset, type_edit:type_edit},  
              dataType:"text",  
              success:function(data)  
              {  
@@ -482,21 +468,22 @@ $(function() {
                                 for(var t in ids_tags){
                                       ids_tags_string = ids_tags[t] + ',' + ids_tags_string;
                                 }
+
                                 ids_tags_string = ids_tags_string.slice(0, -1);
-                              
-
-
                                 id_asset = <?php echo $_GET['id'];?>;
+
+                                var type_edit = 'update_selects';
 
                                 log(id_asset);
                                 log(ids_tags_string);
                                 log(ids_tags_steps);
+                                log(type_edit);
 
 
                                 $.ajax({  
                                      url:"save_tags_select.php",  
                                      method:"POST",  
-                                     data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps, id:id_asset},  
+                                     data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps, id:id_asset, type_edit:type_edit},  
                                      dataType:"text",  
                                      success:function(data)  
                                      {  

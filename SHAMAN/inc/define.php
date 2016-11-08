@@ -44,11 +44,15 @@ define ('H_480','480');
 define ('W_128','128');
 define ('H_72','72');
 
+define ('W_192','192');
+define ('H_108','108');
 
 ///// IMG THUMB
 define ('W_DFLT',W_1280);
 define ('H_DFLT',H_720);
 
+define ('W_THUMB_HOME',W_192);
+define ('H_THUMB_HOME',H_108);
 
 define ('W_THUMB_COM',W_128);
 define ('H_THUMB_COM',H_72);

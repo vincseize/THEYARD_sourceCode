@@ -14,9 +14,13 @@ if(isset($_REQUEST['action_type']) && !empty($_REQUEST['action_type'])){
 
 
         //$vignette_blob = mysql_real_escape_string(file_get_contents("../images/vignette_default.jpg"));
-
-
-
+$tmp = explode(",",$_POST['ids_tagsValue']);
+$ids_tags_steps = '';
+foreach( $tmp as $data){
+    if($data == '9' or $data == '10'){$data=$data.'[]';}
+$ids_tags_steps = $ids_tags_steps."-".$data;
+}
+$ids_tags_steps = substr ( $ids_tags_steps , 1);
 
 
         //check unique name !!!!!! 
@@ -29,7 +33,7 @@ if(isset($_REQUEST['action_type']) && !empty($_REQUEST['action_type'])){
         $data = array(
             'ids_projects' => $_POST['ids_projects'],
             'ids_tags' => $_POST['ids_tagsValue'],
-            //'name' => $_POST['name'],
+            'ids_tags_steps' => $ids_tags_steps,
             'name' => $asset,
             //'vignette' => $vignette_blob,
             'duree' => $_POST['duree'],

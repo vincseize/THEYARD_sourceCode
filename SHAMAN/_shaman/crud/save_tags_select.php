@@ -28,7 +28,7 @@ $tblName = 'assets';
 		echo "<br>";
 		echo $_POST['ids_tags_steps'];*/
 
-$datas_assets  		= $db->getRows('assets',array('where'=>array('id'=>'112'),'return_type'=>'single'));
+$datas_assets  		= $db->getRows('assets',array('where'=>array('id'=>$_POST['id']),'return_type'=>'single'));
 $datas_tags_steps   = $datas_assets['ids_tags_steps'];
 // echo $datas_tags_steps;
 
@@ -101,6 +101,8 @@ $ids_tags_steps = substr ( $ids_tags_steps , 1);
 
 
 
+
+// tags steps clean
 $tmp = explode("-",$ids_tags_steps);
 $ids_tags_steps = "";
 foreach($tmp as $st){
@@ -111,12 +113,42 @@ foreach($tmp as $st){
 $ids_tags_steps = substr ( $ids_tags_steps , 1);
 
 
-if(isset($_POST['id'])){
+
+
+
+
+
+
+if( isset($_POST['id']) and isset($_POST['type_edit'])=='update_selects'){
+		if (substr($ids_tags_steps, 0, 1) === '-') {$ids_tags_steps = substr ( $ids_tags_steps , 1);}
+		if (substr($ids_tags_steps, -1) === '-') {$ids_tags_steps = substr ( $ids_tags_steps , -1);}
       $data = array('ids_tags' => $_POST['ids_tags'],'ids_tags_steps' => $ids_tags_steps);
       $condition = array('id' => $_POST['id']);
       $update = $db->update($tblName,$data,$condition);
 
 
 }
+
+
+
+if( isset($_POST['id']) and isset($_POST['type_edit'])=='update_tags' ){
+
+
+
+
+
+      /*$data = array('ids_tags' => $_POST['ids_tags'],'ids_tags_steps' => $ids_tags_steps);*/
+      $data = array('ids_tags' => $_POST['ids_tags']);
+      $condition = array('id' => $_POST['id']);
+      //$update = $db->update($tblName,$data,$condition);
+
+}
+
+
+
+
+
+
+
 
 ?>
