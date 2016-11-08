@@ -9,6 +9,20 @@
 .select2-choice { background-color: #262626 !important; }
  .select2-results { background-color: #262626 !important;  }
   .select2-container { background-color: #262626 !important;  }
+
+
+
+
+
+select option[val="1"]{
+    background: rgba(100,100,100,0.3);
+}
+
+
+
+
+
+
 </style>
 
 
