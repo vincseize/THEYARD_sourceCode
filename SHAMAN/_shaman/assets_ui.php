@@ -34,6 +34,7 @@ foreach($assets_modified as $data){
 
 
                   $tags = ' ';
+                  $tags = $tags . ' ' . $data['name'] ;
                   $ar_tags = explode(",", $data['ids_tags']);
                   foreach($ar_tags as $t){ 
                             foreach($datas_tags as $data4){ 
@@ -54,7 +55,7 @@ foreach($assets_modified as $data){
 
                           if($data_com['id_asset']==$data['id']){
                            
-                              $comment = $data_com['comments'];
+                              $comment = html_entity_decode($data_com['comments']);
 /*                              $comment = preg_replace("/<br\W*?\/>/", "\n", $comment);
                               $comment = str_replace("br", "", $comment);
                               $comment = str_replace("< />", "", $comment);

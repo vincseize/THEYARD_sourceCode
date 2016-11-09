@@ -32,6 +32,8 @@ $ds = DIRECTORY_SEPARATOR;
 					$_SESSION['id_status_user']		= $row2['id'];
 					$_SESSION['status']  			= $row2['status']; // 1 - user / 2 - manager / 3 - visitor / 4 - root
 
+					$_SESSION['prefs_user'] 		= '';
+
 					$_SESSION['is_root'] 			= False;
 
 					if($_SESSION['login']=='root' and $_SESSION['pseudo']=='root' and $_SESSION['id_status_user']=='4' and $_SESSION['user_session']=='1' and $row['id_creator']=='1'){ 

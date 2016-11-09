@@ -61,8 +61,9 @@ if(strtolower($_SERVER['REQUEST_METHOD']) != 'post'){
 if(array_key_exists('pic',$_FILES) && $_FILES['pic']['error'] == 0 ){
 	
 	$pic = $_FILES['pic'];
+	$ext = get_extension($pic['name']);
 
-	if(!in_array(get_extension($pic['name']),$allowed_ext)){
+	if(!in_array($ext,$allowed_ext)){
 		exit_status('Only '.implode(',',$allowed_ext).' files are allowed!');
 	}	
 
@@ -120,7 +121,11 @@ echo $targetPath;
 			// $c = create_thumbnail($targetPath, $targetPath_home, W_V_HOME, H_V_HOME)
 
 			// home Thumb resize
-			$source = imagecreatefromjpeg($targetPath); // La photo est la source
+
+			if($ext=='jpg' or $ext=='jpeg'){$source = imagecreatefromjpeg($targetPath); }
+			if($ext=='png'){$source = imagecreatefrompng($targetPath); }
+			if($ext=='gif'){$source = imagecreatefromgif($targetPath); }
+
 			$destination = imagecreatetruecolor(W_V_HOME, H_V_HOME); // On crée la miniature vide
 			// Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
 			$largeur_source = imagesx($source);
@@ -135,7 +140,10 @@ echo $targetPath;
 
 
 			// edit vignette resize
-			$source = imagecreatefromjpeg($targetPath); // La photo est la source
+			if($ext=='jpg' or $ext=='jpeg'){$source = imagecreatefromjpeg($targetPath); }
+			if($ext=='png'){$source = imagecreatefrompng($targetPath);}
+			if($ext=='gif'){$source = imagecreatefromgif($targetPath);}
+
 			$destination = imagecreatetruecolor(W_V_EDIT, H_V_EDIT); // On crée la miniature vide
 			// Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
 			$largeur_source = imagesx($source);

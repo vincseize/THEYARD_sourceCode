@@ -140,31 +140,6 @@ a:active {
                   <font color=white>
 
                   <?php
-/*if ( $_SERVER["SERVER_ADDR"] == "127.0.0.1" ) {
-                      echo getcwd();
-                      echo "<br>";
-                      echo $_SERVER["DOCUMENT_ROOT"];
-                      echo "<br>";
-                      echo $_SERVER["SERVER_ADDR"];
-                      echo "<br>";
-                      echo $_SERVER["SERVER_NAME"];
-                      echo "<br>";
-                      echo $_SERVER["DOCUMENT_ROOT"];
-
-                      echo "<br>";
-                      echo $_SESSION['$DATASstoreFolder'];
-                      echo "<br>";
-                      echo ROOT_PATH;
-                      echo "<br>";
-                      echo DATASstoreFolderPath;
-                      echo "<br>";
-}*/
-
-
-
-
-
-
 
                       if(!empty($datas_assets)){ 
                           include('assets_ui.php');
@@ -243,48 +218,7 @@ a:active {
 
 
 
-<script>
-$(document).ready(function() { 
 
-      
-      $container = $('#filter');
-      //$container.mixItUp({});
-
-      $("#e1").select2({
-          placeholder: "Tags",
-
-      });
-
-
-      $("#e1").select2().on("change", function(e) {
-
-        $('.mix').hide();
-
-        
-
-var data = $('#e1').select2('data');
-
-//alert(data.length);
-
-if(data.length>0){
-    for(var t in data){
-            var class_tag = '.'+data[t]['text'];
-            //$(data[t]['text']).show();
-            $(class_tag).show();
-            
-            console.log(data[t]['text']);
-
-    }
-}
-else{$('.mix').show();}
-
- 
-        
-
-      });
-
-});
-</script>
 
 
 <!-- <li class='filter' data-filter='".$data2['tag']."'><a href='#''>".$data2['tag']."</a></li> -->
@@ -350,6 +284,40 @@ $(document).ready(function(){
 });
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

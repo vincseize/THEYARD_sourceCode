@@ -182,29 +182,7 @@
 
 
 
-<div style="width:90%;padding:0px;">
-<select id="e1" class="form-control input-md select2 myTags" multiple id="e1">
- <?php
-                                  if(!empty($datas_tags)){ 
-                                      foreach($datas_tags as $data3){ 
-                                          if($data3['active']=='1'){ 
-                                              echo "<option value='".$data3['id']."'/>".$data3['tag']."</option>";
-                                              // <li class='filter' data-filter='".$data2['tag']."'>
-                                           } 
-                                      }
-                                  }
-                              ?>
-    </select>
-</div>
-
-
-
-
-
-
-
-
-
+        <?php include('tags_search.php');?>
 
 
 

@@ -378,10 +378,10 @@ $(document).ready(function() {
 
 ///////////////////////////////////////////
 
-   $('b[role="presentation"]').hide();
+/*   $('b[role="presentation"]').hide();
 $('.select2-selection__arrow').append('<i class="fa fa-angle-down"></i>');
 
-
+*/
 });
 
 
