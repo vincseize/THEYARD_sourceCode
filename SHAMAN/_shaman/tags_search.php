@@ -60,7 +60,9 @@ $PRESELECTED_TAGS = substr($PRESELECTED_TAGS, 0, -1);
 <script>
 $(document).ready(function() { 
 
-      
+     
+
+
       //$container = $('#filter');
       //$container.mixItUp({});
 
@@ -74,12 +76,32 @@ $("#e1").select2();
 ];
 
 $('#e1').select2({}).select2('data', PRESELECTED_TAGS);
-var data = $('#e1').select2('data');
+//var data = $('#e1').select2('data');
 
 
-$("#e1").select2().on(function(e) {
-          console.log("loaded (data property omitted for brevitiy)");
-})
+//$("#e1").select2().trigger("change");
+//$('#e1').select2().trigger('change.select2');
+/*$('#e1').select2({
+    data: function() { return {PRESELECTED_TAGS}; }
+});*/
+console.log(PRESELECTED_TAGS);
+console.log(PRESELECTED_TAGS.length);
+if(PRESELECTED_TAGS.length>0){
+/*A(PRESELECTED_TAGS);*/
+
+//$('.preselect').css("display", "none");
+
+var class_tag = '';
+              for(var t in PRESELECTED_TAGS){
+                
+                      var class_tag = '.'+PRESELECTED_TAGS[t]['text'];
+                      console.log(class_tag);
+                    }
+
+        $(class_tag).css("border", "2px solid white");
+}
+
+
 
 
 
@@ -89,8 +111,17 @@ $("#e1").select2().on(function(e) {
 
 $("#e1").select2().on("change", function(e) {
 
-        $('.mix').hide();
+
+
+
+
+
+       
         var data = $('#e1').select2('data');
+
+A(data);
+
+
         if(data.length>0){
 
               var tags = [];
@@ -156,7 +187,36 @@ $(classes).css( "display", "block" );
 
       });
 
+
+
+
+
+
+
+
+
+
+
 });
+
+
+
+
+
+function A(v) {
+   //$('.mix').hide();
+   $('.mix').css( "display", "none" );
+    console.log('f a ok'+v);
+
+    return;
+}
+
+
+
+
+
+
+
 </script>
 
 
