@@ -298,7 +298,7 @@ position: relative;
 
 
 
-<body>
+<body style="background-color:#262626;">
 
 
 
@@ -312,24 +312,23 @@ header
 </div>
 
 
-<div class="section group" style="background-color:#262626;">
-	<div class="col span_1_of_3 " style=" border: 1px solid black;width:<?php echo W_V_EDIT;?>px;height:<?php echo H_V_EDIT;?>px;);background-size: cover;">
-
+<div class="section group" style="background-color:#262626;padding-right:0px;margin-right:0px;right:0px;width:100%;">
+	<div class="col span_1_of_3 " style=" border: 1px solid black;padding-right:0px;width:<?php echo W_V_EDIT;?>px;height:<?php echo H_V_EDIT;?>px;);background-size: cover;">
 	<?php include('_vignette.php'); ?>
 	</div>
-	<div class="col span_1_of_3 " style="height:<?php echo H_V_EDIT;?>px;);background-color:#303030;">
+	<div class="col span_1_of_3 " style="height:<?php echo H_V_EDIT;?>px;);width:<?php echo (W_V_EDIT-100);?>px;background-color:#303030;">
 	<?php include('_description.php'); ?>
 	</div>
-	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);background-color:#303030;">
+	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);width:50%;background-color:#303030;padding-right:0px;margin-right:0px;">
 	<?php include('_tags.php'); ?>
 	</div>
 
 </div>
 
 
-<div class="section group" style="background: #d3dded;">
-	
-                    <button id='btn_addComment' style='height:25px;' href="#collapse1" class="nav-toggle">add comment [ + ]</button>
+<div class="section group" style="background: #555;">
+	<span><h1>Comments</h1></span>
+  <span><button id='btn_addComment' style='height:25px;' href="#collapse1" class="nav-toggle">add comment [ + ]</button></span>
 	
 </div>
 <div id='#resultats_ajax' class="section group" style="background: red;">
@@ -342,7 +341,7 @@ header
 </div>
 
 
-<div class="section group">
+<div class="section group" style="background:#262626;">
 <?php include('_comments.php'); ?>
 
 </div>

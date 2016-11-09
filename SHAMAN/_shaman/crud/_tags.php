@@ -80,7 +80,7 @@ select option[val="1"]{
 </style>
 
 
-<div style="background-color: #303030;width:100%;color:#A9A9A9;">
+<div style="background-color: #303030;width:100%;min-width:100%;color:#A9A9A9;padding-right:0px;margin-right:0px;">
 
 
 
@@ -89,7 +89,7 @@ select option[val="1"]{
 
 
 
-<div id="tags_title" style="width: 100%;border-width:1px;border-color:#262626;border-style:solid;background-color: #262626;">
+<div id="tags_title" style="width: 100%;border-width:1px;border-color:#555;border-style:solid;background-color: #555;">
 
 Tags
 </div>
@@ -284,7 +284,8 @@ foreach ($NEW_ar_tags_steps2 as $key => $val) {
                     $selected_step = "";
                     if($step['id']== $id_step_getMODELING){$selected_step = ' selected';}
                     // if($step['id']== '6'){$selected_step = ' selected';}
-                    $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
+                    //$result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
+                    $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']."</option>";
                 }
                 $result = $result."</select>";
       }
@@ -297,7 +298,8 @@ foreach ($NEW_ar_tags_steps2 as $key => $val) {
                     $selected_step = "";
                     if($step['id']== $id_step_getLOOKDEV){$selected_step = ' selected';}
                     // if($step['id']== '6'){$selected_step = ' selected';}
-                    $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
+                    //$result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']." ".$step['color']."</option>";
+                    $result = $result."<option ".$selected_step.">".$datas_getTags['id']."[".$step['id']."] ".$step['step']."</option>";
                 }
                 $result = $result."</select>";
       }
@@ -392,32 +394,26 @@ $('.select2-selection__arrow').append('<i class="fa fa-angle-down"></i>');
 // update_tags
 $(function() {
 
-/*        function log(text) {
-          $('#logs').append(text + '<br>');
-        }*/
-
         $("select").each(function(){
                 $(this).change(function(e) {
- var n = ($(this).val()).includes("[");
- if(n==false){
 
+                       var n = ($(this).val()).includes("[");
 
+                       if(n==false){
 
-                    var ids_tags_ar = $(this).val();
-                    
+                              var ids_tags_ar = $(this).val();
+                            
+                              ids_tagsT = '';
+                              for(var st in ids_tags_ar){
+                                  ids_tagsT = ids_tagsT + ',' + ids_tags_ar[st];
+                              }
+                              ids_tagsT = ids_tagsT.slice(1);
 
-                       
-ids_tagsT = '';
-for(var st in ids_tags_ar){
-    ids_tagsT = ids_tagsT + ',' + ids_tags_ar[st];
-}
-ids_tagsT = ids_tagsT.slice(1);
+                              id_asset = <?php echo $_GET['id'];?>;
+                              console.log(id_asset);
+                              console.log(ids_tagsT);
 
-id_asset = <?php echo $_GET['id'];?>;
-console.log(id_asset);
-console.log(ids_tagsT);
-
-                      var type_edit = 'update_tags';
+                              var type_edit = 'update_tags';
                               $.ajax({  
                                    url:"save_tags.php",  
                                    method:"POST",  
@@ -429,23 +425,12 @@ console.log(ids_tagsT);
                                    }  
                               }); 
 
-
-
-}
-
-
-
-
+                      }
 
                 });
 
-
-
-            });
-
-
-
     });
+});
 
 
 

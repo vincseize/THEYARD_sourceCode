@@ -3,7 +3,7 @@
 <div style="background-color: #303030;width:100%;color:#A9A9A9;">
 
 
-		<div id="description_title" style="color:#A9A9A9;width: 100%;border-width:1px;border-color:#262626;border-style:solid;background-color: #262626;">
+		<div id="description_title" style="color:#A9A9A9;width: 100%;border-width:1px;border-color:#555;border-style:solid;background-color: #555;">
 		Description
 		</div>
 
