@@ -137,8 +137,8 @@ if( isset($_POST['id']) and isset($_POST['type_edit'])=='update_tags' ){
 
 
 
-      /*$data = array('ids_tags' => $_POST['ids_tags'],'ids_tags_steps' => $ids_tags_steps);*/
-      $data = array('ids_tags' => $_POST['ids_tags']);
+      $data = array('ids_tags' => $_POST['ids_tags'],'ids_tags_steps' => $_POST['ids_tags_steps']);
+      /*$data = array('ids_tags' => $_POST['ids_tags']);*/
       $condition = array('id' => $_POST['id']);
       //$update = $db->update($tblName,$data,$condition);
 

@@ -9,7 +9,7 @@
  *    courtesy of @juristr (@see https://github.com/fk/select2-bootstrap-css/pull/1)
  */
 .select2-container.form-control {
-  background: transparent;
+  background: red;
   box-shadow: none;
   border: none;
   display: block;
@@ -30,7 +30,7 @@
   border-radius: 4px;
   color: #555555;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: red;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -41,7 +41,7 @@
   border-radius: 4px;
   color: #555555;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: white;
+  background-color: red;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -329,7 +329,7 @@
   border-top-left-radius: 0 !important;
   border-bottom-right-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
-  background: white;
+  background: red;
   filter: none;
 }
 .input-group.select2-bootstrap-prepend .select2-dropdown-open.select2-drop-above [class^="select2-choice"] {
@@ -357,7 +357,7 @@
  * Adjust Select2's choices hover and selected styles to match Bootstrap 3's default dropdown styles.
  */
 .select2-results .select2-highlighted {
-  color: white;
+  color: red;
   background-color: #337ab7;
 }
 
@@ -380,7 +380,7 @@
  */
 .select2-container-multi .select2-choices .select2-search-choice {
   color: #555555;
-  background: white;
+  background: red;
   border-color: #cccccc;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   -webkit-box-shadow: none;

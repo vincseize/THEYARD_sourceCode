@@ -773,7 +773,7 @@ $('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><sou
 
 
 
-      function autoSave(e)  
+/*      function autoSave(e)  
       {  
            var description = $('#description').val();  
            var id = $('#post_id_description').val();  
@@ -798,7 +798,7 @@ $('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><sou
       }  
       setInterval(function(){   
            autoSave();   
-           }, 2000);  
+           }, 2000);  */
 
 
 

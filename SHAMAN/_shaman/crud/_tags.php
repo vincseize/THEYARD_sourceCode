@@ -6,9 +6,17 @@
 
 
 <style>
-.select2-choice { background-color: #262626 !important; }
+/*.select2-choice { background-color: #262626 !important; }
  .select2-results { background-color: #262626 !important;  }
   .select2-container { background-color: #262626 !important;  }
+
+
+
+
+.select2-container,
+.select2-drop,
+.select2-search,
+.select2-search input { background-color: #cccccc !important; }
 
 
 
@@ -16,11 +24,57 @@
 
 select option[val="1"]{
     background: rgba(100,100,100,0.3);
+
+
+
+    
 }
 
 
 
 
+
+.select2-container--default .select2-selection--single{
+    padding:6px;
+    height: 37px;
+    width: 148px; 
+    font-size: 1.2em;  
+    position: relative;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#424242), to(#030303));
+    background-image: -moz-linear-gradient(top, #424242, #030303);
+    background-image: -ms-linear-gradient(top, #424242, #030303);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #424242), color-stop(100%, #030303));
+    background-image: -webkit-linear-gradient(top, #424242, #030303);
+    background-image: -o-linear-gradient(top, #424242, #030303);
+    background-image: linear-gradient(#424242, #030303);
+    width: 40px;
+    color: #fff;
+    font-size: 1.3em;
+    padding: 4px 12px;
+    height: 27px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20px;
+}
+
+
+
+*/
+
+
+
+.select2-search { background-color: #00f; }
+.select2-search input { background-color: #ccc; }
+.select2-results { background-color: #ccc; }
+.select2-choice { background-color: #00f !important; }
+
+.active2 {
+    background: #000 !important;
+}
 
 
 </style>
@@ -45,12 +99,12 @@ Tags
 
 
 
-<div class="select2-wrapper" style='vertical-align:top;padding:0px;width:100%;background-color: #262626;'>
+<div class="select2-wrapper" style='vertical-align:top;padding:0px;width:100%;background-color:#262626;'>
 <!-- <div  style='vertical-align:top;background-color: red;padding:0px;'> -->
 
-    <div style='display:inline-block;background-color:#262626;'>
+    <div style='display:inline-block;background-color:#262626;width:100%;'>
         <!-- .select2-container-multi .select2-choices .select2-search-field input.select2-active -->
-        <select class="form-control input-md select2 myTags" multiple id="e1" style="min-width:400px;padding:0px;background-color: #262626;">
+        <select class="form-control input-md select2 myTags" multiple id="e1" style="width:100%;padding:0px;background-color: #262626;">
                             <?php
                                   if(!empty($datas_tags)){ 
                                       foreach($datas_tags as $data3){ 
@@ -286,6 +340,28 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           $("#e1").select2();
 
           var PRESELECTED_TAGS = [
@@ -300,7 +376,8 @@ $(document).ready(function() {
 
 ///////////////////////////////////////////
 
-
+   $('b[role="presentation"]').hide();
+$('.select2-selection__arrow').append('<i class="fa fa-angle-down"></i>');
 
 
 });
@@ -310,69 +387,59 @@ $(document).ready(function() {
 
 
 
+
+
+// update_tags
 $(function() {
 
-        function log(text) {
+/*        function log(text) {
           $('#logs').append(text + '<br>');
-        }
+        }*/
 
         $("select").each(function(){
                 $(this).change(function(e) {
-                  var ids_tags_steps =  '';
-                    var ids_tags = $(this).val();
+ var n = ($(this).val()).includes("[");
+ if(n==false){
+
+
+
+                    var ids_tags_ar = $(this).val();
                     
-                                                  $("select").each(function(){
-                                                      // log($(this).val());
-                                                      var n = ($(this).val()).includes("[");
-                                                                if(n==true){
-                                                                  //ids_tags_steps = $(this).val()+'-'+ids_tags_steps;
-                                                                  var tmp = ($(this).val()).split(" ");
-                                                                  ids_tags_steps = tmp[0]+','+ids_tags_steps;
-                                                                  //log($(this).val());
-                                                                  
-                                                                  }
-                                                                 // log(ids_tags_steps); 
-  
-                                                  });
 
-
-log('-----------------------------');
-log(ids_tags);
-
-ids_tags_steps = ids_tags + ',' + ids_tags_steps;
-ids_tags_steps = ids_tags_steps.slice(0, -1);
-
-log(ids_tags_steps);
-
+                       
+ids_tagsT = '';
+for(var st in ids_tags_ar){
+    ids_tagsT = ids_tagsT + ',' + ids_tags_ar[st];
+}
+ids_tagsT = ids_tagsT.slice(1);
 
 id_asset = <?php echo $_GET['id'];?>;
-
+console.log(id_asset);
+console.log(ids_tagsT);
 
                       var type_edit = 'update_tags';
                               $.ajax({  
-                                   url:"save_tags_select2.php",  
+                                   url:"save_tags.php",  
                                    method:"POST",  
-                                   data:{ids_tags:ids_tags, ids_tags_steps:ids_tags_steps, id:id_asset, type_edit:type_edit},  
+                                   data:{ids_tags:ids_tagsT, id:id_asset, type_edit:type_edit},  
                                    dataType:"text",  
                                    success:function(data)  
                                    {  
-
+                                        console.log(type_edit+' ok');
                                    }  
                               }); 
 
 
 
-
-
-
-
-
+}
 
 
 
 
 
                 });
+
+
 
             });
 
@@ -383,26 +450,6 @@ id_asset = <?php echo $_GET['id'];?>;
 
 
 
-
-
-/*
-
-$(function(){
-
-
-        function log(text) {
-          $('#logs').append(text + '<br>');
-        }
-
-
-        $("#e1").select2()
-
-        .on("change", function(e) {
-            log(e.val);
-            alert(e.val);
-        })
-
-});*/
 
 
 
@@ -446,17 +493,17 @@ $(function() {
 
                                 //log(ids_ref);
 
-                                ids_tags_steps = '';
+                                ids_tags_steps2 = '';
                                 for(var t in tmp){
                                       if(tmp[t]!=ids_ref){
-                                          ids_tags_steps = tmp[t] + '-' + ids_tags_steps;
+                                          ids_tags_steps2 = tmp[t] + '-' + ids_tags_steps2;
                                       }
 
                                 }
 
-                                ids_tags_steps = ids_tags_steps.slice(0, -1);
+                                ids_tags_steps2 = ids_tags_steps2.slice(0, -1);
 
-                                // ids_tags_steps = ids_tags_steps+$(this).val();
+                                // ids_tags_steps2 = ids_tags_steps2+$(this).val();
 
 
                                 ids_tags_string = '';
@@ -469,20 +516,24 @@ $(function() {
 
                                 var type_edit = 'update_selects';
 
-                                log(id_asset);
+/*                                log(id_asset);
                                 log(ids_tags_string);
-                                log(ids_tags_steps);
-                                log(type_edit);
+                                log(ids_tags_steps2);
+                                log(type_edit);*/
+                                console.log(id_asset);
+                                console.log(ids_tags_string);
+                                console.log(ids_tags_steps2);
+
 
 
                                 $.ajax({  
                                      url:"save_tags_select.php",  
                                      method:"POST",  
-                                     data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps, id:id_asset, type_edit:type_edit},  
+                                     data:{ids_tags:ids_tags_string, ids_tags_steps:ids_tags_steps2, id:id_asset, type_edit:type_edit},  
                                      dataType:"text",  
                                      success:function(data)  
                                      {  
-
+                                        console.log(type_edit+' ok');
                                      }  
                                 });
 
@@ -685,4 +736,4 @@ function log(text) {
 
 
 
-<div class="well" id="logs"></div>
+<!-- <div class="well" id="logs"></div> -->
