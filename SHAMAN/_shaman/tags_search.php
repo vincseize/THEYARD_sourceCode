@@ -27,7 +27,7 @@ $PRESELECTED_TAGS = substr($PRESELECTED_TAGS, 0, -1);
 
 
 ?>
-<select id="e1" class="form-control input-md select2 myTags" multiple id="e1">
+<select id="e1" class="form-control input-md select2 myTags" multiple id="e1" >
  <?php
                                   if(!empty($tags_asc)){ 
                                       foreach($tags_asc as $data){ 

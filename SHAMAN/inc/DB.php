@@ -5,10 +5,10 @@
  */
 class DB{
     // Param server dev
-	private $dbHost_dev     = "localhost";
-    private $dbName_dev     = "theyard";
-    private $dbUsername_dev = "root";
-    private $dbPassword_dev = "";
+	private $dbHost_dev     = "db651115066.db.1and1.com";
+    private $dbName_dev     = "db651115066";
+    private $dbUsername_dev = "dbo651115066";
+    private $dbPassword_dev = "shaman2016";
 
 
     // Param server deploy
@@ -34,7 +34,7 @@ class DB{
      * Considerate dev and deploy serveur
      */	
     public function __construct(){
-        if ( $_SERVER["SERVER_ADDR"] == "127.0.0.1" ) {
+        if ( $_SERVER["SERVER_ADDR"] == "87.106.186.6") {
                 // Connect to server dev    
                 if(!isset($this->db)){
                     // Connect to the database
@@ -48,6 +48,8 @@ class DB{
                 }
         } 
         else
+if ( $_SERVER["SERVER_ADDR"] == '82.223.10.101') {
+
         {
                 // Connect to server    
                 if(!isset($this->db)){
@@ -61,6 +63,9 @@ class DB{
                     }
                 }
         } 
+}
+
+
 
     }
     

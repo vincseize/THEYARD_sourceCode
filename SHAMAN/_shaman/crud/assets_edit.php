@@ -327,9 +327,29 @@ header
 
 
 <div class="section group" style="background: #555;">
-	<span><h1>Comments</h1></span>
-  <span><button id='btn_addComment' style='height:25px;' href="#collapse1" class="nav-toggle">add comment [ + ]</button></span>
+	<span style="color: #bbb;float:left;left:15px;"><h1>Comments</h1></span>
+<!--   <span><button id='btn_addComment' style='height:25px;' href="#collapse1" class="nav-toggle">add comment [ + ]</button></span>
 	
+ -->
+
+
+
+  <span style="color: #bbb;float:right;right:15px;">
+<a  href="#collapse1"  title="add comment [ + ]" class="nav-toggle" style="text-decoration:none;font-size:32px;color:#eee;">
+  
+
+<span class="glyphicon glyphicon-plus-sign">
+
+            </span>
+</a>
+</span>
+
+
+
+
+
+
+
 </div>
 <div id='#resultats_ajax' class="section group" style="background: red;">
 
@@ -605,10 +625,10 @@ $('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><sou
             $(collapse_content_selector).toggle(function(e){
               if($(this).css('display')=='none'){
                 //$('.table_top').show();                                
-                toggle_switch.html('add comment : +');
+                //toggle_switch.html('add comment : +');
               }else{
                 //$('.table_top').hide();
-                toggle_switch.html('Cancel');
+                //toggle_switch.html('Cancel');
               }
             });
           });
@@ -660,18 +680,24 @@ $('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><sou
                      dataType:"text",  
                      success:function(data)  
                      {  
+
+                      console.log('ok');
 /*                          if(data != '')  
                           {  
                                $('#description').val(description);  
                           }  
                           setInterval(function(){  
                           }, 2000);  */
+
+                          /*window.location.href = self.location;*/
+                          location.reload();
+
                      }  
                 });  
 
-                setTimeout(function(){ 
+/*                setTimeout(function(){ 
                          window.location.href = self.location;
-                    }, 1000);  
+                    }, 1000);  */
 
     
 

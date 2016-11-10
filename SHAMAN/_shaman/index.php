@@ -104,12 +104,6 @@ a:active {
 	
 
 
-
-
-
-
-
-
 <br>
   
 
@@ -140,7 +134,6 @@ a:active {
                   <font color=white>
 
                   <?php
-
                       if(!empty($datas_assets)){ 
                           include('assets_ui.php');
                      }

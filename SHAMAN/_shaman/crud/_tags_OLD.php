@@ -24,8 +24,16 @@ Tags
                                   if(!empty($datas_tags)){ 
                                       foreach($datas_tags as $data3){ 
                                           if($data3['active']=='1'){ 
-                                              echo "<option value='".$data3['id']."'/>".$data3['tag']."</option>";
-                                              
+/*                                              echo "<option value='".$data3['id']."'/>".$data3['tag']."</option>";*/
+                                              echo "<optgroup label='".$data3['tag']."'' value='".$data3['id']."'/>";
+                                                  if(!empty($datas_steps)){ 
+                                                      foreach($datas_steps as $data4){ 
+                                                          if($data4['active']=='1'){ 
+                                                              echo "<option value='".$data4['id']."'/>".$data4['step']."</option>";
+                                                           } 
+                                                      }
+                                                  }
+                                              echo "</optgroup>";
 
 
 
@@ -56,7 +64,7 @@ Tags
         </div>  
         <div style='display:inline-block;'>
             
-            <input type="hidden" name="id_asset" id="id_asset" value='<?php echo $_GET['id'];?>'>    
+            <input type="hidden2" name="id_asset" id="id_asset" value='<?php echo $_GET['id'];?>'>    
         </div>
     </div>
 
@@ -66,17 +74,42 @@ Tags
 
 
 
+
+
+
+
+
+
+
 <?php
 
 
 $ar_tags_steps = $datas['ids_tags_steps'];
+
+/*
+$ar_tags_steps =  "['3', '4', ['5', ['3']]]";
+$ar_tags_steps =  "[3-4-5[3,2]-7[1]]";
+$ar_tags_steps =  "3-4-5[3,2]-7[1]";*/
+
+/*echo $ar_tags_steps;
+echo "<br>";*/
 $ar_tags_steps = explode("-", $ar_tags_steps);
+/*print_r($ar_tags_steps);
+echo "<br>";
+*/
 $NEW_ar_tags_steps=array();
 
 foreach($ar_tags_steps as $tags){ 
   $NEW_ar_tags_steps[] = $tags;
+/*  echo $id_tags;
+  echo "<br>";*/
   }
 
+
+/*
+
+print_r($NEW_ar_tags_steps);
+echo "<br>";*/
 
 $NEW_ar_tags_steps2=array();
 foreach($NEW_ar_tags_steps as $tags){ 
@@ -103,44 +136,24 @@ foreach($NEW_ar_tags_steps as $tags){
 
   $ar_tag[] = $ar_steps;
   $NEW_ar_tags_steps2[] = $ar_tag;
+/*  echo $id_tags;
+  echo "<br>";*/
   }
 
 
 
+/*print_r($NEW_ar_tags_steps2);
+echo "<br>";
+echo "-------------------------------------";
+echo "<br>";
+foreach($NEW_ar_tags_steps2 as $tags){ 
+  print_r($tags);
+  echo "<br>";
+  }
+
+*/
 
 
-$result = '';
-
-
-foreach ($NEW_ar_tags_steps2 as $key => $val) {
-
-
-
-
-$datas_getTags  = $db->getRows('tags',array('where'=>array('id'=>$val[0]),'return_type'=>'single'));
-
-
-
-
-            $result = $result."{id:".$val[0].",text:'".$datas_getTags['tag']." <select>";
-           if (isset($val[1]) and sizeof($val[1])>0) {
-
-
-                        foreach ($val[1] as $key1 => $val1) {
-$datas_getSteps  = $db->getRows('steps',array('where'=>array('id'=>$val1),'return_type'=>'single'));
-                                       $result = $result."<option>".$datas_getSteps['step']." ".$datas_getSteps['color']."</option>";
-                        }
-
-
-
-           }else{
-            $result = $result."<option></option><option>steps defaults ,2,3 ...</option>";
-           }
-
-
-            $result = $result."</select>'},";
-
-   }
 
 ?>
 
@@ -171,13 +184,71 @@ $(document).ready(function() {
           $("#e1").select2();
 
 var PRESELECTED_TAGS = [
-
+/*    { id: 'f1', text: 'Apple' },
+    { id: 'f2', text: 'Mango' },
+    { id: 'f3', text: 'Orange' },*/
 
 <?php
 
 
+foreach($datas_assets as $data3){ 
+        if($data3['ids_projects']=="1"){ 
 
-echo $result;
+//echo $datas['ids_tags'];
+
+
+                  $tags = ' ';
+                  $ar_tags = $NEW_ar_tags_steps2;
+
+
+
+foreach($ar_tags as $t){ 
+                            foreach($datas_tags as $data4){ 
+                                if($t[0]==$data4['id'] and $data4['active']==1){
+
+                                  $tags = $tags . ' ' . $data4['tag'] ;
+                                  echo "{ id: '".$data4['id']."', text: '".$data4['tag']."' },";
+
+                                }
+                                }
+                  }
+
+
+
+
+
+
+
+/*    
+ $tags = ' ';
+$ar_tags = explode(",", $datas['ids_tags']);              
+foreach($ar_tags as $t){ 
+                            foreach($datas_tags as $data4){ 
+                                if($t==$data4['id'] and $data4['active']==1){
+
+                                  $tags = $tags . ' ' . $data4['tag'] ;
+                                  echo "{ id: '".$data4['id']."', text: '".$data4['tag']."' },";
+
+                                }
+                                }
+                  }
+                  */
+
+
+
+
+
+        }
+}
+
+
+
+
+
+
+
+
+
 
 
 

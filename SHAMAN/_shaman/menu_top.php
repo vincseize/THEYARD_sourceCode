@@ -10,11 +10,11 @@
 
   
 <!-- navbar-header -->
-        <div style="position:absolute;">
+        <div style="position:absolute;margin-top:0px;padding-top:5px;padding-left:8px;margin-left:8px;">
          
-             <ul class="nav navbar-nav">
+             <ul class="nav navbar-nav"><span style="font-size:18px;font-weight:bold;color:#555;">
         
-                          <select class="form-control" style="background-color: #333333;border:none;font-size: 18px;font-weight:bold;" id="select_projects" name="select_projects">
+<!--                           <select class="form-control" style="background-color: #333333;border:none;font-size: 18px;font-weight:bold;" id="select_projects" name="select_projects"> -->
                           <?php
                                 if(!empty($datas_projects)){ 
                                     foreach($datas_projects as $data3){ 
@@ -22,13 +22,18 @@
                                         $selected = ' ';
                                         if($data3['project']=="M2"){ $selected = ' selected';}
                                         if($data3['active']==1){
-                                          echo "<option value='".$data3['id']."'  ".$selected.">".$data3['project']."</option>";
+                                          /*echo "<option value='".$data3['id']."'  ".$selected.">".$data3['project']."</option>";*/
+                                          echo  ucfirst($data3['project']);
+    
                                         }
                                     }
                                 }
                             ?>
-                          </select>
-                </ul>
+                       <!--    </select> -->
+
+
+
+                </span></ul>
         </div>
 <!-- /.navbar-header -->
 

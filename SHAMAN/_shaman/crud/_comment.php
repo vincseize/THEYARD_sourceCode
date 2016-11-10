@@ -14,12 +14,12 @@
 //echo $DATAScommentsFolder;
 
 
-echo "<div style='height:25px;'>";
+echo "<div style='height:40px;background-color:#aaaaaa;width:100%;'>";
 
 
 
-		echo "<div style='float: left;display:inline;'>";
-			echo "<span style='font-weight: bold;'>from ".$data6['login']." | ".$data5['modified']."</span>";
+		echo "<div style='float: left;display:inline;padding-left:15px;'>";
+			echo "<span style='font-weight: bold;font-size:16px'>- ".$data6['login']." | ".$data5['modified']."&nbsp;&nbsp;&nbsp;</span>";
 		echo "</div>";
 
 $comment_id = $data5['id'];
@@ -32,8 +32,10 @@ $comment_id = $data5['id'];
           //echo "<input type='hidden2' id='id_comment' name='id_comment' value='".$data5['id']."'/>";
           //echo "<input type='hidden2' id='DATAScommentsFolder' name='DATAScommentsFolder' value='".$DATAScommentsFolder."'/>";
 
-					echo "<div style=' display: inline-block;vertical-align:top;horizontal-align:right;background-color:blue;'>";
-					echo "<div id='div_modify_comment_".$data5['id']."' style='display:none;'><input type='button' class='modify_comment' id='modify_comment' name='modify_comment' id_comment='".$data5['id']."' value='modify | cancel' /></div>"; 
+					echo "<div style=' display: inline-block;vertical-align:top;horizontal-align:right;'>";
+					echo "<div id='div_modify_comment_".$data5['id']."' style='display:none;'>
+
+          <input type='button' class='modify_comment' id='modify_comment' name='modify_comment' id_comment='".$data5['id']."' value='modify | cancel' /></div>"; 
 					echo "</div >";  
 					if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){					
     					echo "<div style=' display: inline-block;vertical-align:top;horizontal-align:right;background-color:blue;'>";
@@ -55,7 +57,7 @@ echo "</div>";
 
 $class_edit_comment = " class='edit_comment' ";
 if($_SESSION['is_root']==true){ $class_edit_comment = ""; }
-echo "<div ".$class_edit_comment." valign='top' style='width:60%' timestamp_id_creator='".$data5['timestamp_id_creator']."' id='".$data5['id']."' name='".$data5['id']."' >";
+echo "<div ".$class_edit_comment." valign='top' style='width:60%' timestamp_id_creator='".$data5['timestamp_id_creator']."' id='".$data5['id']."' name='".$data5['id']."' style='float: left;display:inline;padding-left:15px;'>";
 $comments = $data5['comments'];
 $comments = preg_replace("/<br\W*?\/>/", "\n", $comments);
 $comments = str_replace("< />", "", $comments);
