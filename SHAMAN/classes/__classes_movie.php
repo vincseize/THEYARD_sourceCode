@@ -3,11 +3,11 @@
 class movie { 
 
 
-	function mp4_to_jpeg($file,$targetFile,$W,$H,$wich_sec) {
+	function mp4_to_jpeg($targetFile,$image,$W,$H,$wich_sec) {
 		$ffmpeg = '/usr/bin/ffmpeg';  
-		$video = $file;  
+		$video = $targetFile;  
 		//$image = $DATASstoreFolder .$ds. "thumbMP4_".$basename;  
-		$image = $targetFile;  
+		$image = $image;  
 		$interval = $wich_sec;  // 2 secs
 		//$size = '128x72';  
 		$size = $W.'x'.$H;
