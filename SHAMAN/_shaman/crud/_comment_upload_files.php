@@ -33,9 +33,11 @@ if (!empty($_FILES)) {
     $targetFile =  $DATASstoreFolder .$ds. $_FILES['file']['name'];
     move_uploaded_file($tempFile,$targetFile); 
 
-sleep(2);
+
 
 	if( pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION) == 'mp4'){
+		sleep(2);
+
 		$basename = basename( $_FILES['file']['name'] );
 		$basename = str_replace(".mp4",".jpg",$basename);
 	    // comp file

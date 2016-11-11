@@ -70,32 +70,8 @@ if (!file_exists($path)) {
 
 
 
-	            if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name)){
-
-
-
-						if( pathinfo($_FILES['files']['name'][$f], PATHINFO_EXTENSION) == 'mp4'){
-							sleep(2);
-
-							$basename = basename( $_FILES['files']['name'][$f] );
-							$basename = str_replace(".mp4",".jpg",$basename);
-						    // comp file
-							$ffmpeg = '/usr/bin/ffmpeg';  
-							$video = $path.$name;  
-							$image = $path. "thumbMP4_".$basename;  
-							$interval = 1;  // 2 secs
-							$size = '128x72';  
-							$cmd = "$ffmpeg -i $video -deinterlace -an -ss $interval -f mjpeg -t 1 -r 1 -y -s $size $image 2>&1";
-							exec($cmd);
-						}
-
-
-
-
-
+	            if(move_uploaded_file($_FILES["files"]["tmp_name"][$f], $path.$name))
 	            $count++; // Number of successfully uploaded file
-	        	}
-
 	        }
 	    }
 	}

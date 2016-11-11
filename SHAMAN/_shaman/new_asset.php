@@ -113,7 +113,7 @@ include('menu_top_new.php');
               <form method="post" action="crud/assets_action.php" class="form" id="assetForm">
                       <div class="form-group">
                          <!--  <label>Projects</label> -->
-                          <input type="hidden" class="form-control" name="ids_projects" id="ids_projects" value="<?php echo $_GET['id_project']; ?>"/>
+                          <input type="hidden" class="form-control" name="ids_projects" id="ids_projects" value="1"/>
                       </div>
                       <div class="form-group">
                           <label><font color=white>NOM</font></label>

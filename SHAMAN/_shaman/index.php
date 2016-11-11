@@ -31,6 +31,11 @@ $title_user = "Hi' ".$_SESSION['login']." [ ".$_SESSION['status']." ]";
 <!DOCTYPE html>
 <html lang="fr">
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="0"/>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="author" content="The Yard - Vincseize">
@@ -238,9 +243,9 @@ $(document).ready(function(){
             $("#container-fluid").load("todo.php");
           });
 
-        var select_id_project = document.getElementById("select_projects").value;
+        //var select_id_project = document.getElementById("select_projects").value;
         //alert(select_id_project);
-        $('#ids_projects').val(select_id_project);
+        $('#ids_projects').val('1');
 
         $('#select_projects').change( function() {
             $('#ids_projects').val($(this).val());
@@ -248,8 +253,10 @@ $(document).ready(function(){
 
 
         $("#addA7").click(function(e) {
-            var select_id_project = document.getElementById("select_projects").value;
+/*            var select_id_project = document.getElementById("select_projects").value;
             window.location.href = "new_asset.php?id_project="+select_id_project;
+            var select_id_project = document.getElementById("select_projects").value;*/
+            window.location.href = "new_asset.php?id_project=1";
         });
 
         var menu = new BootstrapMenu('#content-item', {
@@ -264,8 +271,9 @@ $(document).ready(function(){
               $('#content-asset-crud').load("modal_newAsset.php");*/
               //window.location.href = "new_asset.php?";
 
-              var select_id_project = document.getElementById("select_projects").value;
-              window.location.href = "new_asset.php?id_project="+select_id_project;
+/*              var select_id_project = document.getElementById("select_projects").value;
+              window.location.href = "new_asset.php?id_project="+select_id_project;*/
+              window.location.href = "new_asset.php?id_project=1";
             }
           }
 
