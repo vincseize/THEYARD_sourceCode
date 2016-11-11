@@ -84,7 +84,9 @@ if (!file_exists($path)) {
 							$video = $path.$name;  
 							$image = $path. "thumbMP4_".$basename;  
 							$interval = 1;  // 2 secs
-							$size = '128x72';  
+							//$size = '128x72';
+							$size = W_THUMB_COM.'x'.H_THUMB_COM;
+							  
 							$cmd = "$ffmpeg -i $video -deinterlace -an -ss $interval -f mjpeg -t 1 -r 1 -y -s $size $image 2>&1";
 							exec($cmd);
 						}

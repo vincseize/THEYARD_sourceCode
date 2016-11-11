@@ -181,7 +181,7 @@ echo "<div>";
            echo "<div id='update_upload_".$data5['id']."' class='update_upload' style='display:inline;background-color: gray;display:none;height:100px'>upload new files"; 
 
 
-
+//include('new_upload.php');
 
 
 ?>

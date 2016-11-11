@@ -2,6 +2,7 @@
 @session_start();
 if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
 require '../../inc/crud.php';
+include '../../classes/__classes_movie.php';
 $ds = DIRECTORY_SEPARATOR;
 
 
@@ -38,16 +39,28 @@ if (!empty($_FILES)) {
 	if( pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION) == 'mp4'){
 		sleep(2);
 
+	    // mp4 vignette
+
 		$basename = basename( $_FILES['file']['name'] );
 		$basename = str_replace(".mp4",".jpg",$basename);
-	    // comp file
-		$ffmpeg = '/usr/bin/ffmpeg';  
+		$image = $DATASstoreFolder .$ds. "thumbMP4_".$basename;
+		$wich_sec = 1;
+
+
+		$comp = new movie();
+		$comp->mp4_to_jpeg($targetFile,$image,W_THUMB_COM,H_THUMB_COM,$wich_sec);
+
+/*		$ffmpeg = '/usr/bin/ffmpeg';  
 		$video = $targetFile;  
 		$image = $DATASstoreFolder .$ds. "thumbMP4_".$basename;  
 		$interval = 1;  // 2 secs
-		$size = '128x72';  
+		//$size = '128x72';  
+		$size = W_THUMB_COM.'x'.H_THUMB_COM;
 		$cmd = "$ffmpeg -i $video -deinterlace -an -ss $interval -f mjpeg -t 1 -r 1 -y -s $size $image 2>&1";
-		exec($cmd);
+		exec($cmd);*/
+
+
+
 	}
 
 }
