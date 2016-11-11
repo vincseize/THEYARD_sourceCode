@@ -89,89 +89,90 @@ echo "<div>";
        echo "<table width=100%><tr><td width=70%>";    
       echo "<div id='img-container' class='row' style='padding-top:3px;padding-bottom:3px;display:inline;'>";
       $number = 0;
-      foreach($folder as $vignette)
-          { $number = $number+1;
+      foreach($folder as $vignette){
+              $number = $number+1;
               $info = new SplFileInfo($vignette);
               $file = basename($vignette);
               $ext = $info->getExtension();
 
-              $vignette_path = str_replace('\\', '/', $vignette); // for javascript antislash
+              // $vignette_path = str_replace('\\', '/', $vignette); // for javascript antislash
+              $vignette_path = $vignette; // for javascript antislash
+              $movie = 0;
 
-              if($ext=='jpg' or $ext=='jpeg' or $ext=='png' or $ext=='gif'){
-
-
-
-
+              if(strpos($vignette_path, 'thumbMP4_') !== false){$movie = 1;}
 
 
-                  echo "<div style='display:inline; width:'".W_THUMB_COM.".px' ; height:'".H_THUMB_COM."px;'>";
-                  echo "<a href='#' title='Image $number' number='$number'>";
-                  echo "<img id2='".$data5['id']."' class='thumbnail_comments' src='$vignette' path='$vignette' ext='$ext'  width='".W_THUMB_COM.".px' height='".H_THUMB_COM."px'/>&nbsp;"; 
-                  echo "</a>"; 
-                  //echo "<span id='delete_file_comment' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>";
+              if($ext=='jpg' or $ext=='jpeg' or $ext=='png' or $ext=='gif' and $movie == 0){
+
+                  // case real $ext=='mp4'
+                  if(strpos($vignette_path, 'thumbMP4_') !== false){
+
+                      $vignette_path = str_replace('thumbMP4_', '', $vignette_path);
+                      $vignette_path = str_replace('.jpg', '.mp4', $vignette_path);
+                            // echo $vignette_path;echo $movie;echo $ext;  
+                            $ext = 'mp4';          
 
 
-/*echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"alert('".$vignette."')\"></menu>";*/
+                      echo "<div style='display:inline; width:'".W_THUMB_COM.".px' ; height:'".H_THUMB_COM."px;'>";
+                      echo "<a href='#' title='Image $number' number='$number'>";
+                      echo "<img class='thumbnail_comments' src='$vignette' path='$vignette_path'  ext='$ext' width='".W_THUMB_COM.".px' height='".H_THUMB_COM."px'/>&nbsp;"; 
+                      echo "</a>"; 
+                      echo "<span class='delete_file_comment' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>"; 
+                      echo "</div>"; 
 
-if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
-    echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
-    echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
-}
+                  }
+                  // case $ext=='jpg' or $ext=='jpeg' or $ext=='png' or $ext=='gif'
+                  else{
+
+                      echo "<div style='display:inline; width:'".W_THUMB_COM.".px' ; height:'".H_THUMB_COM."px;'>";
+                      echo "<a href='#' title='Image $number' number='$number'>";
+                      echo "<img id2='".$data5['id']."' class='thumbnail_comments' src='$vignette' path='$vignette_path' ext='$ext'  width='".W_THUMB_COM.".px' height='".H_THUMB_COM."px'/>&nbsp;"; 
+                      echo "</a>"; 
+                      //echo "<span id='delete_file_comment' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>";
+
+                  /*echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"alert('".$vignette."')\"></menu>";*/
+
+                  /*if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
+                      echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
+                      echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
+                  }*/
+                      echo "</div>";   
+                  }
 
 
-                  //echo $vignette;
-
-
-
-
-                  echo "</div>";     
               }
-
-              if($ext=='mp4' or $ext=='webm'  or $ext=='ogv'){
-                  echo "<div style='display:inline; width:'".W_THUMB_COM.".px' ; height:'".H_THUMB_COM."px;'>";
-                  echo "<a href='#' title='Image $number' number='$number'>";
-                  echo "<img class='thumbnail_comments' src='movie.png' path='$vignette'  ext='$ext' width='".W_THUMB_COM.".px' height='".H_THUMB_COM."px'/>&nbsp;"; 
-                  echo "</a>"; 
-                  echo "<span class='delete_file_comment' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>"; 
-
-
-if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
-    echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
-    echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
-}
-
-
-                  echo "</div>";  
-              }
+              // case $ext=='pdf' wip
               if($ext=='pdf'){
                   echo "<div style='display:inline; width:'".W_THUMB_COM.".px' ; height:'".H_THUMB_COM."px;border:1px;'>";
                   echo "<a href='#'>";
                   echo "<span  class='thumbnail_comments' class='glyphicon glyphicon-file'>$file</span>&nbsp;"; 
                   echo "</a>"; 
-                  echo "<span class='thumbnail_comments' path='$vignette' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>";
+                  echo "<span class='thumbnail_comments' path='$vignette_path' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>";
 
-if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
-    echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
-    echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
-}
+                  /*if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
+                      echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
+                      echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
+                  }*/
 
                   echo "</div>"; 
               }
+              // case $ext=='tif'
               if($ext=='tiff' or $ext=='tif' ){
                   echo "<div style='display:inline; width:'".W_THUMB_COM.".px' ; height:'".H_THUMB_COM."px;border:1px;'>";
-                  echo "<a href='$vignette'  class='thumbnail_comments' path='$vignette' >";
+                  echo "<a href='$vignette'  class='thumbnail_comments' path='$vignette_path' >";
                   echo "<span  class='glyphicon glyphicon-file'>$file</span>&nbsp;"; 
                   echo "</a>"; 
                   echo "<span class='delete_file_comment' style='display:none;'><input type='submit' file='".$vignette."' value='X'/></span>";
 
-if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
-    echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
-    echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
-}
+                  /*if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){  
+                      echo "<menu id='html5polyfill_".$data5['id']."' class='context_menu' type='context' style='display:none'><command label='delete file' onclick=\"delete_file('".$vignette_path."','".$file."','".$datas['id']."')\"></menu>";
+                      echo "<span class='context-menu-one btn btn-neutral' contextmenu='html5polyfill_".$data5['id']."' path='$vignette'>delete</span>";
+                  }*/
 
                   echo "</div>"; 
               }
-          }
+}
+
       echo "</div>";
 
 
@@ -180,7 +181,7 @@ if($_SESSION['status']=='2' or $_SESSION['id'] == $data6['id']){
            echo "<div id='update_upload_".$data5['id']."' class='update_upload' style='display:inline;background-color: gray;display:none;height:100px'>upload new files"; 
 
 
-//include('new_upload.php');
+
 
 
 ?>

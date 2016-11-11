@@ -1,0 +1,31 @@
+h1, h2, h3, h4, h5, h6, h6{
+	font-weight: 400 !important;
+}
+
+.nav.rss{
+	display: none;
+}
+
+.post img, .type-page img, .post img.thumbnail, .type-page img.thumbnail{
+	border: none;
+}
+
+.blog h2{
+	font-size: 2.6em;
+}
+
+#respond #commentform .form-submit{
+	text-align: left;
+}
+
+@media only screen and (max-width: 768px){
+	
+	.blog .thumbnail{
+		display: none;
+	}
+	
+	.blog h2, .single h1{
+		font-size: 1.6em;
+	}
+	
+}

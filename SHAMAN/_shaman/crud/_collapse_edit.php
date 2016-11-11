@@ -40,7 +40,7 @@ $DATASstoreFolder = "../../".$_SESSION['$DATASstoreFolder'].$ds.$datas['ids_proj
 // echo $DATASstoreFolder;
 ?>
 
-                          <form action="upload_files.php?ids_projects=<?php echo $datas['ids_projects'];?>&name_project=<?php echo $datas_projects['project'];?>&id_asset=<?php echo $_GET['id'];?>&folder_name=<?php echo $datas['folder_name'];?>&timestamp_id_creator=<?php echo $timestamp_id_creator;?>" id="dropzoneFiles" class="dropzone"></form>
+                          <form action="_comment_upload_files.php?ids_projects=<?php echo $datas['ids_projects'];?>&name_project=<?php echo $datas_projects['project'];?>&id_asset=<?php echo $_GET['id'];?>&folder_name=<?php echo $datas['folder_name'];?>&timestamp_id_creator=<?php echo $timestamp_id_creator;?>" id="dropzoneFiles" class="dropzone"></form>
 
                   </div>
           </th>        
