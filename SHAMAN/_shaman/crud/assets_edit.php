@@ -47,6 +47,71 @@ $folder_name    = $datas['folder_name'];
 ?>
 
 
+
+
+
+<?php
+//require '../../inc/crud.php';
+
+$db = new DB();
+$tblName = 'assets';
+//$datas_id_asset              = $db->getRows($tblName,array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
+$datas_id_asset              = $db->getRows($tblName,array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
+$modified    = $datas_id_asset['modified'];
+$name    = $datas_id_asset['name'];
+
+if ( $_SERVER["SERVER_ADDR"] == "82.223.10.101" ) {
+  $db_host = "82.223.10.101";
+  $db_name = "minuscule2";
+  $db_user = "Mimi";
+  $db_pass = "Coccinelle2016";
+}else{ // dev server
+
+
+  $db_host = "db651115066.db.1and1.com";
+  $db_name = "db651115066";
+  $db_user = "dbo651115066";
+  $db_pass = "shaman2016";
+
+
+}
+try {
+  $db_con = new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_pass);
+  $db_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+} catch(PDOException $ex) {
+    echo "An Error occured!"; //user friendly message
+}
+
+
+
+// $stmt = $db_con->prepare("SELECT id,modified,name FROM assets WHERE modified LIKE '2016-11-13 23:11:38'");
+$stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified >= '".$modified."' AND name NOT LIKE '".$name."'  ORDER BY modified ASC LIMIT 1");
+$stmt->execute();
+//$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$row = $stmt->fetchAll();
+//$count = $stmt->rowCount();
+$previous_id = $row[0]['id'];
+$previous_name = $row[0]['name'];
+
+$stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified <= '".$modified."' AND name NOT LIKE '".$name."'  ORDER BY modified DESC LIMIT 1");
+$stmt->execute();
+//$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$row = $stmt->fetchAll();
+//$count = $stmt->rowCount();
+$next_id = $row[0]['id'];
+$next_name = $row[0]['name'];
+?>
+
+
+
+
+
+
+
+
+
+
 <?php
 
 if(isset($_POST['tags']) && !empty($_POST['choix']) && !isset($_POST['description'])){
@@ -302,16 +367,38 @@ position: relative;
 
 
 
-<!-- <div class="section group">
-header
 
-</div> -->
 
-<!-- <div class="header"> -->
+
 <?php 
-//include('menu_top_edit.php'); 
+/*echo "<br><br><br><br><br><br><br><br>";
+echo $modified;
+echo "<br>";
+print_r($previous_id);
+echo "<br>";
+print_r($next_id);
+*/
+
 ?>
-<!-- </div> -->
+
+
+<span class="assetEdit_previous" style="font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:10px;opacity:0.2;">
+<a href='assets_edit.php?id=<?php echo $previous_id;?>' id="assetEdit_previous"  target='_self'>
+<
+</a>
+</span>
+
+<span  class="assetEdit_next" style="font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:390px;opacity:0.2;">
+
+
+<a href='assets_edit.php?id=<?php echo $next_id;?>' id="assetEdit_next" target='_self'>
+>
+</a>
+
+</span>   
+
+
+
 
 
 <div class="section group" style="background-color:#262626;padding-right:0px;margin-right:0px;right:0px;width:100%;">
@@ -444,6 +531,17 @@ $(document).ready(function (e) {
 
 
 
+        $("#assetEdit_next").click(function() {
+            //console.log('next')
+            $('#assetEdit_name', window.parent.document).text('<?php echo $next_name;?>');
+        });
+
+        $("#assetEdit_previous").click(function() {
+            //console.log('previous')
+            $('#assetEdit_name', window.parent.document).text('<?php echo $previous_name;?>');
+        });
+
+
 
 
 
@@ -523,19 +621,19 @@ var path0 = $('.thumbnail_comments').attr('id2');
 
 
 $('.thumbnail').click(function(){
-$('.modal-body').empty();
-var title = $(this).parent('a').attr("title");
-$('.modal-title').html(title);  
-  //get the source of thumb image
-    var image = $(this).attr("src");
-    //remove thumb directory from image 
-    var image = image.replace("thumb/","");
+    $('.modal-body').empty();
+    var title = $(this).parent('a').attr("title");
+    $('.modal-title').html(title);  
+      //get the source of thumb image
+        var image = $(this).attr("src");
+        //remove thumb directory from image 
+        var image = image.replace("thumb/","");
 
-    // create html for modal body
-    var html ='<img src="'+image+'" />';
-    // add to the modal body.
-    $('.modal-body').html(html);
-$('#myModal').modal({show:true});
+        // create html for modal body
+        var html ='<img src="'+image+'" />';
+        // add to the modal body.
+        $('.modal-body').html(html);
+    $('#myModal').modal({show:true});
 });
 
 
