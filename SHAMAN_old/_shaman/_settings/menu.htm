@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" style="" class=" js csstransforms3d csstransitions" lang="en-US"><head>
+<meta charset="UTF-8">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="pingback" href="https://php.quicoto.com/xmlrpc.php">
+
+<!-- This site is optimized with the Yoast SEO plugin v3.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Bootstrap 3 Second Level Menu Nav - Rick's code</title>
+<meta name="description" content="Create a second level menu navigation dropdown in Bootstrap 3 with easy HTML and CSS...">
+<meta name="robots" content="noodp">
+<link rel="canonical" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap 3 Second Level Menu Nav - Rick's code">
+<meta property="og:description" content="Create a second level menu navigation dropdown in Bootstrap 3 with easy HTML and CSS...">
+<meta property="og:url" content="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/">
+<meta property="og:site_name" content="Rick's code">
+<meta property="article:tag" content="Bootstrap">
+<meta property="article:section" content="CSS">
+<meta property="article:published_time" content="2014-11-17T10:00:10+01:00">
+<meta property="article:modified_time" content="2016-02-05T14:01:07+01:00">
+<meta property="og:updated_time" content="2016-02-05T14:01:07+01:00">
+<meta property="og:image" content="https://php.quicoto.com/wp-content/uploads/2014/11/bootstrap-logo.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="500">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Create a second level menu navigation dropdown in Bootstrap 3 with easy HTML and CSS...">
+<meta name="twitter:title" content="Bootstrap 3 Second Level Menu Nav - Rick's code">
+<meta name="twitter:site" content="@ricard_dev">
+<meta name="twitter:image" content="https://php.quicoto.com/wp-content/uploads/2014/11/bootstrap-logo.png">
+<meta name="twitter:creator" content="@ricard_dev">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Rick's code » Feed" href="http://php.quicoto.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Rick's code » Comments Feed" href="https://php.quicoto.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Rick's code » Bootstrap 3 Second Level Menu Nav Comments Feed" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/feed/">
+		<div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script type="text/javascript" async="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/ga.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/php.quicoto.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/wp-emoji-release.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-droid-sans-mono-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/droid-sans-mono.css" type="text/css" media="all">
+<link rel="stylesheet" id="theme-stylesheet-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="woo-layout-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/layout.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-logos-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/social-logos.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/jetpack.css" type="text/css" media="all">
+<link rel="stylesheet" id="prettyPhoto-css" href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/prettyPhoto.css" type="text/css" media="all">
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/jquery_003.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/php.quicoto.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/crayon.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/fitvids.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/modernizr.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/jquery.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/general.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/jquery_002.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/enable-lightbox.js"></script>
+<link rel="https://api.w.org/" href="https://php.quicoto.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://php.quicoto.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://php.quicoto.com/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" href="https://php.quicoto.com/?p=6961">
+<link rel="alternate" type="application/json+oembed" href="https://php.quicoto.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fphp.quicoto.com%2Fbootstrap-3-second-level-menu-nav%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://php.quicoto.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fphp.quicoto.com%2Fbootstrap-3-second-level-menu-nav%2F&amp;format=xml">
+	    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15206750-1']);
+  _gaq.push(['_trackPageview']);
+
+setTimeout("_gaq.push(['_trackEvent', '15_seconds', 'read'])", 15000);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<style type="text/css">img#wpstats{display:none}</style>
+<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<!--  Mobile viewport scale | Disable user zooming as the layout is optimised -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!--[if lt IE 9]>
+<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+		
+<!-- Google Webfonts -->
+<link href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/css.css" rel="stylesheet" type="text/css">
+
+<!-- Woo Custom Typography -->
+<style type="text/css">
+body #wrapper #header .site-title a {font:normal 36px/1em 'Arvo', arial, sans-serif;color:#3333333;}
+body #wrapper #header .site-description {font:normal 23px/1em 'Lato', arial, sans-serif;color:#3333333;}
+</style>
+
+<!-- Custom Favicon -->
+<link rel="shortcut icon" href="https://php.quicoto.com/wp-content/uploads/2014/12/favicon.png">
+<!-- Options Panel Custom CSS -->
+<style type="text/css">
+#logo img { display:none; } .site-title { display:block !important; }
+.site-description { display:block !important; }
+</style>
+
+
+<!-- Woo Shortcodes CSS -->
+<link href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/shortcodes.css" rel="stylesheet" type="text/css">
+
+<!-- Custom Stylesheet -->
+<link href="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/custom.css" rel="stylesheet" type="text/css">
+
+<meta name="theme-color" content="#ef4444">
+</head>
+<body class="single single-post postid-6961 single-format-standard gecko alt-style-default layout-right-content has-lightbox">
+
+<div id="wrapper">
+	<div id="inner-wrapper">
+
+    
+	<header id="header">
+		
+		<span class="nav-toggle"><a href="#navigation"><span>Navigation</span></a></span>
+
+	    <div class="site-header">
+
+						    		    	
+	    	<div class="title-group">
+				<h1 class="site-title"><a href="https://php.quicoto.com/">Rick's code</a></h1>
+				<h2 class="site-description">HTML, CSS and JavaScript</h2>
+			</div>
+		</div>
+		
+				
+		
+        
+		<nav id="navigation" role="navigation">
+
+			
+			<section class="menus">
+
+			<a href="https://php.quicoto.com/" class="nav-home"><span>Home</span></a>
+
+			<h3>Menu</h3><ul id="main-nav" class="nav"><li id="menu-item-758" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-758"><a href="http://php.quicoto.com/">Home</a></li>
+<li id="menu-item-2615" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2615"><a href="https://php.quicoto.com/wordpress-plugins/">WordPress Plugins</a></li>
+<li id="menu-item-912" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-912"><a href="https://php.quicoto.com/about/">About</a></li>
+<li id="menu-item-2289" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2289 parent"><a href="#">Categories</a>
+<ul class="sub-menu">
+	<li id="menu-item-2290" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2290"><a href="https://php.quicoto.com/category/apache/">Apache</a></li>
+	<li id="menu-item-2292" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2292"><a href="https://php.quicoto.com/category/codeigniter/">CodeIgniter</a></li>
+	<li id="menu-item-2293" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-2293"><a href="https://php.quicoto.com/category/css/">CSS</a></li>
+	<li id="menu-item-2294" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2294"><a href="https://php.quicoto.com/category/html5/">HTML5</a></li>
+	<li id="menu-item-2295" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2295"><a href="https://php.quicoto.com/category/javascript/">JavaScript</a></li>
+	<li id="menu-item-2296" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2296"><a href="https://php.quicoto.com/category/linux/">Linux</a></li>
+	<li id="menu-item-2297" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2297"><a href="https://php.quicoto.com/category/mac/">Mac</a></li>
+	<li id="menu-item-2298" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2298"><a href="https://php.quicoto.com/category/magento/">Magento</a></li>
+	<li id="menu-item-2301" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2301"><a href="https://php.quicoto.com/category/node-js/">Node.js</a></li>
+	<li id="menu-item-2306" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2306"><a href="https://php.quicoto.com/category/wordpress/">WordPress</a></li>
+</ul>
+</li>
+</ul>	        <ul class="nav rss">
+	            	            <li class="sub-rss"><a href="http://php.quicoto.com/feed/">RSS</a></li>
+	        </ul>
+
+	    	</section><!--/.menus-->
+
+	        <a href="#top" class="nav-close"><span>Return to Content</span></a>
+
+		</nav><!-- /#navigation -->
+		
+		<div id="sidebar-footer">
+		
+			<aside id="sidebar">
+
+	
+	    <div class="primary">
+		<div id="search-3" class="widget widget_search"><div class="search_main fix"><form role="search" class="searchform" method="get" id="searchform" action="https://php.quicoto.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input name="s" class="field s" placeholder="Search..." id="s" type="text">
+					<input class="search-submit" id="searchsubmit" value="Search" type="submit">
+				</div>
+			</form></div></div>	</div>
+	
+	
+</aside><!-- /#sidebar -->
+
+						
+			<footer id="footer">
+			
+				<div id="copyright">
+								</div>
+			
+			</footer><!-- /#footer  -->
+		
+		</div>
+
+	</header><!-- /#header -->
+
+	
+    <div id="content">
+
+    	
+		<section id="main">
+
+        			<article class="post-6961 post type-post status-publish format-standard has-post-thumbnail hentry category-css tag-bootstrap">
+
+				                
+                <header>
+                	
+                	<aside class="post-meta">
+	<ul>
+		<li class="post-date">
+			<span class="small">Posted on</span>
+			<span class="updated">November 17, 2014</span>
+		</li>
+		<li class="post-author">
+			<span class="small">by</span>
+			<span class="author">
+				<span class="vcard"><a class="fn" rel="author" href="http://www.ricardtorres.com/" title="Ricard's Ramblings">Ricard Torres</a></span>
+			</span>
+
+		</li>
+		<li class="post-category">
+			<span class="small">in</span>
+			<a href="https://php.quicoto.com/category/css/" rel="category tag">CSS</a>		</li>
+			</ul>
+</aside>
+                	
+	                <h1 class="entry-title">Bootstrap 3 Second Level Menu Nav</h1>
+ 
+                </header>
+
+                <section class="entry fix">
+                	<p>The current version of <a href="https://php.quicoto.com/tag/bootstrap/">Bootstrap</a> (3) does not include a <strong>Second Level Menu Nav</strong>. This is one of the features designers and clients tend to request. </p>
+<p>Check out the <a href="http://codepen.io/anon/pen/BjQqPO" target="_blank">Demo</a> in CodePen.</p>
+<p><img src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/bootstrap-secondlevel-menu.png" alt="bootstrap-second–level-menu" class="aligncenter size-full wp-image-7510" width="558" height="207"></p>
+<p>Here’s how to <strong>add this feature to your project</strong>:</p>
+<h2>HTML</h2>
+<p>A regular out of the box navbar taken from the Bootstrap Docs, just add an other list element with the proper <strong>dropdown-submenu and dropdown-menu classes</strong>.</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5817ca98a7996201040503" class="crayon-syntax crayon-theme-classic crayon-font-droid-sans-mono crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 24px; margin-bottom: 24px; font-size: 16px ! important; line-height: 28px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 28px !important;"><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-1" style="height: 28px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-2" style="height: 28px;">2</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-3" style="height: 28px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-4" style="height: 28px;">4</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-5" style="height: 28px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-6" style="height: 28px;">6</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-7" style="height: 56px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-8" style="height: 28px;">8</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-9" style="height: 28px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-10" style="height: 28px;">10</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-11" style="height: 28px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-12" style="height: 28px;">12</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-13" style="height: 28px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-14" style="height: 28px;">14</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-15" style="height: 28px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-16" style="height: 28px;">16</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-17" style="height: 28px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-18" style="height: 28px;">18</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-19" style="height: 56px;">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-20" style="height: 28px;">20</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-21" style="height: 28px;">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-22" style="height: 56px;">22</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-23" style="height: 28px;">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-24" style="height: 28px;">24</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-25" style="height: 28px;">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-26" style="height: 56px;">26</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-27" style="height: 28px;">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-28" style="height: 56px;">28</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-29" style="height: 28px;">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-30" style="height: 28px;">30</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-31" style="height: 28px;">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-32" style="height: 28px;">32</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-33" style="height: 28px;">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-34" style="height: 28px;">34</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-35" style="height: 28px;">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-36" style="height: 28px;">36</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-37" style="height: 28px;">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-38" style="height: 28px;">38</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-39" style="height: 28px;">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-40" style="height: 28px;">40</div><div class="crayon-num" data-line="crayon-5817ca98a7996201040503-41" style="height: 28px;">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a7996201040503-42" style="height: 28px;">42</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 28px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5817ca98a7996201040503-1">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-2"><span class="crayon-r ">&lt;nav </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"navbar navbar-default"</span><span class="crayon-h"> </span><span class="crayon-e ">role</span><span class="crayon-o">=</span><span class="crayon-s ">"navigation"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-3"><span class="crayon-i ">	</span><span class="crayon-r ">&lt;div </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"container-fluid"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-4"><span class="crayon-i ">		</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-5"><span class="crayon-i ">		</span><span class="crayon-c">&lt;!-- Brand and toggle get grouped for better mobile display --&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-6"><span class="crayon-i ">		</span><span class="crayon-r ">&lt;div </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"navbar-header"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-7"><span class="crayon-i ">		&nbsp;&nbsp;</span><span class="crayon-r ">&lt;button </span><span class="crayon-e ">type</span><span class="crayon-o">=</span><span class="crayon-s ">"button"</span><span class="crayon-h"> </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"navbar-toggle collapsed"</span><span class="crayon-h"> </span><span class="crayon-e ">data-toggle</span><span class="crayon-o">=</span><span class="crayon-s ">"collapse"</span><span class="crayon-h"> </span><span class="crayon-e ">data-target</span><span class="crayon-o">=</span><span class="crayon-s ">"#bs-example-navbar-collapse-1"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-8"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;span </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"sr-only"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Toggle navigation</span><span class="crayon-r ">&lt;/span&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-9"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;span </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"icon-bar"</span><span class="crayon-r ">&gt;</span><span class="crayon-r ">&lt;/span&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-10"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;span </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"icon-bar"</span><span class="crayon-r ">&gt;</span><span class="crayon-r ">&lt;/span&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-11"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;span </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"icon-bar"</span><span class="crayon-r ">&gt;</span><span class="crayon-r ">&lt;/span&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-12"><span class="crayon-i ">		&nbsp;&nbsp;</span><span class="crayon-r ">&lt;/button&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-13"><span class="crayon-i ">		&nbsp;&nbsp;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"navbar-brand"</span><span class="crayon-h"> </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Brand</span><span class="crayon-r ">&lt;/a&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-14"><span class="crayon-i ">		</span><span class="crayon-r ">&lt;/div&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-15"><span class="crayon-i ">		</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-16"><span class="crayon-i ">		</span><span class="crayon-c">&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-17"><span class="crayon-i ">		</span><span class="crayon-r ">&lt;div </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"collapse navbar-collapse"</span><span class="crayon-h"> </span><span class="crayon-e ">id</span><span class="crayon-o">=</span><span class="crayon-s ">"bs-example-navbar-collapse-1"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-18"><span class="crayon-i ">		&nbsp;&nbsp;</span><span class="crayon-r ">&lt;ul </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"nav navbar-nav"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-19"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"active"</span><span class="crayon-r ">&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link </span><span class="crayon-r ">&lt;span </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"sr-only"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">(current)</span><span class="crayon-r ">&lt;/span&gt;</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-20"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span><span class="crayon-i "> 		&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-21"><span class="crayon-i ">		&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"dropdown"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-22"><span class="crayon-i ">			&nbsp;&nbsp; </span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-h"> </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"dropdown-toggle"</span><span class="crayon-h"> </span><span class="crayon-e ">data-toggle</span><span class="crayon-o">=</span><span class="crayon-s ">"dropdown"</span><span class="crayon-h"> </span><span class="crayon-e ">role</span><span class="crayon-o">=</span><span class="crayon-s ">"button"</span><span class="crayon-h"> </span><span class="crayon-e ">aria-expanded</span><span class="crayon-o">=</span><span class="crayon-s ">"false"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Dropdown </span><span class="crayon-r ">&lt;span </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"caret"</span><span class="crayon-r ">&gt;</span><span class="crayon-r ">&lt;/span&gt;</span><span class="crayon-r ">&lt;/a&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-23"><span class="crayon-i ">			&nbsp;&nbsp;</span><span class="crayon-r ">&lt;ul </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"dropdown-menu"</span><span class="crayon-h"> </span><span class="crayon-e ">role</span><span class="crayon-o">=</span><span class="crayon-s ">"menu"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-24"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-25"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"dropdown-submenu"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-26"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">tabindex</span><span class="crayon-o">=</span><span class="crayon-s ">"-1"</span><span class="crayon-h"> </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Second Level Menu ! </span><span class="crayon-r ">&lt;i </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"fa fa-chevron-right"</span><span class="crayon-r ">&gt;</span><span class="crayon-r ">&lt;/i&gt;</span><span class="crayon-r ">&lt;/a&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-27"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;ul </span><span class="crayon-e ">class</span><span class="crayon-o">=</span><span class="crayon-s ">"dropdown-menu"</span><span class="crayon-r ">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-28"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">tabindex</span><span class="crayon-o">=</span><span class="crayon-s ">"-1"</span><span class="crayon-h"> </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link 1</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-29"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Lik 2</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-30"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link 3</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-31"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;/ul&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-32"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;/li&gt;</span><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-33"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-34"><span class="crayon-i ">			&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r ">&lt;li&gt;</span><span class="crayon-r ">&lt;a </span><span class="crayon-e ">href</span><span class="crayon-o">=</span><span class="crayon-s ">"#"</span><span class="crayon-r ">&gt;</span><span class="crayon-i ">Link</span><span class="crayon-r ">&lt;/a&gt;</span><span class="crayon-r ">&lt;/li&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-35"><span class="crayon-i ">			&nbsp;&nbsp;</span><span class="crayon-r ">&lt;/ul&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-36"><span class="crayon-i ">			</span><span class="crayon-r ">&lt;/li&gt;</span><span class="crayon-i "> </span><span class="crayon-c">&lt;!-- .dropdown --&gt;</span><span class="crayon-i ">						</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-37"><span class="crayon-i ">		&nbsp;&nbsp;</span><span class="crayon-r ">&lt;/ul&gt;</span><span class="crayon-i "> </span><span class="crayon-c">&lt;!-- .nav .navbar-nav --&gt;</span><span class="crayon-i ">		 </span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-38"><span class="crayon-i ">		</span><span class="crayon-r ">&lt;/div&gt;</span><span class="crayon-c">&lt;!-- /.navbar-collapse --&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-39"><span class="crayon-i ">		</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-40"><span class="crayon-i ">	</span><span class="crayon-r ">&lt;/div&gt;</span><span class="crayon-c">&lt;!-- /.container-fluid --&gt;</span></div><div class="crayon-line" id="crayon-5817ca98a7996201040503-41"><span class="crayon-r ">&lt;/nav&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a7996201040503-42">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0065 seconds] -->
+<p></p>
+<h2>CSS</h2>
+<p>The CSS is very straight forward, no fancy styling. This <strong>multilevel dropdown</strong> should work in all major browsers.</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5817ca98a79a5638768796" class="crayon-syntax crayon-theme-classic crayon-font-droid-sans-mono crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 24px; margin-bottom: 24px; font-size: 16px ! important; line-height: 28px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row alt-table-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 28px !important;"><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-1" style="height: 28px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-2" style="height: 28px;">2</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-3" style="height: 28px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-4" style="height: 28px;">4</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-5" style="height: 28px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-6" style="height: 28px;">6</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-7" style="height: 28px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-8" style="height: 28px;">8</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-9" style="height: 28px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-10" style="height: 28px;">10</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-11" style="height: 28px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-12" style="height: 28px;">12</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-13" style="height: 28px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-14" style="height: 28px;">14</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-15" style="height: 28px;">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-16" style="height: 28px;">16</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-17" style="height: 28px;">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-18" style="height: 28px;">18</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-19" style="height: 28px;">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-20" style="height: 28px;">20</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-21" style="height: 28px;">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-22" style="height: 28px;">22</div><div class="crayon-num" data-line="crayon-5817ca98a79a5638768796-23" style="height: 28px;">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79a5638768796-24" style="height: 28px;">24</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 28px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5817ca98a79a5638768796-1">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-2"><span class="crayon-k ">.dropdown-submenu </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">position</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">relative</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-4"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-5"><span class="crayon-k ">.dropdown-submenu &gt; .dropdown-menu </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-6"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">top</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">0</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-7"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">left</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">100%</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">margin-top</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">-6px</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-9"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">margin-left</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">-1px</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-10"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-11"><span class="crayon-k ">.dropdown-submenu:hover &gt; .dropdown-menu </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-12"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">display</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">block</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-13"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-14"><span class="crayon-k ">.dropdown-submenu:hover &gt; a:after </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-15"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">border-left-color</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">#fff</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-16"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-17"><span class="crayon-k ">.dropdown-submenu.pull-left </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-18"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">float</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">none</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-19"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-20"><span class="crayon-k ">.dropdown-submenu.pull-left &gt; .dropdown-menu </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-21"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">left</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">-100%</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-22"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e ">margin-left</span><span class="crayon-sy">:</span><span class="crayon-h"> </span><span class="crayon-i ">10px</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79a5638768796-23"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79a5638768796-24">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0018 seconds] -->
+<p></p>
+<h2>Optional jQuery</h2>
+<p>I found that once you hover the second level with the mouse the first
+ level loses the hover effect. In some designs you might want to keep it
+ highlighted. Here’s how you can achieve that effect using <a href="https://php.quicoto.com/tag/jquery/">jQuery</a>:</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5817ca98a79ab037356997" class="crayon-syntax crayon-theme-classic crayon-font-droid-sans-mono crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 24px; margin-bottom: 24px; font-size: 16px ! important; line-height: 28px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 28px !important;"><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-1" style="height: 28px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-2" style="height: 28px;">2</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-3" style="height: 28px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-4" style="height: 28px;">4</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-5" style="height: 28px;">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-6" style="height: 28px;">6</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-7" style="height: 28px;">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-8" style="height: 28px;">8</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-9" style="height: 28px;">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-10" style="height: 28px;">10</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-11" style="height: 28px;">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-12" style="height: 28px;">12</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-13" style="height: 28px;">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a79ab037356997-14" style="height: 28px;">14</div><div class="crayon-num" data-line="crayon-5817ca98a79ab037356997-15" style="height: 28px;">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 28px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5817ca98a79ab037356997-1">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-2">&nbsp;</div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-3"><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-r">document</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">ready</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-4">&nbsp;</div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-5"><span class="crayon-h">	</span><span class="crayon-c">// For the Second level Dropdown menu, highlight the parent	</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-6"><span class="crayon-h">	</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">".dropdown-menu"</span><span class="crayon-h"> </span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-7"><span class="crayon-h">	</span><span class="crayon-sy">.</span><span class="crayon-e">mouseenter</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-8"><span class="crayon-h">		</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">parent</span><span class="crayon-sy">(</span><span class="crayon-s">'li'</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">addClass</span><span class="crayon-sy">(</span><span class="crayon-s">'active'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-9"><span class="crayon-h">	</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-10"><span class="crayon-h">	</span><span class="crayon-sy">.</span><span class="crayon-e">mouseleave</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-11"><span class="crayon-h">		</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-r">this</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">parent</span><span class="crayon-sy">(</span><span class="crayon-s">'li'</span><span class="crayon-sy">)</span><span class="crayon-sy">.</span><span class="crayon-e">removeClass</span><span class="crayon-sy">(</span><span class="crayon-s">'active'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-12"><span class="crayon-h">	</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-13">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a79ab037356997-14"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5817ca98a79ab037356997-15">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0020 seconds] -->
+<p></p>
+<h2>Mobile / Responsive</h2>
+<p>The navigation will continue to work on mobile as expected. The only 
+thing you’ll have to do is decide how do you want to show the second 
+level on mobile. That’s up to you, happy coding!</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Liked it? Share some love:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-6961" class="share-twitter sd-button share-icon no-text" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-6961" class="share-facebook sd-button share-icon no-text" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span><span class="share-count">1</span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)<span class="share-count">1</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-6961" class="share-google-plus-1 sd-button share-icon no-text" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div>									</section>
+
+				<p class="tags">Tags: <a href="https://php.quicoto.com/tag/bootstrap/" rel="tag">Bootstrap</a></p>
+            </article><!-- .post -->
+
+								<aside id="post-author" class="fix">
+					<div class="profile-image"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="avatar avatar-70 photo" width="70" height="70"></div>
+					<div class="profile-content">
+						<h3 class="title">About Rick</h3>
+						My name is <a href="https://www.ricardtorres.com/" title="Ricard Torres" rel="nofollow">Ricard Torres</a>,
+ I live in Barcelona (Spain) and I do fun things for living. When I'm 
+not coding I take pictures, play guitar or teach martial arts.						
+					</div><!-- .post-entries -->
+				</aside><!-- .post-author-box -->
+				
+						<aside id="connect" class="fix">
+		<h3>Subscribe</h3>
+
+		<div>
+			<p>Get updated with all the new goodies!</p>
+			
+						<!-- Begin MailChimp Signup Form -->
+			<div id="mc_embed_signup">
+				<form class="newsletter-form" action="https://quicoto.us1.list-manage.com/subscribe/post?u=eae9da1832d1361bea09a2208&amp;id=35e6d68f46" method="post" target="popupwindow" onsubmit="window.open('https://quicoto.us1.list-manage.com/subscribe/post?u=eae9da1832d1361bea09a2208&amp;id=35e6d68f46', 'popupwindow', 'scrollbars=yes,width=650,height=520');return true">
+					<input name="EMAIL" class="required email" value="E-mail" id="mce-EMAIL" onfocus="if (this.value == 'E-mail') {this.value = '';}" onblur="if (this.value == '') {this.value = 'E-mail';}" type="text">
+					<input value="Submit" name="subscribe" id="mc-embedded-subscribe" class="btn submit button" type="submit">
+				</form>
+			</div>
+			<!--End mc_embed_signup-->
+			
+						<div class="social">
+		   				   		<a target="_blank" href="http://php.quicoto.com/feed/" class="subscribe" title="RSS"></a>
+
+		   				   		<a target="_blank" href="https://twitter.com/ricard_dev" class="twitter" title="Twitter"></a>
+
+		   				   		<a target="_blank" href="http://google.com/+RicardTorres" class="googleplus" title="Google+"></a>
+
+							</div>
+			
+		</div>
+
+	</aside>
+
+		<div id="related-posts">
+	    <h4>Related Posts:</h4>
+	    <div class="woo-sc-related-posts">
+<ul>
+<li class="post-id-7491">
+
+<a href="https://php.quicoto.com/easy-background-image-slideshow/" title="Easy Background Image Slideshow" class="related-title"><span>Easy Background Image Slideshow</span></a>
+</li>
+<li class="post-id-7482">
+
+<a href="https://php.quicoto.com/background-gradient-100-body-css/" title="Background Gradient 100% body CSS" class="related-title"><span>Background Gradient 100% body CSS</span></a>
+</li>
+<li class="post-id-7123">
+
+<a href="https://php.quicoto.com/rem-mixin-for-your-sass/" title="REM mixin for your SASS" class="related-title"><span>REM mixin for your SASS</span></a>
+</li>
+<li class="post-id-7111">
+
+<a href="https://php.quicoto.com/add-swipe-touch-event-to-bootstrap-carousel/" title="Add Swipe touch event to Bootstrap carousel" class="related-title"><span>Add Swipe touch event to Bootstrap carousel</span></a>
+</li>
+<li class="post-id-7086">
+
+<a href="https://php.quicoto.com/css-menu-with-full-width-of-parent-container/" title="CSS Menu with full width of parent container" class="related-title"><span>CSS Menu with full width of parent container</span></a>
+</li>
+</ul>
+<div class="fix"></div><!--/.fix-->
+</div><!--/.woo-sc-related-posts-->	</div><!-- col-right -->
+	
+	
+	        <nav id="post-entries" class="fix">
+	            <div class="nav-prev fl"><a href="https://php.quicoto.com/drop-ip-traffic-using-iptables-in-ubuntu/" rel="prev">Drop IP traffic using iptables in Ubuntu</a></div>
+	            <div class="nav-next fr"><a href="https://php.quicoto.com/how-to-detect-firefox-chrome-and-internet-explorer-with-javascript/" rel="next">How to detect Firefox, Chrome and Internet Explorer with JavaScript</a></div>
+	        </nav><!-- #post-entries -->
+            
+
+<!-- You can start editing here. -->
+
+
+<div id="comments">
+
+			<h3>23 Responses to “Bootstrap 3 Second Level Menu Nav”</h3>
+
+		<ol class="commentlist">
+
+			
+		<li class="comment even thread-even depth-1 parent">
+
+	    	<a name="comment-116373"></a>
+
+	      	<div id="li-comment-116373" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/da64304a143a6ff883ffa4b7e59d9706.jpg" srcset="https://secure.gravatar.com/avatar/da64304a143a6ff883ffa4b7e59d9706?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">rex</span>           
+	                <span class="date">February 6, 2015 at 9:49 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-116373" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-116373">
+				<p>Thanks</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=116373#respond" onclick='return addComment.moveForm( "comment-116373", "116373", "respond", "6961" )' aria-label="Reply to rex">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-2">
+
+	    	<a name="comment-117411"></a>
+
+	      	<div id="li-comment-117411" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">February 26, 2015 at 9:01 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-117411" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-117411">
+				<p>You’re welcome.</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=117411#respond" onclick='return addComment.moveForm( "comment-117411", "117411", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1 parent">
+
+	    	<a name="comment-119366"></a>
+
+	      	<div id="li-comment-119366" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/1c25240db4ce29131e7407cd3dd1a033.png" srcset="https://secure.gravatar.com/avatar/1c25240db4ce29131e7407cd3dd1a033?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Scott Wissler</span>           
+	                <span class="date">April 3, 2015 at 5:58 am</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-119366" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-119366">
+				<p>I am trying to emulate the three level drop down menu seen on 
+intel.com for a website I am working on. What do you think they are 
+using HTML5, CSS3, JS JQuery, Bootstrap? Any or all?</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=119366#respond" onclick='return addComment.moveForm( "comment-119366", "119366", "respond", "6961" )' aria-label="Reply to Scott Wissler">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-2">
+
+	    	<a name="comment-119439"></a>
+
+	      	<div id="li-comment-119439" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">April 4, 2015 at 7:34 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-119439" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-119439">
+				<p>Well, of course. The three basic: HTML, CSS and JS <img draggable="false" class="emoji" alt="😉" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/1f609.svg"></p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=119439#respond" onclick='return addComment.moveForm( "comment-119439", "119439", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1 parent">
+
+	    	<a name="comment-129672"></a>
+
+	      	<div id="li-comment-129672" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/f86fd9d2a458c1f3aedad9a923089613.png" srcset="https://secure.gravatar.com/avatar/f86fd9d2a458c1f3aedad9a923089613?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Trevor</span>           
+	                <span class="date">December 15, 2015 at 9:18 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-129672" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-129672">
+				<p>No sample? Stupid article, start putting samples up idiot.</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=129672#respond" onclick='return addComment.moveForm( "comment-129672", "129672", "respond", "6961" )' aria-label="Reply to Trevor">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-2 parent">
+
+	    	<a name="comment-129680"></a>
+
+	      	<div id="li-comment-129680" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">December 16, 2015 at 9:21 am</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-129680" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-129680">
+				<p>The code is there Trevor, what’s the issue?</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=129680#respond" onclick='return addComment.moveForm( "comment-129680", "129680", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment even depth-3">
+
+	    	<a name="comment-129900"></a>
+
+	      	<div id="li-comment-129900" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/c25c022cf7355de234c1ff956d2d5fa3.png" srcset="https://secure.gravatar.com/avatar/c25c022cf7355de234c1ff956d2d5fa3?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">enli</span>           
+	                <span class="date">December 24, 2015 at 11:56 am</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-129900" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-129900">
+				<p>The issue is that we readers may want to see the demo first 
+before starting up the coding related articles. I was particularely 
+interested in seeing the demo but I couldnt see it and then I was not 
+interested in seeing the code snippet anymore.</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-3">
+
+	    	<a name="comment-130073"></a>
+
+	      	<div id="li-comment-130073" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">December 30, 2015 at 6:27 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-130073" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-130073">
+				<p>You’re right, in my recent posts I tend to create a demo first.</p>
+<p>In any case, here’s how it looks: <a href="http://codepen.io/anon/pen/BjQqPO" rel="nofollow">http://codepen.io/anon/pen/BjQqPO</a></p>
+<p>Enjoy.</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1 parent">
+
+	    	<a name="comment-131543"></a>
+
+	      	<div id="li-comment-131543" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/acf5d2237332aa72f9aa58b17698e3db.png" srcset="https://secure.gravatar.com/avatar/acf5d2237332aa72f9aa58b17698e3db?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Martin</span>           
+	                <span class="date">February 7, 2016 at 8:10 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131543" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131543">
+				<p>Nice additon, thanks. Unfortunately I have found an issue on 
+mobile views: when I add navbar-fixed-top to the navigation, sumenues no
+ longer behave in the same, userfriendly way. The max-height: 340px; of 
+navbar-collapse is blocking it. Have you got an idea how to fix this? 
+Your help is much appreciated!</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=131543#respond" onclick='return addComment.moveForm( "comment-131543", "131543", "respond", "6961" )' aria-label="Reply to Martin">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-2 parent">
+
+	    	<a name="comment-131566"></a>
+
+	      	<div id="li-comment-131566" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">February 8, 2016 at 7:19 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131566" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131566">
+				<p>Could you prepare a demo with your example? I can’t seem to fully understand the issue.</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=131566#respond" onclick='return addComment.moveForm( "comment-131566", "131566", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment even depth-3">
+
+	    	<a name="comment-131568"></a>
+
+	      	<div id="li-comment-131568" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/acf5d2237332aa72f9aa58b17698e3db.png" srcset="https://secure.gravatar.com/avatar/acf5d2237332aa72f9aa58b17698e3db?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Martin</span>           
+	                <span class="date">February 8, 2016 at 8:11 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131568" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131568">
+				<p>I have extended your demo in CodePen: <a href="http://codepen.io/tinusmile/pen/NxEbyW" rel="nofollow">http://codepen.io/tinusmile/pen/NxEbyW</a><br>
+Check it out in debug mode for mobile nav views (&lt; 768px) and open 
+the submenus of the second level. It does not open any more till the 
+last item when navbar-fixed-top is added to nav. The problem is that</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5817ca98a966f278914947" class="crayon-syntax crayon-theme-classic crayon-font-droid-sans-mono crayon-os-pc print-yes notranslate crayon-wrapped" data-settings=" no-popup minimize scroll-mouseover wrap" style="margin-top: 24px; margin-bottom: 24px; font-size: 16px ! important; line-height: 28px ! important; height: auto;">
+		
+			<div class="crayon-plain-wrap"></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 28px !important;"><div class="crayon-num" data-line="crayon-5817ca98a966f278914947-1" style="height: 28px;">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a966f278914947-2" style="height: 28px;">2</div><div class="crayon-num" data-line="crayon-5817ca98a966f278914947-3" style="height: 28px;">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5817ca98a966f278914947-4" style="height: 28px;">4</div><div class="crayon-num" data-line="crayon-5817ca98a966f278914947-5" style="height: 28px;">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 28px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5817ca98a966f278914947-1">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a966f278914947-2"><span class="crayon-sy">.</span><span class="crayon-v">navbar</span><span class="crayon-o">-</span><span class="crayon-v">fixed</span><span class="crayon-o">-</span><span class="crayon-i">top</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-v">navbar</span><span class="crayon-o">-</span><span class="crayon-e">collapse</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5817ca98a966f278914947-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">max</span><span class="crayon-o">-</span><span class="crayon-v">height</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">340px</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5817ca98a966f278914947-4"><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5817ca98a966f278914947-5">&nbsp;</div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0008 seconds] -->
+<p>from bootstrap.css (line 4220) is blocking that. Any idea?</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-3">
+
+	    	<a name="comment-131596"></a>
+
+	      	<div id="li-comment-131596" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">February 9, 2016 at 1:25 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131596" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131596">
+				<p>Martin,</p>
+<p>My code doesn’t take into account how to “show” the dropdown. There’s
+ no on click / touch event for the third menu, you’d have to code that.</p>
+<p>Nevertheless, when I open your pen and shrink the view I see this:</p>
+<p><img src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/codepen-screenshot.png" alt=""></p>
+<p>Not sure what I’m I missing.</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment even depth-3">
+
+	    	<a name="comment-131599"></a>
+
+	      	<div id="li-comment-131599" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/acf5d2237332aa72f9aa58b17698e3db.png" srcset="https://secure.gravatar.com/avatar/acf5d2237332aa72f9aa58b17698e3db?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Martin</span>           
+	                <span class="date">February 9, 2016 at 1:45 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131599" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131599">
+				<p>The dropdown only opens for the 340px height what hides the rest 
+of the submenus. Therefore a scrollbar appears what is not very 
+userfriendly compared to your solution without «navbar-fixed-top». So 
+the question is how to override this CSS rule. All I tried did not work 
+properly.</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment byuser comment-author-quicoto bypostauthor odd alt depth-3">
+
+	    	<a name="comment-131600"></a>
+
+	      	<div id="li-comment-131600" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="http://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">February 9, 2016 at 3:28 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131600" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131600">
+				<p>I see. Have you tried overwriting with <strong>!important</strong> ?</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment even depth-3">
+
+	    	<a name="comment-131601"></a>
+
+	      	<div id="li-comment-131601" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/acf5d2237332aa72f9aa58b17698e3db.png" srcset="https://secure.gravatar.com/avatar/acf5d2237332aa72f9aa58b17698e3db?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Martin</span>           
+	                <span class="date">February 9, 2016 at 3:36 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-131601" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-131601">
+				<p>Yes, I did…</p>
+				
+	                <div class="reply">
+	                    	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1">
+
+	    	<a name="comment-137049"></a>
+
+	      	<div id="li-comment-137049" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/04fc2bff9eab7550dc7398dc3080d42b.png" srcset="https://secure.gravatar.com/avatar/04fc2bff9eab7550dc7398dc3080d42b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Timothy</span>           
+	                <span class="date">July 24, 2016 at 3:11 am</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-137049" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-137049">
+				<p>Hello,<br>
+This is a nice demo! Thank you for posting.<br>
+Question, would you be able to have the drop down menu open on hover as well so you don’t have to click on it to open it up?</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=137049#respond" onclick='return addComment.moveForm( "comment-137049", "137049", "respond", "6961" )' aria-label="Reply to Timothy">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1">
+
+	    	<a name="comment-139361"></a>
+
+	      	<div id="li-comment-139361" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/383686f21456d3ddd179cc419d748348.png" srcset="https://secure.gravatar.com/avatar/383686f21456d3ddd179cc419d748348?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Christopher Frelin</span>           
+	                <span class="date">August 15, 2016 at 4:58 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-139361" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-139361">
+				<p>Firstly- thanks for this elegant and simple solution.  Secondly –
+ a question: Is there a way to allow the that contains the submenu to 
+itself link to a page – perhaps upon a second click, or to work as a 
+clickable link and have the submenu show on hover?</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=139361#respond" onclick='return addComment.moveForm( "comment-139361", "139361", "respond", "6961" )' aria-label="Reply to Christopher Frelin">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1 parent">
+
+	    	<a name="comment-139362"></a>
+
+	      	<div id="li-comment-139362" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/383686f21456d3ddd179cc419d748348.png" srcset="https://secure.gravatar.com/avatar/383686f21456d3ddd179cc419d748348?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Christopher Frelin</span>           
+	                <span class="date">August 15, 2016 at 4:59 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-139362" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-139362">
+				<p>guess  something got stripped out – reiterated comment below. thx</p>
+<p>Firstly- thanks for this elegant and simple solution. Secondly – a 
+question: Is there a way to allow the LIST ITEM that contains the 
+submenu to itself link to a page – perhaps upon a second click, or to 
+work as a clickable link and have the submenu show on hover?</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=139362#respond" onclick='return addComment.moveForm( "comment-139362", "139362", "respond", "6961" )' aria-label="Reply to Christopher Frelin">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor even depth-2">
+
+	    	<a name="comment-140777"></a>
+
+	      	<div id="li-comment-140777" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="https://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">August 29, 2016 at 5:14 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-140777" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-140777">
+				<p>You could try to play with the hover and click events.</p>
+<p>With jQuery “on” event handler you should be able to disable the default behaviour and do what you like when hover and click</p>
+<p><a href="http://api.jquery.com/on/" rel="nofollow">http://api.jquery.com/on/</a></p>
+<p>Also use this: <a href="https://api.jquery.com/event.preventdefault/" rel="nofollow">https://api.jquery.com/event.preventdefault/</a></p>
+<p>Regards and sorry for the late response.</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=140777#respond" onclick='return addComment.moveForm( "comment-140777", "140777", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent">
+
+	    	<a name="comment-143461"></a>
+
+	      	<div id="li-comment-143461" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/dd20707c1acd0936de03c4c70498f54f.jpg" srcset="https://secure.gravatar.com/avatar/dd20707c1acd0936de03c4c70498f54f?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">Kyle</span>           
+	                <span class="date">September 18, 2016 at 9:24 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-143461" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-143461">
+				<p>Ricard,</p>
+<p>First of all… THANK YOU THANK YOU THANK YOU for this.  it was very 
+helpful on a project i’m working on. I had one hangup that I can’t 
+figure out. When I copy and paste your code into the native environment 
+I’m working in, the “hamburger” menu button for mobile screens doesn’t 
+do anything upon clicking.  I know it’s hard to determine, but do you 
+know of anything that could be causing that?</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=143461#respond" onclick='return addComment.moveForm( "comment-143461", "143461", "respond", "6961" )' aria-label="Reply to Kyle">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor even depth-2">
+
+	    	<a name="comment-143557"></a>
+
+	      	<div id="li-comment-143557" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="https://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">September 19, 2016 at 2:19 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-143557" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-143557">
+				<p>We can rule out it has anything to do with the code above. </p>
+<p>Make sure you have included the JavaScript from Bootstrap.</p>
+<p>Regards</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=143557#respond" onclick='return addComment.moveForm( "comment-143557", "143557", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1 parent">
+
+	    	<a name="comment-149203"></a>
+
+	      	<div id="li-comment-149203" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/842c86c3e780b2beecbff779153320ea.png" srcset="https://secure.gravatar.com/avatar/842c86c3e780b2beecbff779153320ea?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn">James Spears</span>           
+	                <span class="date">October 25, 2016 at 8:27 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-149203" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-149203">
+				<p>Thank you very much, this was just what I needed.<br>
+–James.</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=149203#respond" onclick='return addComment.moveForm( "comment-149203", "149203", "respond", "6961" )' aria-label="Reply to James Spears">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	<ul class="children">
+
+		<li class="comment byuser comment-author-quicoto bypostauthor even depth-2">
+
+	    	<a name="comment-149227"></a>
+
+	      	<div id="li-comment-149227" class="comment-container">
+
+		      	<div class="comment-head vcard">
+		      	
+		      			                	<div class="avatar"><img alt="" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/3b6f2d380f8fcf8cd6f61031d2ff8e8b.jpg" srcset="https://secure.gravatar.com/avatar/3b6f2d380f8fcf8cd6f61031d2ff8e8b?s=140&amp;d=wavatar&amp;r=g 2x" class="photo avatar avatar-70 photo" width="70" height="70"></div>
+	            	
+	                <span class="name fn"><a href="https://php.quicoto.com/" rel="external nofollow" class="url">Rick</a></span>           
+	                <span class="date">October 25, 2016 at 10:47 pm</span>
+	                <span class="perma"><a href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#comment-149227" title="Direct link to this comment">#</a></span>
+	                <span class="edit"></span>
+
+				</div><!-- /.comment-head -->
+
+		   		<div class="comment-entry" id="comment-149227">
+				<p>You’re welcome James!</p>
+				
+	                <div class="reply">
+	                    <a rel="nofollow" class="comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/?replytocom=149227#respond" onclick='return addComment.moveForm( "comment-149227", "149227", "respond", "6961" )' aria-label="Reply to Rick">Reply</a>	                </div><!-- /.reply -->
+
+				</div><!-- /comment-entry -->
+
+			</div><!-- /.comment-container -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		</ol>
+
+		<nav class="navigation fix">
+			<div class="fl"></div>
+			<div class="fr"></div>
+		</nav><!-- /.navigation -->
+	
+	
+</div> <!-- /#comments_wrap -->
+
+				<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://php.quicoto.com/bootstrap-3-second-level-menu-nav/#respond" style="display:none;">Click here to cancel reply.</a></small></h3>				<form action="https://php.quicoto.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><p>Add <strong>&lt;code&gt;</strong><em> Some Code </em><strong>&lt;/code&gt;</strong> by using this tags.</p><p class="comment-form-author"><input placeholder="Name" id="author" class="txt" name="author" size="30" aria-required="true" required="required" type="text"></p>
+<p class="comment-form-email"><input placeholder="Email" id="email" class="txt" name="email" size="30" aria-required="true" required="required" type="text"></p>
+<p class="comment-form-url"><input placeholder="Website" id="url" class="txt" name="url" size="30" type="text"></p>
+<p class="form-submit"><input name="submit" id="submit" class="submit" value="Submit Comment" type="submit"> <input name="comment_post_ID" value="6961" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="2bfb8ad046" type="hidden"></p><p class="comment-subscription-form"><input name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p style="display: none;"></p>				<input id="ak_js" name="ak_js" value="1477954229057" type="hidden"></form>
+					</div><!-- #respond -->
+		
+		</section><!-- #main -->
+
+				
+		
+	
+	<section id="footer-widgets" class="col-full col-3 fix">
+
+					
+		<div class="block footer-widget-1">
+        	<div id="text-6" class="widget widget_text"><h3>© Rick’s code – All rights reserved</h3>			<div class="textwidget"></div>
+		</div>		</div>
+
+	        					
+		<div class="block footer-widget-2">
+        	<div id="text-4" class="widget widget_text">			<div class="textwidget"></div>
+		We've had <strong>3.806.893</strong> post views so far.<br>This page needed <strong>74</strong> queries in <strong>0.375</strong> seconds to load.</div>		</div>
+
+	        					
+		<div class="block footer-widget-3">
+        	<div id="text-5" class="widget widget_text"><h3>Sharing geekiness since 2010</h3>			<div class="textwidget"></div>
+		</div>		</div>
+
+	        		
+	</section><!-- /#footer-widgets  -->
+	
+	</div><!-- /#inner-wrapper -->
+</div><!-- /#wrapper -->
+<!--[if lt IE 9]>
+<script src="https://php.quicoto.com/wp-content/themes/showoff/includes/js/respond.js"></script>
+<![endif]-->
+<script>jQuery('#commentform').find('#author, #email, #comment').attr('required', 'required');</script>
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/php.quicoto.com\/bootstrap-3-second-level-menu-nav\/":6961};
+	</script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/form.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/comment-reply.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/wp-embed.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/sharing.js"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+</script>
+<script type="text/javascript" src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/e-201644.js" async="" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:4.3.2',blog:'12590159',post:'6961',tz:'1',srv:'php.quicoto.com'} ]);
+	_stq.push([ 'clickTrackerInit', '12590159', '6961' ]);
+</script>
+<div id="codeground-stats" style="display:none;">We've had <strong>3.806.893</strong> post views so far.<br>This page needed <strong>74</strong> queries in <strong>0.375</strong> seconds to load.</div>
+<script>
+jQuery(document).ready(function() {
+  jQuery('#text-4').append(jQuery('#codeground-stats').html());
+});
+</script>
+
+
+    </div><!-- #content --><img src="Bootstrap%203%20Second%20Level%20Menu%20Nav%20-%20Rick%27s%20code_fichiers/g.gif" alt=":)" id="wpstats" width="6" height="5"></body></html>

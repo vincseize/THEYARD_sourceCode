@@ -1,0 +1,13 @@
+
+label{font-size: 1.2rem;}
+.input-add{height: 3.3125rem;font-size: 1.2rem;}
+.btn-default-add {border: black 1px solid;padding-top: .8rem;padding-right: 0.8rem;padding-bottom: .8rem;padding-left: 0.8rem;}
+#row_project{ margin:0px 0px 0px 0px;width: 100%;}
+.crud-add-edit{width:40%;margin:10px; }
+.crud-add-edit form{width:50%;}
+.glyphicon{font-size: 20px;}
+.glyphicon-arrow-left{float: right;}
+a.glyphicon{text-decoration: none;}
+
+
+

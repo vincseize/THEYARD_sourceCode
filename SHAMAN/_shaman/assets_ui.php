@@ -25,6 +25,8 @@
 $id_project = '1';
 $datas_projects     = $db->getRows('projects',array('where'=>array('id'=>$id_project),'return_type'=>'single'));
 
+//$saltz =  uniqid(mt_rand(), true);
+
 
 foreach($assets_modified as $data){ 
         if($data['active']=="1"){ 
@@ -105,7 +107,15 @@ echo "<div id='box_shadow' class='item box_shadow'>";
 
 
     echo "<div class='data-name' style='font-size:0.7em;padding-top:2px;'>".$data['name']."</div>";
-echo "<a href='crud/assets_edit.php?id=".$data['id']."'>";
+/*echo "<a href='crud/assets_edit.php?id=".$data['id']."'>";*/
+
+echo "<a href='crud/assets_edit.php?id=".$data['id']."' name='".$data['name']."'  target='iframe_editA7' class='editA7'>";
+//<a href="_crud/asset_edit.php?id=113" target="iframe_editA7" class='editA7'>Link iframe2</a> 
+// <a href="crud/asset_edit.php?id=113" target="iframe_editA7" class='editA7'>Link iframe2</a> 
+
+
+
+
         echo $vignette;
 echo "</a>";
         echo "<div class='tags-tasks'>";

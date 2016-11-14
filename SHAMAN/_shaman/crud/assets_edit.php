@@ -307,19 +307,21 @@ header
 
 </div> -->
 
-<div class="header">
-<?php include('menu_top_edit.php'); ?>
-</div>
+<!-- <div class="header"> -->
+<?php 
+//include('menu_top_edit.php'); 
+?>
+<!-- </div> -->
 
 
 <div class="section group" style="background-color:#262626;padding-right:0px;margin-right:0px;right:0px;width:100%;">
 	<div class="col span_1_of_3 " style=" border: 1px solid black;padding-right:0px;width:<?php echo W_V_EDIT;?>px;height:<?php echo H_V_EDIT;?>px;);background-size: cover;">
 	<?php include('_vignette.php'); ?>
 	</div>
-	<div class="col span_1_of_3 " style="height:<?php echo H_V_EDIT;?>px;);width:<?php echo (W_V_EDIT-100);?>px;background-color:#303030;">
+	<div class="col span_1_of_3 " style="height:<?php echo H_V_EDIT;?>px;);width:<?php echo (W_V_EDIT-100);?>px;background-color:#303030;margin-top:25px;">
 	<?php include('_description.php'); ?>
 	</div>
-	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);width:50%;background-color:#303030;padding-right:0px;margin-right:0px;">
+	<div class="col span_1_of_3 "  style="height:<?php echo H_V_EDIT;?>px;);width:50%;background-color:#303030;padding-right:0px;margin-right:0px;margin-top:25px;">
 	<?php include('_tags.php'); ?>
 	</div>
 
@@ -648,14 +650,14 @@ $('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><sou
 
 
 
-    window.onkeyup = function(e) {
+ /*   window.onkeyup = function(e) {
 
         var event = e.which || e.keyCode || 0; // .which with fallback
 
         if (event == 27) { // ESC Key
             window.location.href = '../index.php'; // Navigate to URL
         }
-    }
+    }*/
 
 
 

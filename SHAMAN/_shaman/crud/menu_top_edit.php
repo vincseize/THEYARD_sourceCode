@@ -1,7 +1,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height:60px">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height:75px">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -9,8 +9,8 @@
                   <div class="filter"  style="position:absolute;top:5px;left:-10px">
                   <li class="filter active" data-filter="all" >
 
-       <span style="font-size:38px;font-weight:bold;color:#ddd;"><?php echo $datas['name'];?></span>
-
+<!--        <span style="font-size:38px;font-weight:bold;color:#ddd;"><?php echo $datas['name'];?></span> -->
+       <span id="edit_nameA7" style="font-size:38px;font-weight:bold;color:#ddd;"></span>
 
                       
 
@@ -38,7 +38,7 @@
 
                        <ul style="text-decoration:none;margin-top:0px;"> 
   
-<a  href="../index.php"  title="[ esc key ]" style="text-decoration:none;font-size:32px;color:#eee;">
+<a  href="#"  title="[ esc key ]" style="text-decoration:none;font-size:32px;color:#eee;" id="closeA7edit">
   
 
 <span class="glyphicon glyphicon-remove-sign">

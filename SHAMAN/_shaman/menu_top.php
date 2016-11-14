@@ -2,7 +2,7 @@
 
 
   <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top"  style="background-color: #333333;width: 100%;border:none;">
+    <nav class="navbar navbar-default navbar-fixed-top"  style="background-color: #333333;width: 100%;border:none;height:75px;">
 
 
 

@@ -1,6 +1,6 @@
 <?php
-@session_start();
-//if(!isset($_SESSION['user_session'])){header("Location: logout.php");}
+/*@session_start();
+if(!isset($_SESSION['user_session'])){header("Location: logout.php");}*/
 //require '../../inc/crud.php';
 ?>
 <!DOCTYPE html>

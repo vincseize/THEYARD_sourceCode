@@ -104,13 +104,62 @@ a:active {
 
 <body>
 
+<div id="top">
+<?php 
+include('menu_top.php');
+?>
+</div>	
+<div id="top_edit" style="display:none;">
+<?php 
+include('crud/menu_top_edit.php');
 
-<?php include('menu_top.php');?>
-	
+
+
+
+
+
+
+
+
+?>
+</div>  
 
 
 <br>
   
+<iframe  name="iframe_editA7" id="iframe_editA7" style="padding-top:0px;width:100%;height:100%;border:0px;position: fixed;display:none;">
+
+</iframe >
+
+<!-- 
+<font color=white>
+
+
+<a href="crud/asset_edit.php?id=113" target="iframe_editA7" class='editA7'>Link iframe2</a> 
+
+
+
+
+
+
+</font>
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div id="content-item" class="content-item"  style="padding-top:50px;">
 
@@ -232,7 +281,7 @@ $(document).ready(function(){
 
     $(function () {
 
-        $('#content-asset-crud').hide();
+        $('#iframe_editA7').hide();
 
        // Filters
         $('#recipes').mixitup();     
@@ -245,10 +294,10 @@ $(document).ready(function(){
 
         //var select_id_project = document.getElementById("select_projects").value;
         //alert(select_id_project);
-        $('#ids_projects').val('1');
+        $('#ids_projects').val(<?php echo ID_PROJECT;?>);
 
         $('#select_projects').change( function() {
-            $('#ids_projects').val($(this).val());
+            $('#ids_projects').val(<?php echo ID_PROJECT;?>);
         });
 
 
@@ -256,7 +305,7 @@ $(document).ready(function(){
 /*            var select_id_project = document.getElementById("select_projects").value;
             window.location.href = "new_asset.php?id_project="+select_id_project;
             var select_id_project = document.getElementById("select_projects").value;*/
-            window.location.href = "new_asset.php?id_project=1";
+            window.location.href = "new_asset.php?id_project=<?php echo ID_PROJECT;?>";
         });
 
         var menu = new BootstrapMenu('#content-item', {
@@ -273,12 +322,46 @@ $(document).ready(function(){
 
 /*              var select_id_project = document.getElementById("select_projects").value;
               window.location.href = "new_asset.php?id_project="+select_id_project;*/
-              window.location.href = "new_asset.php?id_project=1";
+              window.location.href = "new_asset.php?id_project=<?php echo ID_PROJECT;?>";
             }
           }
 
           ]
         });
+
+
+
+        $(".editA7").click(function(e) {
+            $('#top').hide();
+            $('#content-item').hide();
+            $('#top_edit').show();
+            $('#iframe_editA7').show();
+            $("#edit_nameA7").text($(this).attr("name"));
+            
+        });
+
+        $("#closeA7edit").click(function(e) {
+            $('#top_edit').hide();
+            $('#iframe_editA7').hide();
+            $('#top').show();
+            $('#content-item').show();
+        });
+
+
+
+
+   window.onkeyup = function(e) {
+
+        var event = e.which || e.keyCode || 0; // .which with fallback
+
+        if (event == 27) { // ESC Key
+            $('#top_edit').hide();
+            $('#iframe_editA7').hide();
+            $('#top').show();
+            $('#content-item').show();
+        }
+    }
+
 
 
     });
