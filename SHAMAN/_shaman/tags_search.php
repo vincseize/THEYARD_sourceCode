@@ -29,6 +29,7 @@ $PRESELECTED_TAGS = substr($PRESELECTED_TAGS, 0, -1);
 ?>
 <select id="e1" class="form-control input-md select2 myTags" multiple id="e1" style="width:90%;padding:0px;border:none;color:black;">
  <?php
+                                  // tags
                                   if(!empty($tags_asc)){ 
                                       foreach($tags_asc as $data){ 
                                           if($data['active']=='1'){ 
@@ -39,7 +40,7 @@ $PRESELECTED_TAGS = substr($PRESELECTED_TAGS, 0, -1);
                                       }
                                   }
 
-
+                                  // assets
                                   if(!empty($assets_asc)){ 
                                       foreach($assets_asc as $data){ 
                                           if($data['active']=='1'){ 
@@ -50,11 +51,35 @@ $PRESELECTED_TAGS = substr($PRESELECTED_TAGS, 0, -1);
                                       }
                                   }
 
+                                  // steps
+                                  if(!empty($steps_pos_asc)){ 
+                                      foreach($steps_pos_asc as $data){ 
+                                          if($data['active']=='1'){ 
+                                              echo "<option value='asset_".$data['id']."'/>".$data['step']."</option>";
+                                              // <li class='filter' data-filter='".$data2['tag']."'>
+                                           } 
+
+                                      }
+                                  }
+
 ?>
 </select>
 </div>
 
+<style>
 
+.select2-drop {
+    /*display: none !important;*/
+/*    opacity: 0.3;
+    background: none;*/
+    /*background-color: #555;*/
+}
+
+/*.select2-no-results {
+    display: none !important;
+}*/
+
+</style>
 
 
 <script>
@@ -69,6 +94,7 @@ $(document).ready(function() {
       // $("#e1").select2({placeholder: "Tags"});
 
 $("#e1").select2();
+
  var PRESELECTED_TAGS = [
               <?php
               echo $PRESELECTED_TAGS;

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['user_session'])){header("Location: logout.php");}
-//include_once '../inc/dbconfig.php';
+// require '../inc/dbconfig.php';
 require '../inc/crud.php';
 $tbl = strtolower(substr($tblName,0,-1));
 
@@ -282,6 +282,7 @@ $(document).ready(function(){
     $(function () {
 
         $('#iframe_editA7').hide();
+        $('#top_edit').hide();
 
        // Filters
         $('#recipes').mixitup();     
@@ -336,7 +337,7 @@ $(document).ready(function(){
             $('#content-item').hide();
             $('#top_edit').show();
             $('#iframe_editA7').show();
-            $("#edit_nameA7").text($(this).attr("name"));
+            $("#assetEdit_name").text($(this).attr("name"));
             
         });
 

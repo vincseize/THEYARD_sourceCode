@@ -1,21 +1,71 @@
 
+<?php
+//require '../../inc/crud.php';
+
+$db = new DB();
+$tblName = 'assets';
+$datas_id_asset              = $db->getRows($tblName,array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
+$modified    = $datas_id_asset['modified'];
+
+
+/*if ( $_SERVER["SERVER_ADDR"] == "82.223.10.101" ) {
+  $db_host = "82.223.10.101";
+  $db_name = "minuscule2";
+  $db_user = "Mimi";
+  $db_pass = "Coccinelle2016";
+}else{ // dev server
+
+
+  $db_host = "db651115066.db.1and1.com";
+  $db_name = "db651115066";
+  $db_user = "dbo651115066";
+  $db_pass = "shaman2016";
+
+
+}
+try {
+  $db_con = new PDO("mysql:host={$db_host};dbname={$db_name}",$db_user,$db_pass);
+  $db_con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+} catch(PDOException $ex) {
+    echo "An Error occured!"; //user friendly message
+}
+
+
+
+$stmt = $db_con->prepare("SELECT id,modified,name FROM assets WHERE modified LIKE '2016-11-13 23:11:38'");
+$stmt->execute();
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+$count = $stmt->rowCount();
+*/
+
+?>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height:75px">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height:76px">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
 
-                  <div class="filter"  style="position:absolute;top:5px;left:-10px">
-                  <li class="filter active" data-filter="all" >
+                  <div class="assetEdit_title_div"  style="position:absolute;top:5px;left:10px;color: :#ddd">
+           <!--        <li class="filter active" data-filter="all" > -->
 
-<!--        <span style="font-size:38px;font-weight:bold;color:#ddd;"><?php echo $datas['name'];?></span> -->
-       <span id="edit_nameA7" style="font-size:38px;font-weight:bold;color:#ddd;"></span>
+<?php 
+//echo $modified;
+?>
 
-                      
+       <!-- <span id="assetEdit_before" style="font-size:38px;font-weight:bold;color:#ddd;"><</span> -->
+
+       <span id="assetEdit_name" style="font-size:38px;font-weight:bold;color:#ddd;"></span>
+
+       <!-- <span id="assetEdit_next" style="font-size:38px;font-weight:bold;color:#ddd;">></span>   -->             
 
 
-                  </li>
+<?php 
+//print_r($count);
+// echo $_SERVER["SERVER_ADDR"];
+?>
 
 
 

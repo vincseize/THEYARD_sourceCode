@@ -34,23 +34,9 @@ class DB{
      * Considerate dev and deploy serveur
      */	
     public function __construct(){
-        if ( $_SERVER["SERVER_ADDR"] == "87.106.186.6") {
-                // Connect to server dev    
-                if(!isset($this->db)){
-                    // Connect to the database
-                    try{
-                        $conn = new PDO("mysql:host=".$this->dbHost_dev.";dbname=".$this->dbName_dev, $this->dbUsername_dev, $this->dbPassword_dev);
-                        $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                        $this->db = $conn;
-                    }catch(PDOException $e){
-                        die("Connection error: " . $e->getMessage());
-                    }
-                }
-        } 
-        else
-if ( $_SERVER["SERVER_ADDR"] == '82.223.10.101') {
+        if ( $_SERVER["SERVER_ADDR"] == '82.223.10.101') {
 
-        {
+        
                 // Connect to server    
                 if(!isset($this->db)){
                     // Connect to the database
@@ -63,7 +49,24 @@ if ( $_SERVER["SERVER_ADDR"] == '82.223.10.101') {
                     }
                 }
         } 
-}
+
+        else{
+
+                // Connect to server dev    
+                if(!isset($this->db)){
+                    // Connect to the database
+                    try{
+                        $conn = new PDO("mysql:host=".$this->dbHost_dev.";dbname=".$this->dbName_dev, $this->dbUsername_dev, $this->dbPassword_dev);
+                        $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                        $this->db = $conn;
+                    }catch(PDOException $e){
+                        die("Connection error: " . $e->getMessage());
+                    }
+                }
+        }
+
+
+
 
 
 

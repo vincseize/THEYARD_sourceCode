@@ -4,10 +4,10 @@ require 'DB.php';
 $db = new DB();
 
 if ( $_SERVER["SERVER_ADDR"] == "127.0.0.1" ) {
-	$db_host = "localhost";
-	$db_name = "theyard";
-	$db_user = "root";
-	$db_pass = "";
+	$db_host = "db651115066.db.1and1.com";
+	$db_name = "db651115066";
+	$db_user = "dbo651115066";
+	$db_pass = "shaman2016";
 }else{
 /*	$db_host = "localhost";
 	$db_name = "shaman";

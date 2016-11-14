@@ -44,9 +44,15 @@ foreach($assets_modified as $data){
                                 }
                   }
 
-
-
-
+                  $ar_tags_steps = explode("-", $data['ids_tags_steps']);
+                  foreach($ar_tags_steps as $st){ 
+                        if (strpos($st, '[') !== false) {
+                            $tmp = explode("[", $st);
+                            $id_step = substr($tmp[1], 0, -1);
+                            $datas_steps     = $db->getRows('steps',array('where'=>array('id'=>$id_step),'return_type'=>'single'));
+                            $tags = $tags . ' ' . $datas_steps['step'] ;
+                        }
+                  }
 
 
                   $comment = '&nbsp;';
