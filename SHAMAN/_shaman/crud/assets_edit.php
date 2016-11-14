@@ -381,22 +381,25 @@ print_r($next_id);
 
 ?>
 
+<?php 
+if(!empty($previous_id)){ 
+    echo "<span class='assetEdit_previous' style='font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:10px;opacity:0.2;'>";
+    echo "<a href='assets_edit.php?id=".$previous_id."' id='assetEdit_previous'  target='_self'>";
+    echo "<";
+    echo "</a>";
+    echo "</span>";
+}
+?>
 
-<span class="assetEdit_previous" style="font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:10px;opacity:0.2;">
-<a href='assets_edit.php?id=<?php echo $previous_id;?>' id="assetEdit_previous"  target='_self'>
-<
-</a>
-</span>
-
-<span  class="assetEdit_next" style="font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:390px;opacity:0.2;">
-
-
-<a href='assets_edit.php?id=<?php echo $next_id;?>' id="assetEdit_next" target='_self'>
->
-</a>
-
-</span>   
-
+<?php 
+if(!empty($next_id)){ 
+    echo "<span  class='assetEdit_next' style='font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:390px;opacity:0.2;'>";
+    echo "<a href='assets_edit.php?id=".$next_id."' id='assetEdit_next' target='_self'>";
+    echo ">";
+    echo "</a>";
+    echo "</span>";   
+}
+?>
 
 
 
