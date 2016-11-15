@@ -303,11 +303,21 @@ a:active { text-decoration: none; }
 
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $(function () {
+
+        $('#iframe_editA7').hide();
+        $('#top_edit').hide();
 
 
+    });
 
 
+});
 
+</script>
 
 
 </body>
