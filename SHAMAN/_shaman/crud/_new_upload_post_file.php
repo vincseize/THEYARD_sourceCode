@@ -3,28 +3,13 @@
 if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
 require '../../inc/crud.php';
 include '../../classes/__classes_movie.php';
+include '../../classes/__classes_img.php';
 $db = new DB();
 $tblName = 'assets';
 $datas              = $db->getRows($tblName,array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
 $datas_projects     = $db->getRows('projects',array('where'=>array('id'=>$datas['ids_projects']),'return_type'=>'single'));
 
 $ds = DIRECTORY_SEPARATOR;
-
-/*
-
-$ids_projects   = $POST['ids_projects'];
-$name_project   = $POST['name_project'];
-$folder_name    = $POST['folder_name'];
-*/
-
-/*
-$ids_projects   = $GET['ids_projects'];
-
-
-$ids_projects   = '1';
-$name_project   = 'minuscule2';
-$folder_name    = '1_14_ZAAAAAAAAAAAA';
-*/
 
 $ids_projects   = $datas['ids_projects'];
 $name_project   = $datas_projects['project'];

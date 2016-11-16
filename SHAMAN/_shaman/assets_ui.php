@@ -28,7 +28,7 @@ $datas_projects     = $db->getRows('projects',array('where'=>array('id'=>$id_pro
 //$saltz =  uniqid(mt_rand(), true);
 
 
-foreach($assets_modified as $data){ 
+foreach($datas_assets_modified as $data){ 
         if($data['active']=="1"){ 
 
 

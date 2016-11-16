@@ -50,37 +50,50 @@ if(isset($_REQUEST['action_type']) && !empty($_REQUEST['action_type'])){
 
     if($_REQUEST['action_type'] == 'add'){
 
-        
-
-
+        // insert new comment
         $data = array(
-
             'id_asset' => $_POST['id_asset'],
             'id_creator' => $_POST['id_creator'],
             'comments' => $_POST['comments'],
             'timestamp_id_creator' => $_POST['timestamp_id_creator'],
             'modified_by' => $_POST['modified_by']
-
         );
         $insert = $db->insert($tblName,$data);
+
+        // update modified asset
+        $data = array(
+            'modified_by' => $_POST['modified_by']
+        );        
+        $condition = array('id' => $_POST['id_asset']);
+        $update = $db->update('assets',$data,$condition);
+
+        //
         $Msg = $insert?'Asset data has been inserted successfully.':'Some problem occurred, please try again.';
         $_SESSION['projectMsg'] = $Msg;
+
         header("Location:assets_edit.php?id=".$_POST['id_asset']."");
 
 
     }elseif($_REQUEST['action_type'] == 'edit'){
         if(!empty($_POST['id'])){
-/*            $archived=1;
-            if($_POST['activeValue']==1){$archived=0;}*/
+            // update new comment
             $data = array(
-                'project' => $_POST['project'],
-                'description' => $_POST['description'],
-                'active' => $_POST['activeValue'],
-                'archived' => $_POST['archivedValue'],
+                'id_asset' => $_POST['id_asset'],
+                'id_creator' => $_POST['id_creator'],
+                'comments' => $_POST['comments'],
                 'modified_by' => $_POST['modified_by']
             );
             $condition = array('id' => $_POST['id']);
             $update = $db->update($tblName,$data,$condition);
+            
+            // update modified asset
+            $data = array(
+                'modified_by' => $_POST['modified_by']
+            );        
+            $condition = array('id' => $_POST['id_asset']);
+            $update = $db->update('assets',$data,$condition);
+
+            //
             $projectMsg = $update?'Project data has been updated successfully.':'Some problem occurred, please try again.';
             $_SESSION['projectMsg'] = $projectMsg;
             header("Location:assets_edit.php?id=".$_POST['id_asset']."");

@@ -5,12 +5,14 @@ if(!isset($_SESSION['user_session'])){header("Location: logout.php");}
 require '../inc/crud.php';
 $tbl = strtolower(substr($tblName,0,-1));
 
-$datas_projects      = $projects;
-$datas_tags          = $tags;
-$datas_assets        = $assets;
-$datas_users         = $users;
-$datas_comments      = $comments;
-$datas_comments_asc  = $comments_asc;
+$datas_projects         = $projects;
+$datas_tags             = $tags;
+$datas_assets           = $assets;
+$datas_assets_asc       = $assets_asc;
+$datas_assets_modified  = $assets_modified;
+$datas_users            = $users;
+$datas_comments         = $comments;
+$datas_comments_asc     = $comments_asc;
 
 /*require '../inc/DB.php';
 $db = new DB();*/

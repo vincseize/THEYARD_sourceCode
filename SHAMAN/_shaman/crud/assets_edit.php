@@ -3,8 +3,11 @@
 @session_start();
 if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
 require '../../inc/crud.php';
-
 $db = new DB();
+require '../../classes/__classes_fcts.php';
+$fcts = new fcts();
+
+
 $tblName = 'assets';
 $datas              = $db->getRows($tblName,array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
 $datas_projects     = $db->getRows('projects',array('where'=>array('id'=>$datas['ids_projects']),'return_type'=>'single'));
@@ -145,135 +148,89 @@ if(sizeof($arr_tags) > 0){
           foreach ($arr_tags as $st) {
               $st_tags = $st.','.$st_tags;
           }
-/*          echo "<br>";
-          echo $st_tags;*/
 
           foreach ($datas_assets as $d) {
-
               if (strpos($d['ids_tags'], $st_tags) !== false) {
-
-
-
-
                   $array = array();
                   $array['modified'] = $d['modified'];
                   $array['id'] = $d['id'];
                   $array['name'] = $d['name'];
-
-
-/*                    echo $d['name'];
-                    echo "<br>";*/
-                    array_push($array_ids_tags_check, $array);
-                    //$array_ids_tags_check[$d['id']] = $d['modified'];
+                  array_push($array_ids_tags_check, $array);
               }
-
-
-
           }
 
-
-function searchForId($key_search, $id, $array) {
-    consoleLog('$key_search',$key_search);
-   foreach ($array as $key => $val) {
-       if ($val[$key_search] === $id) {
-            $ar = array();
-            array_push($ar, $key);
-            array_push($ar, $val[$key_search]);
-            array_push($ar, $val['id']);
-            array_push($ar, $val['name']);
-            array_push($ar, $val['modified']);
-           return $ar;
+    function searchForId($key_search, $id, $array, $fcts) {
+        //$fcts->consoleLog('$key_search',$key_search);
+       foreach ($array as $key => $val) {
+           if ($val[$key_search] === $id) {
+                $ar = array();
+                array_push($ar, $key);
+                array_push($ar, $val[$key_search]);
+                array_push($ar, $val['id']);
+                array_push($ar, $val['name']);
+                array_push($ar, $val['modified']);
+               return $ar;
+           }
        }
-   }
-   return null;
-}
+       return null;
+    }
 
-function searchForKeyVal($key_search, $array) {
-    consoleLog('$key_search',$key_search);
-   foreach ($array as $key => $val) {
-      if ($key === $key_search) {
-          return $val['id'];
-        }
-   }
-   return null;
-}
+    function searchForKeyVal($key_search, $array, $fcts) {
+        //$fcts->consoleLog('$key_search',$key_search);
+       foreach ($array as $key => $val) {
+          if ($key === $key_search) {
+              return $val['id'];
+            }
+       }
+       return null;
+    }
 
-function consoleLog( $title, $data ) {
-    // print_r($data);
-    if ( is_array( $data ) )
-        $output = "<script>console.log( 'Debug Objects ".$title.": " . implode( ',', $data) . "' );</script>";
-    else
-        $output = "<script>console.log( 'Debug Objects ".$title.": " . $data . "' );</script>";
-
-    echo $output;
-}
+    function consoleLog( $title, $data ) {
+        if ( is_array( $data ) )
+            $output = "<script>console.log( 'Debug Objects ".$title.": " . implode( ',', $data) . "' );</script>";
+        else
+            $output = "<script>console.log( 'Debug Objects ".$title.": " . $data . "' );</script>";
+            echo $output;
+    }
 
 
+    sort($array_ids_tags_check);
 
-sort($array_ids_tags_check);
-// print_r($array_ids_tags_check);
+/*    foreach ($array_ids_tags_check as $key => $value) {
+        $fcts->consoleLog('date ',$value['modified'] . ' | ' . $value['id']);
+    }*/
 
-foreach ($array_ids_tags_check as $key => $value) {
-/*    print_r($value);
-    print_r("<br>");*/
-    consoleLog('date ',$value['modified'] . ' | ' . $value['id']);
+    //$fcts->consoleLog('$array_ids_tags_checkKLASS',$array_ids_tags_check);
 
-}
+    $res = searchForId('id',$_GET['id'], $array_ids_tags_check,$fcts);
+    $key = $res[0];
+    $id = $res[1];
+    $id_ar = $res[2];
+    $name_ar = $res[3];
+    $modified_ar = $res[4];
+    //$fcts->consoleLog('$id',$id);
+    //$fcts->consoleLog('$id_ar',$id_ar);
+    //$fcts->consoleLog('$name_ar',$name_ar);
+    //$fcts->consoleLog('$modified_ar',$modified_ar);
 
+    //$fcts->consoleLog('$key',$key);
+    //$fcts->consoleLog('$id',$id);
 
+    $key_next = $key-1;
+    //$fcts->consoleLog('$key_next',$key_next);
+    $next_id = searchForKeyVal($key_next, $array_ids_tags_check,$fcts);
+    //$fcts->consoleLog('$searchForKeyVal Next ID',$next_id);
+    $res = searchForId('id',$next_id, $array_ids_tags_check,$fcts);
+    $next_name  = $res[3];
+    //$fcts->consoleLog('$next_name',$next_name);
 
-
-consoleLog('$array_ids_tags_check',$array_ids_tags_check);
-
-
-
-$res = searchForId('id',$_GET['id'], $array_ids_tags_check);
-$key = $res[0];
-$id = $res[1];
-$id_ar = $res[2];
-$name_ar = $res[3];
-$modified_ar = $res[4];
-consoleLog('$id',$id);
-consoleLog('$id_ar',$id_ar);
-consoleLog('$name_ar',$name_ar);
-consoleLog('$modified_ar',$modified_ar);
-
-consoleLog('$key',$key);
-consoleLog('$id',$id);
-
-$key_next = $key-1;
-consoleLog('$key_next',$key_next);
-$next_id = searchForKeyVal($key_next, $array_ids_tags_check);
-consoleLog('$searchForKeyVal',$nextKeyID);
-$res = searchForId('id',$next_id, $array_ids_tags_check);
-$next_name  = $res[3];
-consoleLog('$next_name',$next_name);
-
-
-$key_before = $key+1;
-consoleLog('$key_next',$key_before);
-$previous_id = searchForKeyVal($key_before, $array_ids_tags_check);
-consoleLog('$searchForKeyVal',$previousKeyID);
-$res = searchForId('id',$previous_id, $array_ids_tags_check);
-$previous_name  = $res[3];
-consoleLog('$previous_name',$previous_name);
-
-
-
-
-
-/*      // $stmt = $db_con->prepare("SELECT id,modified,name FROM assets WHERE modified LIKE '2016-11-13 23:11:38'");
-      $stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified >= '".$modified."' AND name NOT LIKE '".$name."'  AND id IN($array_ids_tags_check) ORDER BY modified ASC LIMIT 1");
-      $stmt->execute();
-      //$row = $stmt->fetch(PDO::FETCH_ASSOC);
-      $row = $stmt->fetchAll();
-      //$count = $stmt->rowCount();
-      $previous_id = $row[0]['id'];
-      $previous_name = $row[0]['name'];
-
-*/
-
-
+    $key_before = $key+1;
+    //$fcts->consoleLog('$key_next',$key_before);
+    $previous_id = searchForKeyVal($key_before, $array_ids_tags_check,$fcts);
+    //$fcts->consoleLog('$searchForKeyVal Previous ID',$previous_id);
+    $res = searchForId('id',$previous_id, $array_ids_tags_check,$fcts);
+    $previous_name  = $res[3];
+    //$fcts->consoleLog('$previous_name',$previous_name);
 
 
 }
@@ -713,6 +670,56 @@ $(document).ready(function (e) {
 
 
 
+    function image_next() {
+             $('#assetEdit_name', window.parent.document).text('<?php echo $next_name;?>');
+    };
+
+    function image_previous() {
+            $('#assetEdit_name', window.parent.document).text('<?php echo $previous_name;?>');
+    };
+
+
+
+
+
+    $("#assetEdit_next").click(function() {
+        //$('#assetEdit_name', window.parent.document).text('<?php echo $next_name;?>');
+        image_next();
+    });
+    $("#assetEdit_previous").click(function() {
+        //$('#assetEdit_name', window.parent.document).text('<?php echo $previous_name;?>');
+        image_previous();
+    });
+
+
+/*   window.onkeyup = function(e) {
+        var event = e.which || e.keyCode || 0; // .which with fallback
+        if (event == 39) { // > Key
+            alert('image_next');
+            $('#assetEdit_name', window.parent.document).text('<?php echo $next_name;?>');
+        }
+        if (event == 37) { // < Key
+            alert('image_previous');
+            $('#assetEdit_name', window.parent.document).text('<?php echo $previous_name;?>');
+        }
+    }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $("#assetEdit_next").click(function() {
             //console.log('next')
             $('#assetEdit_name', window.parent.document).text('<?php echo $next_name;?>');
@@ -1065,7 +1072,7 @@ $('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><sou
 /*        $('#update_upload').load('new_upload.php');*/
 // alert(timestamp_id_creator);
 
-      	$( '#update_upload_'+id_comment).load( "new_upload.php?id=<?php echo $_GET['id'];?>&timestamp_id_creator=" + timestamp_id_creator + "" );
+      	$( '#update_upload_'+id_comment).load( "_new_upload.php?id=<?php echo $_GET['id'];?>&timestamp_id_creator=" + timestamp_id_creator + "" );
 
               var OriginalContent = $(this).text();
               $(this).addClass("cellEditing");
