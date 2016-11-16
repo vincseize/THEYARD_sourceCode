@@ -17,8 +17,11 @@ $folder_name    = $datas['folder_name'];
 $timestamp_id_creator = $_GET['timestamp_id_creator'];
 
 
-$valid_formats = array("jpeg", "jpg", "png", "gif", "zip", "mp4", "tiff", "tif");
-$max_file_size = 1024*1000000 ; //100 0000 kb
+// $valid_formats = array("jpeg", "jpg", "png", "gif", "zip", "mp4", "tiff", "tif");
+
+// $max_file_size = 1024*3000000 ; //100 0000 kb  / 1024 000 => 1000 ko => 1 Mo
+// MAX_FILE_SIZE
+
 // $path = "uploads/"; // Upload directory
 $path = $DATASstoreFolder = "../../".DATASstoreFolderName.$ds.$ids_projects."_".$name_project.$ds."assets".$ds.$folder_name.$ds."comments".$ds.$timestamp_id_creator.$ds;
 
@@ -37,7 +40,7 @@ if(isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST"){
 	            $message[] = "$name is too large!.";
 	            continue; // Skip large files
 	        }*/
-			if( ! in_array(pathinfo($name, PATHINFO_EXTENSION), $valid_formats) ){
+			if( ! in_array(pathinfo($name, PATHINFO_EXTENSION), VALID_FORMATS_UPLOAD) ){
 				$message[] = "$name is not a valid format";
 				continue; // Skip invalid file formats
 			}

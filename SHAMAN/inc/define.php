@@ -29,6 +29,20 @@ define ('VIGNETTE_A7','vignette.jpg');
 define ('VIGNETTE_A7_COMP','vignette_comp.jpg');
 define ('VIGNETTE_A7_HOME','vignette_home.jpg');
 
+// FORMATS
+define ('VALID_FORMATS_UPLOAD',array("jpeg", "jpg", "png", "gif", "zip", "mp4", "tiff", "tif"));
+define ('MAX_FILE_SIZE',1024*3000000); //100 0000 kb  / 1024 000 => 1000 ko => 1 Mo
+
+// PATTERNS
+
+/*$pattern_accents = array("'é'", "'è'", "'ë'", "'ê'", "'É'", "'È'", "'Ë'", "'Ê'", "'á'", "'à'", "'ä'", "'â'", "'å'", "'Á'", "'À'", "'Ä'", "'Â'", "'Å'", "'ó'", "'ò'", "'ö'", "'ô'", "'Ó'", "'Ò'", "'Ö'", "'Ô'", "'í'", "'ì'", "'ï'", "'î'", "'Í'", "'Ì'", "'Ï'", "'Î'", "'ú'", "'ù'", "'ü'", "'û'", "'Ú'", "'Ù'", "'Ü'", "'Û'", "'ý'", "'ÿ'", "'Ý'", "'ø'", "'Ø'", "'œ'", "'Œ'", "'Æ'", "'ç'", "'Ç'");
+
+define ('PATTERN_ACCENTS',$pattern_accents);
+
+$pattern_accents_replace = array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E', 'a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A', 'A', 'o', 'o', 'o', 'o', 'O', 'O', 'O', 'O', 'i', 'i', 'i', 'I', 'I', 'I', 'I', 'I', 'u', 'u', 'u', 'u', 'U', 'U', 'U', 'U', 'y', 'y', 'Y', 'o', 'O', 'a', 'A', 'A', 'c', 'C');
+
+define ('PATTERN_ACCENTS_REPLACE',$pattern_accents_replace);*/
+
 // COMPRESSION
 define ('COMP_VIGNETTE_A7_HOME','40');
 define ('COMP_VIGNETTE_A7_EDIT','60');

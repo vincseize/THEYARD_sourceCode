@@ -1,6 +1,8 @@
 <?php
 @session_start();
 if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
+require '../../classes/__classes_fcts.php';
+$fcts = new FCTS();
 require '../../inc/crud.php';
 $db = new DB();
 $tblName = 'assets';
@@ -28,6 +30,7 @@ if(isset($_REQUEST['action_type']) && !empty($_REQUEST['action_type'])){
         $name_project   = $datas_projects['project'];
         $asset = $_POST['name'];
         $asset = preg_replace('{/@|\./}','',$asset);
+        $asset     =  $fcts->replace_accents($asset);
         //$asset = iconv('utf-8', 'us-ascii//TRANSLIT', $asset);
 
         $ids_tagsValue = $_POST['ids_tagsValue'];
@@ -88,14 +91,21 @@ foreach($datas_assets as $data){
 
 
 
-$pattern = array("'é'", "'è'", "'ë'", "'ê'", "'É'", "'È'", "'Ë'", "'Ê'", "'á'", "'à'", "'ä'", "'â'", "'å'", "'Á'", "'À'", "'Ä'", "'Â'", "'Å'", "'ó'", "'ò'", "'ö'", "'ô'", "'Ó'", "'Ò'", "'Ö'", "'Ô'", "'í'", "'ì'", "'ï'", "'î'", "'Í'", "'Ì'", "'Ï'", "'Î'", "'ú'", "'ù'", "'ü'", "'û'", "'Ú'", "'Ù'", "'Ü'", "'Û'", "'ý'", "'ÿ'", "'Ý'", "'ø'", "'Ø'", "'œ'", "'Œ'", "'Æ'", "'ç'", "'Ç'");
+/*$pattern = array("'é'", "'è'", "'ë'", "'ê'", "'É'", "'È'", "'Ë'", "'Ê'", "'á'", "'à'", "'ä'", "'â'", "'å'", "'Á'", "'À'", "'Ä'", "'Â'", "'Å'", "'ó'", "'ò'", "'ö'", "'ô'", "'Ó'", "'Ò'", "'Ö'", "'Ô'", "'í'", "'ì'", "'ï'", "'î'", "'Í'", "'Ì'", "'Ï'", "'Î'", "'ú'", "'ù'", "'ü'", "'û'", "'Ú'", "'Ù'", "'Ü'", "'Û'", "'ý'", "'ÿ'", "'Ý'", "'ø'", "'Ø'", "'œ'", "'Œ'", "'Æ'", "'ç'", "'Ç'");
 
 $replace = array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E', 'a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A', 'A', 'o', 'o', 'o', 'o', 'O', 'O', 'O', 'O', 'i', 'i', 'i', 'I', 'I', 'I', 'I', 'I', 'u', 'u', 'u', 'u', 'U', 'U', 'U', 'U', 'y', 'y', 'Y', 'o', 'O', 'a', 'A', 'A', 'c', 'C'); 
 
+*/
+
+        //$asset = preg_replace($pattern, $replace, $asset);
+        //$asset = preg_replace(PATTERN_ACCENTS, PATTERN_ACCENTS_REPLACE, $asset);
+         $asset     =  $fcts->replace_accents($asset);
+/*        $asset     = $fcts->replace_accents($asset);*/
 
 
-        $asset = preg_replace($pattern, $replace, $asset);
-
+/*echo '-------------------------'; 
+echo $asset; 
+echo '-------------------------'; */
 
         $asset_upper = mb_strtoupper($asset); // check name
 

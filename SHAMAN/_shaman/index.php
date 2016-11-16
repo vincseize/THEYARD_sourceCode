@@ -171,7 +171,12 @@ include('crud/menu_top_edit.php');
 
 
 
+<?php 
 
+
+// phpinfo(); 
+
+?>
 
 
 

@@ -5,7 +5,7 @@ if(!isset($_SESSION['user_session'])){header("Location: ../index.php");exit;}
 require '../../inc/crud.php';
 $db = new DB();
 require '../../classes/__classes_fcts.php';
-$fcts = new fcts();
+$fcts = new FCTS();
 
 
 $tblName = 'assets';
