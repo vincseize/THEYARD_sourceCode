@@ -50,6 +50,8 @@ $folder_name    = $datas['folder_name'];
 
 
 
+
+
 <?php
 //require '../../inc/crud.php';
 
@@ -59,6 +61,31 @@ $tblName = 'assets';
 $datas_id_asset              = $db->getRows($tblName,array('where'=>array('id'=>$_GET['id']),'return_type'=>'single'));
 $modified    = $datas_id_asset['modified'];
 $name    = $datas_id_asset['name'];
+
+$previous_id = '';
+$previous_name = '';
+$next_id = '';
+$next_name = '';
+
+$arr_tags = array();
+
+
+
+foreach ($_SESSION['prefs_user'] as $t) {
+    $tmp = explode("text:",$t);
+    $tag = substr($tmp[1],2,-2);
+     // $tag = 'AEROPORT';
+
+
+    //$stmt = $db_con->prepare("SELECT id,name FROM tags WHERE tag LIKE '".$tag['tag']."' ");
+    $datas_id_tag              = $db->getRows('tags',array('where'=>array('tag'=>$tag),'return_type'=>'single'));
+    array_push($arr_tags, $datas_id_tag['id']);
+}
+
+
+
+
+
 
 if ( $_SERVER["SERVER_ADDR"] == "82.223.10.101" ) {
   $db_host = "82.223.10.101";
@@ -84,23 +111,176 @@ try {
 }
 
 
+//echo sizeof($arr_tags);
 
-// $stmt = $db_con->prepare("SELECT id,modified,name FROM assets WHERE modified LIKE '2016-11-13 23:11:38'");
-$stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified >= '".$modified."' AND name NOT LIKE '".$name."'  ORDER BY modified ASC LIMIT 1");
-$stmt->execute();
-//$row = $stmt->fetch(PDO::FETCH_ASSOC);
-$row = $stmt->fetchAll();
-//$count = $stmt->rowCount();
-$previous_id = $row[0]['id'];
-$previous_name = $row[0]['name'];
 
-$stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified <= '".$modified."' AND name NOT LIKE '".$name."'  ORDER BY modified DESC LIMIT 1");
-$stmt->execute();
-//$row = $stmt->fetch(PDO::FETCH_ASSOC);
-$row = $stmt->fetchAll();
-//$count = $stmt->rowCount();
-$next_id = $row[0]['id'];
-$next_name = $row[0]['name'];
+//////////////////////////////////////////////////// no filters selected
+if(sizeof($arr_tags) == 0){
+
+      // $stmt = $db_con->prepare("SELECT id,modified,name FROM assets WHERE modified LIKE '2016-11-13 23:11:38'");
+      $stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified >= '".$modified."' AND name NOT LIKE '".$name."'  ORDER BY modified ASC LIMIT 1");
+      $stmt->execute();
+      //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetchAll();
+      //$count = $stmt->rowCount();
+      $previous_id = $row[0]['id'];
+      $previous_name = $row[0]['name'];
+
+      $stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified <= '".$modified."' AND name NOT LIKE '".$name."'  ORDER BY modified DESC LIMIT 1");
+      $stmt->execute();
+      //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetchAll();
+      //$count = $stmt->rowCount();
+      $next_id = $row[0]['id'];
+      $next_name = $row[0]['name'];
+}
+
+
+
+///////////////////////////////////////////////////// filters selected
+if(sizeof($arr_tags) > 0){
+
+          $array_ids_tags_check = array() ;
+          $st_tags = '';
+          foreach ($arr_tags as $st) {
+              $st_tags = $st.','.$st_tags;
+          }
+/*          echo "<br>";
+          echo $st_tags;*/
+
+          foreach ($datas_assets as $d) {
+
+              if (strpos($d['ids_tags'], $st_tags) !== false) {
+
+
+
+
+                  $array = array();
+                  $array['modified'] = $d['modified'];
+                  $array['id'] = $d['id'];
+                  $array['name'] = $d['name'];
+
+
+/*                    echo $d['name'];
+                    echo "<br>";*/
+                    array_push($array_ids_tags_check, $array);
+                    //$array_ids_tags_check[$d['id']] = $d['modified'];
+              }
+
+
+
+          }
+
+
+function searchForId($key_search, $id, $array) {
+    consoleLog('$key_search',$key_search);
+   foreach ($array as $key => $val) {
+       if ($val[$key_search] === $id) {
+            $ar = array();
+            array_push($ar, $key);
+            array_push($ar, $val[$key_search]);
+            array_push($ar, $val['id']);
+            array_push($ar, $val['name']);
+            array_push($ar, $val['modified']);
+           return $ar;
+       }
+   }
+   return null;
+}
+
+function searchForKeyVal($key_search, $array) {
+    consoleLog('$key_search',$key_search);
+   foreach ($array as $key => $val) {
+      if ($key === $key_search) {
+          return $val['id'];
+        }
+   }
+   return null;
+}
+
+function consoleLog( $title, $data ) {
+    // print_r($data);
+    if ( is_array( $data ) )
+        $output = "<script>console.log( 'Debug Objects ".$title.": " . implode( ',', $data) . "' );</script>";
+    else
+        $output = "<script>console.log( 'Debug Objects ".$title.": " . $data . "' );</script>";
+
+    echo $output;
+}
+
+
+
+sort($array_ids_tags_check);
+// print_r($array_ids_tags_check);
+
+foreach ($array_ids_tags_check as $key => $value) {
+/*    print_r($value);
+    print_r("<br>");*/
+    consoleLog('date ',$value['modified'] . ' | ' . $value['id']);
+
+}
+
+
+
+
+consoleLog('$array_ids_tags_check',$array_ids_tags_check);
+
+
+
+$res = searchForId('id',$_GET['id'], $array_ids_tags_check);
+$key = $res[0];
+$id = $res[1];
+$id_ar = $res[2];
+$name_ar = $res[3];
+$modified_ar = $res[4];
+consoleLog('$id',$id);
+consoleLog('$id_ar',$id_ar);
+consoleLog('$name_ar',$name_ar);
+consoleLog('$modified_ar',$modified_ar);
+
+consoleLog('$key',$key);
+consoleLog('$id',$id);
+
+$key_next = $key-1;
+consoleLog('$key_next',$key_next);
+$next_id = searchForKeyVal($key_next, $array_ids_tags_check);
+consoleLog('$searchForKeyVal',$nextKeyID);
+$res = searchForId('id',$next_id, $array_ids_tags_check);
+$next_name  = $res[3];
+consoleLog('$next_name',$next_name);
+
+
+$key_before = $key+1;
+consoleLog('$key_next',$key_before);
+$previous_id = searchForKeyVal($key_before, $array_ids_tags_check);
+consoleLog('$searchForKeyVal',$previousKeyID);
+$res = searchForId('id',$previous_id, $array_ids_tags_check);
+$previous_name  = $res[3];
+consoleLog('$previous_name',$previous_name);
+
+
+
+
+
+/*      // $stmt = $db_con->prepare("SELECT id,modified,name FROM assets WHERE modified LIKE '2016-11-13 23:11:38'");
+      $stmt = $db_con->prepare("SELECT id,name,modified FROM assets WHERE modified >= '".$modified."' AND name NOT LIKE '".$name."'  AND id IN($array_ids_tags_check) ORDER BY modified ASC LIMIT 1");
+      $stmt->execute();
+      //$row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetchAll();
+      //$count = $stmt->rowCount();
+      $previous_id = $row[0]['id'];
+      $previous_name = $row[0]['name'];
+
+*/
+
+
+
+
+}
+
+
+
+
 ?>
 
 
@@ -369,21 +549,9 @@ position: relative;
 
 
 
-
-<?php 
-/*echo "<br><br><br><br><br><br><br><br>";
-echo $modified;
-echo "<br>";
-print_r($previous_id);
-echo "<br>";
-print_r($next_id);
-*/
-
-?>
-
 <?php 
 if(!empty($previous_id)){ 
-    echo "<span class='assetEdit_previous' style='font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:10px;opacity:0.2;'>";
+    echo "<span class='assetEdit_nextprevious assetEdit_previous' style='font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:10px;opacity:0.2;'>";
     echo "<a href='assets_edit.php?id=".$previous_id."' id='assetEdit_previous'  target='_self'>";
     echo "<";
     echo "</a>";
@@ -393,7 +561,7 @@ if(!empty($previous_id)){
 
 <?php 
 if(!empty($next_id)){ 
-    echo "<span  class='assetEdit_next' style='font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:390px;opacity:0.2;'>";
+    echo "<span  class='assetEdit_nextprevious assetEdit_next' style='font-size:38px;font-weight:bold;color:#ddd;position:absolute;top:150px;left:390px;opacity:0.2;'>";
     echo "<a href='assets_edit.php?id=".$next_id."' id='assetEdit_next' target='_self'>";
     echo ">";
     echo "</a>";
@@ -508,16 +676,27 @@ toto
 
 
 
-<!-- Bootstrap core JavaScript
+<!-- Bootstrap core JavaScript FOR MODAL
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+
+
+<!-- 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
+ -->
 
 
+
+<link rel="stylesheet" href="../css/bootstrap.min.css" ><!--  // 337 -->
+<link rel="stylesheet" href="../css/bootstrap-theme.min.css"> <!-- // 337 -->
+<script src="../js/bootstrap.min.js"></script>
 
 
 
@@ -537,11 +716,19 @@ $(document).ready(function (e) {
         $("#assetEdit_next").click(function() {
             //console.log('next')
             $('#assetEdit_name', window.parent.document).text('<?php echo $next_name;?>');
+/*            $('#assetEdit_name', window.parent.document).animate({opacity:0},function(){
+                $(this).text("new text").animate({opacity:1});  
+                })
+            });*/
+
+
         });
+
+
 
         $("#assetEdit_previous").click(function() {
             //console.log('previous')
-            $('#assetEdit_name', window.parent.document).text('<?php echo $previous_name;?>');
+            $('#assetEdit_name', window.parent.document).text('<?php echo $previous_name;?>').fadeIn();
         });
 
 

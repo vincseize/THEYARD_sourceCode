@@ -101,7 +101,15 @@ $("#e1").select2();
               ?>
 ];
 
-$('#e1').select2({}).select2('data', PRESELECTED_TAGS);
+
+
+var PRESELECTED_TAGS = [];
+$('#e1').select2({}).select2('data', PRESELECTED_TAGS); // PRE REMPLISSAGE
+
+
+
+
+
 //var data = $('#e1').select2('data');
 
 
@@ -145,7 +153,7 @@ $("#e1").select2().on("change", function(e) {
        
         var data = $('#e1').select2('data');
 
-A(data);
+clearMix(data);
 
 
         if(data.length>0){
@@ -229,7 +237,7 @@ $(classes).css( "display", "block" );
 
 
 
-function A(v) {
+function clearMix(v) {
    //$('.mix').hide();
    $('.mix').css( "display", "none" );
     console.log('f a ok'+v);
