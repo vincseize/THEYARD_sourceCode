@@ -593,7 +593,7 @@ if(!empty($next_id)){
 
 
 
-
+<!-- 
 
 <div id="myModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -606,8 +606,8 @@ if(!empty($next_id)){
     
   </div>
   <div class="modal-footer">
-<!--         <button id="prev-btn" class="btn btn-warning">Prev</button>
-        <button id="next-btn" class="btn btn-primary">Next</button> -->
+       <button id="prev-btn" class="btn btn-warning">Prev</button>
+        <button id="next-btn" class="btn btn-primary">Next</button> 
         <button class="btn btn-default" data-dismiss="modal">Close</button>
   </div>
    </div>
@@ -617,11 +617,176 @@ if(!empty($next_id)){
 
 
 
-<!--   <div id="delete_file_comment">
-toto
-</div>
  -->
 
+
+
+
+
+<style>
+.modal_DES { /*width:100%;height:95%;background-color: #555;overflow:hidden;margin-top:0px;margin:0;opacity:0.9; border: 0;*/
+  position: fixed;
+  top: 80px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+   border: 0;
+   background:none;
+}
+
+.modal-dialog {
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+   border: 0;
+      background:none;
+}
+
+
+
+
+.modal-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+     background:none;
+}
+
+.modal-header {
+
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 50px;
+
+   background:none;
+  border: 0;
+}
+
+.modal-title {
+  position: absolute;
+  top:80px;
+  right: 0;
+  left: 0;
+  font-weight: 200;
+  font-size: 1em;
+  color: #fff;
+
+   border: 0;
+      background:none;
+}
+
+.modal-body {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+/*  font-weight: 300;*/
+  overflow: hidden;
+   border: 0;
+      background:none;
+}
+
+.modal-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  padding: 0px;
+   background:none;
+   border: 0;
+
+</style>
+
+
+
+
+
+
+
+
+
+<!-- <button class="btn btn-primary btn-modal"
+        data-toggle="modal"
+        data-target="#myModal">
+  View Fullscreen Modal
+</button> -->
+
+
+<!-- modal -->
+<div id="myModal"
+     class="modal animated bounceIn"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true"  style="width:100%;height:95%;overflow:hidden;margin-top:0px;margin:0;
+/*     opacity:0.9; */
+     background: rgba(0, 0, 0, 0.8);
+     border: 0;
+     ">
+
+  <!-- dialog -->
+  <div class="modal-dialog" style="width:100%;height:100%;overflow:hidden; border: 0;background: rgba(0, 0, 0, 0);">
+
+    <!-- content -->
+    <div class="modal-content" style="width:100%;height:100%;overflow:hidden; border: 0;background: rgba(0, 0, 0, 0);">
+
+      <!-- header -->
+      <div class="modal-header" style="width:100%;overflow:hidden; height:60px;border: 0;color:#333;margin-bottom:100px;">
+<!--         <h1 id="myModalLabel"
+            class="modal-title" style="width:100%;background-color: #555;overflow:hidden; height:60px;border: 0;color:#222;"> -->
+          <!-- <h1 id="myModalLabel" style=""><br>title</h1> -->
+     <!--    </h1> -->
+      </div>
+      <!-- header -->
+      
+      <!-- body -->
+      <div class="modal-body" style="width:auto;overflow:hidden;border: 0px solid black;text-align:center;opacity:none;">
+        
+
+
+
+
+      </div>
+      <!-- body -->
+
+      <!-- footer -->
+      <div class="modal-footer" style="width:100%;height:60px;overflow:hidden;border: 0;margin-bottom:60px;">
+        <button class="btn btn-secondary"
+                data-dismiss="modal" style="">
+          close
+        </button>
+        
+      </div>
+      <!-- footer -->
+
+    </div>
+    <!-- content -->
+
+  </div>
+  <!-- dialog -->
+
+</div>
+<!-- modal -->
 
 
 
@@ -818,6 +983,14 @@ var path0 = $('.thumbnail_comments').attr('id2');
 
 
 $('.thumbnail').click(function(){
+
+	
+/*	$('#top_edit', window.parent.document).hide();*/
+	$('#top_edit', window.parent.document).css('display','none');
+	$('#top_edit', window.parent.document).hide();
+	//$('#top_edit').hide();
+
+
     $('.modal-body').empty();
     var title = $(this).parent('a').attr("title");
     $('.modal-title').html(title);  

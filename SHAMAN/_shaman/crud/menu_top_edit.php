@@ -39,7 +39,7 @@
 
 
 
-                  <div style="position:absolute;right:15px;top:12px;">
+                  <div id="#closeA7editDiv" style="position:absolute;right:15px;top:12px;">
 <!--                   <ul class="nav navbar-nav" style="position:absolute;top:5px;right:15px;">
                       <img src='../images/logo_shaman_menutop.png'>    
                        </ul>  -->

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Bootstrap 3 Portfolio Mixitup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Bootstrap core CSS -->
+<link href="Bootstrap%203%20Portfolio%20Mixitup_fichiers/bootstrap.css" rel="stylesheet" media="screen">
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.js"></script>
+<![endif]-->
+<style>
+#recipes .mix{
+    opacity: 0;
+    display: none;
+}
+body {background: #34495E;}
+ul {margin-top: 20px; list-style-type:none;}
+ul.filter li {float:left; margin-left: 17px;}
+ul.filter li a {outline: 2px solid #E74C3C; color: #E74C3C; padding: 5px;}
+ul.filter li a:hover, ul.filter li a:focus {text-decoration: none; background-color: #ECF0F1;}
+ul.thumbnails li {margin: 20px 0;}
+ul.thumbnails li a {color: #E74C3C;}
+ul.thumbnails li a:hover {text-decoration: none; background-color: #ECF0F1; color: #EC8783;}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<!-- Filter for items -->
+<ul class="filter">
+  <li class="filter active" data-filter="all"><a href="#">All</a></li>
+  <li class="filter" data-filter="antipasto"><a href="#">Antipasto</a></li>
+  <li class="filter" data-filter="main"><a href="#">Main course</a></li>
+  <li class="filter" data-filter="desert"><a href="#">Desert</a></li>
+</ul>
+</div> <!-- End of first row -->
+<div class="row">
+<!-- Portfolio items -->
+<ul class="thumbnails" id="recipes">
+<li class="mix col-xs-6 col-sm-6 col-md-3 desert mix_all" data-name="id-1" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Cakes-Pastries-Cakes-Food-Pictures-Photos-Images-Fotos/G0000xGhT69tiwEY/I0000zeTQDL6jhRs/C0000KBsxVLzXX3M" class="thumbnail" id="B-1">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Cake%25201.jpg" alt="Cake 1" width="375" height="500">
+<h4>Cake</h4>
+<p>Croissant liquorice lemon drops sweet roll gummi bears dessert 
+marzipan unerdwear.com. Toffee chupa chups danish cotton candy bear 
+claw. Tootsie roll macaroon.</p>
+</a>
+</li>
+<li class="mix col-xs-6 col-sm-6 col-md-3 antipasto mix_all" data-name="id-2" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Italian-Food-Pictures-Photos-Italian-Food-Fotos-Images-Photography/G0000z0D0kW75fa4/I0000OQpllAGgzZk/C0000Jg2uRGSZBFg" class="thumbnail" id="A-1">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Bruschetta.jpg" alt="Bruschetta" width="375" height="500">
+<h4>Bruschetta</h4>
+<p>Sesame snaps cookie ice cream. Powder bear claw gingerbread jelly-o 
+powder. Dessert bonbon powder chocolate cake halvah jujubes bonbon 
+chocolate bar chocolate bar.</p>
+</a>
+</li>
+<li class="mix col-xs-6 col-sm-6 col-md-3 desert mix_all" data-name="id-3" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Cakes-Pastries-Cakes-Food-Pictures-Photos-Images-Fotos/G0000xGhT69tiwEY/I0000oI2GhjQ1mLI/C0000KBsxVLzXX3M" class="thumbnail" id="B-2">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Cake%25202.jpg" alt="Cake 2" width="375" height="500">
+<h4>Mixed Fruit Tartelette</h4>
+<p>Croissant liquorice lemon drops sweet roll gummi bears dessert 
+marzipan unerdwear.com. Toffee chupa chups danish cotton candy bear 
+claw. Tootsie roll macaroon.</p>
+</a>
+</li>
+<li class="mix col-xs-6 col-sm-6 col-md-3 main mix_all" data-name="id-4" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Italian-Food-Pictures-Photos-Italian-Food-Fotos-Images-Photography/G0000z0D0kW75fa4/I0000jnDgFD8vx38/C0000Jg2uRGSZBFg" class="thumbnail" id="D-1">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Bolognese.jpg" alt="Bolognese" width="375" height="500">
+<h4>Bolognese</h4>
+<p>Sesame snaps cookie ice cream. Powder bear claw gingerbread jelly-o 
+powder. Dessert bonbon powder chocolate cake halvah jujubes bonbon 
+chocolate bar chocolate bar.</p>
+</a>
+</li>
+<li class="mix col-xs-6 col-sm-6 col-md-3 desert mix_all" data-name="id-5" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Cakes-Pastries-Cakes-Food-Pictures-Photos-Images-Fotos/G0000xGhT69tiwEY/I0000IctVb18MchM/C0000KBsxVLzXX3M" class="thumbnail" id="A-3">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Cake%25203.jpg" alt="Cake 3" width="375" height="500">
+<h4>Chocolate Cake</h4>
+<p>Croissant liquorice lemon drops sweet roll gummi bears dessert 
+marzipan unerdwear.com. Toffee chupa chups danish cotton candy bear 
+claw. Tootsie roll macaroon.</p>
+</a>
+</li>
+<li class="mix col-xs-6 col-sm-6 col-md-3 main mix_all" data-name="id-6" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Pizzas-Pizza-Pictures-Photos-Images-Fotos/G0000WVCoD5Z5yAE/I0000SHV5zxh02kE/C0000qD9AwD.AHiE" class="thumbnail" id="C-2">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Pizza.jpg" alt="Pizza" width="375" height="500">
+<h4>Pizza</h4>
+<p>Sesame snaps cookie ice cream. Powder bear claw gingerbread jelly-o 
+powder. Dessert bonbon powder chocolate cake halvah jujubes bonbon 
+chocolate bar chocolate bar.</p>
+</a>
+</li>
+<li class="mix col-xs-6 col-sm-6 col-md-3 desert mix_all" data-name="id-7" style="display: inline-block;  opacity: 1;">
+<a href="http://funkystock.photoshelter.com/gallery-image/Cakes-Pastries-Cakes-Food-Pictures-Photos-Images-Fotos/G0000xGhT69tiwEY/I0000Zw.DW7zEdIc/C0000KBsxVLzXX3M" class="thumbnail" id="B-2">
+<img src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/Cake%25204.jpg" alt="Cake 4" width="375" height="500">
+<h4>Raspberries Cake</h4>
+<p>Croissant liquorice lemon drops sweet roll gummi bears dessert 
+marzipan unerdwear.com. Toffee chupa chups danish cotton candy bear 
+claw. Tootsie roll macaroon.</p>
+</a>
+</li>
+</ul>
+</div> <!-- End of seond row -->
+</div> <!-- End of container -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/jquery_002.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/bootstrap.js"></script>
+<script src="Bootstrap%203%20Portfolio%20Mixitup_fichiers/jquery.js"></script>
+<script>
+	$(function(){     
+    $('#recipes').mixitup();     
+});
+	</script>
+
+
+</body></html>

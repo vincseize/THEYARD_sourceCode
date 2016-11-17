@@ -30,7 +30,7 @@ define ('VIGNETTE_A7_COMP','vignette_comp.jpg');
 define ('VIGNETTE_A7_HOME','vignette_home.jpg');
 
 // FORMATS
-define ('VALID_FORMATS_UPLOAD',array("jpeg", "jpg", "png", "gif", "zip", "mp4", "tiff", "tif"));
+define ('VALID_FORMATS_UPLOAD',array("jpeg", "jpg", "png", "gif", "zip", "mp4", "tiff", "tif","JPEG", "JPG", "PNG", "GIF", "ZIP", "MP4", "TIFF", "TIF"));
 define ('MAX_FILE_SIZE',1024*3000000); //100 0000 kb  / 1024 000 => 1000 ko => 1 Mo
 
 // PATTERNS

@@ -133,30 +133,6 @@ include('crud/menu_top_edit.php');
 
 </iframe >
 
-<!-- 
-<font color=white>
-
-
-<a href="crud/asset_edit.php?id=113" target="iframe_editA7" class='editA7'>Link iframe2</a> 
-
-
-
-
-
-
-</font>
-
-
- -->
-
-
-
-
-
-
-
-
-
 
 
 
@@ -164,29 +140,6 @@ include('crud/menu_top_edit.php');
 
 
 <div id="content-item" class="content-item"  style="padding-top:50px;">
-
-
-
-
-
-
-
-<?php 
-
-
-// phpinfo(); 
-
-?>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -208,8 +161,6 @@ include('crud/menu_top_edit.php');
 
                   </ul>
               </div>
-
-
 
 
 
