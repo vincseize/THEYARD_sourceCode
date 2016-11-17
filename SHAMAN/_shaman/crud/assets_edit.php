@@ -600,15 +600,15 @@ if(!empty($next_id)){
   <div class="modal-content"  style="background: rgba(0, 0, 0, 0);border:0px;">
   <div class="modal-header"  style="background: rgba(0, 0, 0, 0);border:0px;">
 
-    <h3 class="modal-title" style="color:whihet;"></h3>
+    <h3 class="modal-title" style="color:#333;"></h3>
   </div>
-  <div class="modal-body" style="background: rgba(0, 0, 0, 0);border:0px;">
+  <div class="modal-body" style="background: rgba(0, 0, 0, 0);border:0px;max-width:<?php echo W_1280;?>px;max-height:<?php echo H_720;?>px;">
     
   </div>
-  <div class="modal-footer" style="background: rgba(0, 0, 0, 0);border:0px;">
+  <div class="modal-footer" style="background: rgba(0, 0, 0, 0);border:0px;margin-top:40px;margin-right:0px;padding-right:0px;right:0px;">
 <!--         <button id="prev-btn" class="btn btn-warning">Prev</button>
         <button id="next-btn" class="btn btn-primary">Next</button> -->
-        <button class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-default" data-dismiss="modal" style="opacity:0.3;">Close</button>
   </div>
    </div>
   </div>
@@ -849,10 +849,12 @@ var path0 = $('.thumbnail_comments').attr('id2');
 
         //$('.modal-title').html(title);
         //$($(this).parents('div').html()).appendTo('.modal-body');
+        var w= <?php echo W_1280;?>;
+        var h= <?php echo H_720;?>;
 
 
 if(ext!='mp4'){
-    $('<div><a href="#" title="Image '+number+'"><img src="'+src+'"  width="1280" height="720"></a></div>').appendTo('.modal-body');
+    $('<div><a href="#" title="Image '+number+'"><img width="1280px" height="720px" src="'+src+'"></a></div>').appendTo('.modal-body');
 }      
 
 
@@ -860,7 +862,7 @@ if(ext!='mp4'){
 
 
 if(ext=='mp4'){
-$('<div><a href="#" title="Image '+number+'"><video controls preload="auto"><source src="'+src+'" type="video/mp4"><source src="'+src+'" type="video/webm"><source src="'+src+'" type="video/ogv"></video>').appendTo('.modal-body');
+$('<div width="1280px" height="720px"><a href="#" title="Image '+number+'"><video width="1280px" height="720px" controls preload="auto"><source src="'+src+'" type="video/mp4"><source src="'+src+'" type="video/webm"><source src="'+src+'" type="video/ogv"></video>').appendTo('.modal-body');
 }
 
 
