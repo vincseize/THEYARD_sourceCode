@@ -163,13 +163,15 @@ include('crud/menu_top_edit.php');
               </div>
 
 
+              <!-- // Menu contextuel Right click  -->
+              <?php
+              if($_SESSION['id_status_user']=='0'){
+/*                  echo "<div class='dropdown bootstrapMenu' style='z-index: 10000; position: absolute; display: none; height: 69px; width: 158px; top: 169.004px; left: 985px;'>";
+                  echo "<ul class='dropdown-menu' style='position:static;display:block;font-size:0.9em;'>";
+                  echo "</div>";*/
+              }
+              ?>
 
-
-
-
-              <div class="dropdown bootstrapMenu" style="z-index: 10000; position: absolute; display: none; height: 69px; width: 158px; top: 169.004px; left: 985px;">
-              <ul class="dropdown-menu" style="position:static;display:block;font-size:0.9em;">
-              </div>
 
 </div>
 
@@ -267,27 +269,31 @@ $(document).ready(function(){
             window.location.href = "new_asset.php?id_project=<?php echo ID_PROJECT;?>";
         });
 
-        var menu = new BootstrapMenu('#content-item', {
-          actions: [
 
-          {
-            name: 'Add Asset',
-            onClick: function() {
-              // alert("Add asset wip!");
-/*              $('#content-item').hide();
-              $('#content-asset-crud').show();
-              $('#content-asset-crud').load("modal_newAsset.php");*/
-              //window.location.href = "new_asset.php?";
+              <!-- // Menu contextuel Right click  -->
+              var id_status_user='<?php echo $_SESSION['id_status_user'];?>';
+              if(id_status_user=='2'){
+                      var menu = new BootstrapMenu('#content-item', {
+                        actions: [
 
-/*              var select_id_project = document.getElementById("select_projects").value;
-              window.location.href = "new_asset.php?id_project="+select_id_project;*/
-              window.location.href = "new_asset.php?id_project=<?php echo ID_PROJECT;?>";
+                        {
+                          name: 'Add Asset',
+                          onClick: function() {
+                            // alert("Add asset wip!");
+              /*              $('#content-item').hide();
+                            $('#content-asset-crud').show();
+                            $('#content-asset-crud').load("modal_newAsset.php");*/
+                            //window.location.href = "new_asset.php?";
+
+              /*              var select_id_project = document.getElementById("select_projects").value;
+                            window.location.href = "new_asset.php?id_project="+select_id_project;*/
+                            window.location.href = "new_asset.php?id_project=<?php echo ID_PROJECT;?>";
+                          }
+                        }
+
+                        ]
+                      });
             }
-          }
-
-          ]
-        });
-
 
 
         $(".editA7").click(function(e) {
