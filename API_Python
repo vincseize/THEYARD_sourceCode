@@ -1,0 +1,437 @@
+# -*- coding: utf-8 -*-
+""" SQL Wrapper class to ONLY SELECT data content from Shotgun Database. """
+
+######################################################################################
+# (*) Copyright 2011 Alkymia, SAS. TOUS DROITS RESERVES.							 #
+# Ce document est un code source de la societe Alkymia, SAS.						 #
+# Il contient des informations confidentielles qui sont la propriete de Alkymia, SAS.#
+# Toute utilisation, duplication ou publication de tout ou partie de ce			 	 #
+# Document non explicitement autoris�e par Alkymia est STRICTEMENT INTERDITE.		 #
+######################################################################################
+
+######################################################################################
+# Author : cPOTTIER
+# Date : 2012 Dec.
+# ####################################################################################
+
+
+
+
+
+# projects
+# 	=>	id,name,code,retirement_date,image_id,created_at,updated_at,created_by,updated_by,sg_status,sg_start,sg_temp_due,sg_due,sg_type,sg_description,uuid,
+#	=>	layout_project_id,layout_project_type,sg_tk2_root_type,sg_tk2_root_id,sg_storage_type,sg_storage_id,filmstrip_image_id,sg_code,sg_resolutionx,
+#	=>	sg_focallength,sg_formatratio,sg_resolutiony,sg_resolution_x,sg_resolution_y,sg_format_ratio,sg_focal_length,sg_fps
+
+
+# scenes
+#	=>	id,code,description,image_id,retirement_date,created_at,updated_at,created_by,updated_by,project_id,sg_scene_type,sg_status_list,task_template_id,uuid,
+#	=>	filmstrip_image_id,sg_order
+
+
+# sequences
+#	=>	sequence_catalog,id,sequence_schema,code,sequence_name,description,image_id,data_type,numeric_precision,project_id,numeric_precision_radix,
+#	=>	retirement_date,numeric_scale,created_at,start_value,updated_at,created_by,minimum_value,maximum_value,updated_by,sg_start,increment,cycle_option,
+#	=>	sg_sequence_type,sg_due,sg_status_list,sg_assigned_to_type,sg_assigned_to_id,task_template_id,sg_due_1,uuid,sg_tk2_disk_location,sg_disk_type,sg_disk_id,
+#	=>	filmstrip_image_id,sg_ours3da,sg_3da,sg_3da_ours_video_type,sg_3da_ours_video_id,sg_prana_roughanim_status,sg_cubic_headcams_status,sg_asset_breakdown,
+#	=>	sg_prana_final_anim_status
+
+
+
+
+######################################################################################
+
+import sys,os,os.path,glob,time,datetime
+import mysql
+import mysql.connector
+import json
+
+######################################################################################
+
+class SaAMSql():
+
+	################# DB BIND ########################################################
+	def __init__(self,dbname='saam',user='lrds',password='lrds2013',host='87.106.191.175',port='3306'):
+	#def __init__(self,dbname='saam',user='root',password='poiazemlkqsd',host='87.106.191.175',port='3306'):
+		""" class definition """
+
+		self.dbname = dbname
+		self.user = user
+		self.host = host
+		self.password = password
+		self.port = port
+		self.conn = psycopg2.connect("dbname='"+str(dbname)+"' user='"+str(user)+"' host='"+str(host)+"' password='"+str(password)+"' port='"+str(port)+"'")
+		#self.conn = psycopg2.connect("dbname='"+str(dbname)+"' user='"+str(user)+"' host='"+str(host)+"'")
+		self.cur = None
+
+
+	def connect_db(self, conn=None, cur=None):
+		""" open connection """
+
+		start = time.clock()
+		try:
+			cursor = self.conn.cursor()
+		except :
+			try:
+				self.conn.rollback()
+			except:
+				pass
+
+
+	def close_db(self):
+		""" close connection """
+
+		try:
+			self.conn.close()
+		except:
+			pass
+
+
+	def query(self, query_str):
+		""" by unique query """
+
+		self.check_query(query_str)
+		self.connect_db()
+		cursor = self.conn.cursor()
+		cursor.execute(query_str)
+		result = list(cursor.fetchall())
+		return result
+
+
+	def _query(self, template, query_list, connect=True):
+		''' # TODO : for multiples queries '''
+
+		if isinstance(query_list, str):
+			query_list = (query_list,)
+		elif not isinstance(query_list, tuple):
+			query_list = tuple(query_list)
+		if connect:
+			self.connect_db()
+		cursor = self.conn.cursor()
+		cursor.execute(template, query_list)
+		result = cursor.fetchall()
+		if connect:
+			self.close_db()
+		return result
+
+
+	def check_query(self, query_str):
+		'''  check verbiedenen queries '''
+
+		# PURE SQL: 
+		# delete ['delete from','drop']
+		# insert ['insert into']
+		# update ['update ',' set ']
+		# create ['create ','create_','alter']
+		# PYTHON REQUEST : ['conn.commit()'] // we don't need that to select
+
+		query_str = str(query_str.upper())
+		# ACHTUNG !!!! Don't change any spaces etc!
+		lCheck = ['delete ','drop ','insert into','update ',' set ','create ','create_','alter ','.commit('] 
+		for l in lCheck:
+			lCheck = str(l.upper())
+			r = query_str.find(lCheck)
+			if r == 0:
+				msg = 'STRING [###] ' + str(lCheck) + ' ] IST GANZ VERBOTEN !!!'
+				sys.exit(msg)
+
+
+	################# QUERIES FORMATING ##############################################
+
+	def format_columns(self,_Columns,_Table):
+		'''   '''
+
+		if _Columns == None or _Columns=='':
+			_Columns = '*'
+		if _Columns != '*':
+			columnNames = _Columns.split(',')
+		if _Columns == '*':
+			res = self.get_table_columnNames(_Table)
+			columnNames = []
+			for r in res:
+				r = r[0]
+				columnNames.append(str(r))
+
+		return columnNames
+
+	def format_columns_joinTables(self,_Columns):
+		'''   '''
+
+		#if _Columns == None or _Columns=='':
+			#_Columns = '*'
+		if _Columns != '*':
+			columnNames = _Columns.split(',')
+
+		return columnNames
+
+
+	def format_query(self,_res,_columnNames):
+		''' '''
+
+		result = []
+		for r in _res:
+			rlt = dict()
+			j = 0
+			for c in _columnNames:
+				try:
+					rlt[c] = r[j]
+				except:
+					rlt[c] = ''
+				j += 1
+			result.append(rlt)
+
+		return result
+
+
+	def format_filters(self,_Filters):
+		'''   '''
+		if _Filters is not None:
+			Filters = ''
+		for fi in _Filters:
+			Filters = str(Filters) + ' AND ' + str(fi)
+
+		return Filters
+
+	def format_filters_joinTables(self,_Filters,_Table):
+		'''   '''
+		s = '='
+		result = []
+		#print type(_Filters)
+		if len(_Filters) > 0:
+			#print 'filter : ' + str(_Filters)
+			result = []
+			for fi in _Filters:
+				fi0 = fi.split(s)[0]
+				fi1 = fi.split(s)[1]
+				F = ' AND ' + str(_Table) + '.' + str(fi0) + str(s) + str(fi1)
+				result.append(F)
+		#print result
+		return result
+
+
+	def get_table_columnNames(self,_Table):
+		'''   '''
+
+		sql = """SELECT column_name FROM information_schema.columns WHERE table_name = '%s' ORDER BY ordinal_position""" % (_Table)
+		result = self.query(sql)
+		return result
+
+	################################# SIMPLE REQUESTS #######################################
+
+
+	#def get_table(self, _Table, _Filters_In, _Filters_Out, _Columns='*'):
+	def get_table(self, _Table, _Filters_In, _Columns='*',_IdProject=64):
+		''' return dic ''' 
+		Out = ''
+		result = []
+		if _Columns == None or _Columns=='':
+			_Columns = '*'
+		columnNames = self.format_columns(_Columns,_Table)
+
+		In = self.format_filters(_Filters_In)
+		#Out = self.format_filters(_Filters_Out)
+
+		checkProjectId = False
+		for c in columnNames:
+			if c == 'project_id':
+				checkProjectId =  True
+
+		if checkProjectId is True:
+			_IdProject = 64
+			sql = """SELECT %s FROM %s WHERE project_id = '%d' %s """ % (_Columns,_Table,_IdProject,In)
+			res = self.query(sql)
+		if checkProjectId is False:
+			_WHERE = 'WHERE'
+			if In == '' and Out == '':
+				_WHERE = ''
+			if In != '' or Out != '':
+				_WHERE = 'WHERE'
+			In = In[4:]
+			sql = """SELECT %s FROM %s %s %s """ % (_Columns,_Table,_WHERE,In)
+			res = self.query(sql)
+
+		result = self.format_query(res,columnNames)
+		return result
+
+
+
+
+	########################### JOIN REQUESTS ###################################
+
+	#def get_2tables(self, _Table1, _Columns1, _Filters_In1, _Filters_Out1, _Table2, _Columns2, _Filters_In2, _Filters_Out2, _Join):
+	def get_2tables(self, _Table1, _Columns1, _Filters_In1, _Table2, _Columns2, _Filters_In2, _Join):
+		''' return dic '''
+
+		################ TODO #######################################
+		msg = 'NO all Columns for join at this time, to do !!!'
+		if _Columns1 == '' or _Columns1 == '*' or _Columns1 == None:
+			sys.exit(msg)
+		if _Columns2 == '' or _Columns2 == '*' or _Columns2 == None:
+			sys.exit(msg)
+		#############################################################
+
+		Tables = str(_Table1) + ',' + str(_Table2)
+
+		JoinSplit = _Join.split('=')
+		Join = str(_Table1) + '.' + str(JoinSplit[0]) + '=' + str(_Table2) + '.' + str(JoinSplit[1]) 
+
+		ColumnSplit1 = _Columns1.split(',')
+		ColumnSplit2 = _Columns2.split(',')
+		Columns_tmp = []
+		Columns = ''
+		for c1 in ColumnSplit1:
+			c1 = str(_Table1) + '.' + str(c1)
+			Columns_tmp.append(c1)
+		for c2 in ColumnSplit2:
+			c2 = str(_Table2) + '.' + str(c2)
+			Columns_tmp.append(c2)
+		for c in Columns_tmp:
+			Columns = str(Columns) + str(c) + ','
+		Columns = Columns[:-1]
+		columnNames = self.format_columns_joinTables(Columns)
+
+		AND1 = ''
+		In1 = self.format_filters_joinTables(_Filters_In1,_Table1)
+		#print len(In1)
+		#Out1 = self.format_filters_joinTables(_Filters_Out1,_Table1)
+		if len(In1)>0:
+
+			for l in In1:
+				AND1 = str(AND1) + str(l)
+
+
+		AND2 = ''
+		In2 = self.format_filters_joinTables(_Filters_In2,_Table2)
+		#print len(In2)
+		#Out1 = self.format_filters_joinTables(_Filters_Out1,_Table1)
+		if len(In2)>0:
+
+			for l in In2:
+				AND2 = str(AND2) + str(l)
+
+
+		In2 = self.format_filters_joinTables(_Filters_In2,_Table2)
+		#Out2 = self.format_filters_joinTables(_Filters_Out2,_Table2)
+
+		# if _Filters_In1 != None and _Filters_In1 !='':
+		# 	Filters_In1 = self.format_filters_joinTables(_Filters_In1,_Table1)
+		# 	In1 = self.format_filters(Filters_In1)
+		# if _Filters_Out1 != None and _Filters_Out1 !='':
+		# 	Filters_Out1 = self.format_filters_joinTables(_Filters_Out1,_Table1)
+		# 	Out1 = self.format_filters(Filters_Out1)
+
+		# if _Filters_In2 != None and _Filters_In2 !='':
+		# 	Filters_In2 = self.format_filters_joinTables(_Filters_In2,_Table2)
+		# 	In2 = self.format_filters(Filters_In2)
+		# if _Filters_Out2 != None and _Filters_Out2 !='':
+		# 	Filters_Out2 = self.format_filters_joinTables(_Filters_Out2,_Table2)
+		# 	Out2 = self.format_filters(Filters_Out2)
+
+		#sql = """SELECT %s FROM %s WHERE %s %s %s %s %s""" % (Columns,Tables,Join,In1,In2,Out1,Out2)
+		sql = """SELECT %s FROM %s WHERE %s %s %s""" % (Columns,Tables,Join,AND1,AND2)
+		#print sql
+		res = self.query(sql)
+		#printt(sql)
+		result = self.format_query(res,columnNames)
+		return result
+
+
+
+
+	########################### SEARCH Value Content ###################################
+
+	def get_tableSearch(self,_Table):
+		'''   '''
+		import ALK_InputOutput
+		import ALK_InputOutput.ShotgunSql
+		request = ALK_InputOutput.ShotgunSql.ALK_SQL_shotgun()
+		Columns = ''
+		Filters_In = []
+		r = request.get_table(_Table, Filters_In, Columns) #take care with args order !!!
+		request.close_db()
+		return r
+
+
+	def search_ValueContent(self,_searchValue,_searchType='Field'):
+		'''   '''
+		myTables = []
+		sql = """SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES"""
+		result = self.query(sql)
+
+		for r in result:
+			myTables.append(r[0])
+
+		for table in myTables:
+			try:
+				request = self.get_tableSearch(table)
+				for rDic in request:
+					for k in rDic.keys():
+						val = rDic[k]
+						if str(_searchType) == 'Field':
+							#if str(val) == str(_searchValue):
+							if str(val) == str(_searchValue) and table != 'event_log_entries' and str(table[0:3]) != 'pg_':
+								print ''
+								print '-----------------------------'
+								print 'Table : ' + str(table)
+								print 'Column : ' + str(k)
+								print 'Value : ' + str(rDic[k])
+								print rDic
+								print '-----------------------------'
+								print ''
+
+						if str(_searchType) == 'Column':
+							#if str(k) == str(_searchValue):
+							if str(val) == str(_searchValue) and table != 'event_log_entries' and table != 'page_settings' and str(table[0:3]) != 'pg_':
+								print ''
+								print '-----------------------------'
+								print 'Table : ' + str(table)
+								print 'Column : ' + str(k)
+								print 'Value : ' + str(rDic[k])
+								print rDic
+								print '-----------------------------'
+								print ''
+			except:
+				pass
+
+
+	########################### HELP ###################################
+	def help(self):
+		''' ''' 
+		print '[API]' 
+		print ''
+		print ''
+		print '# Sample get_table() // simple request'
+		print 'request = ALK_InputOutput.ShotgunSql.ALK_SQL_shotgun()'
+		print "Table = 'tasks'"
+		print "Filters_In = []"
+		print "Filters_Out = []"
+		print "Columns = 'id,entity_id,entity_type,created_at,updated_at,due_date,status_id'"
+		print "Columns = '' #  "" for all (*) '"
+		print "r = request.get_table(Table, Filters_In, Filters_Out, Columns)"
+		print "print r"
+		print ''
+		print "# Sample get_2Tables() // for join request"
+		print "request = ALK_InputOutput.ShotgunSql.ALK_SQL_shotgun()"
+		print "Table1 = 'tasks'"
+		print "Columns1 = 'id,created_by,entity_id,sg_status_list,sg_context,step_id'"
+		print "Filters_In1 = [\"updated_by=110\",\"sg_status_list='wtg'\"]"
+		print "Filters_Out1 = []"
+		print ''
+		print "Table2 = 'users'"
+		print "Columns2 = 'id,name'"
+		print "Filters_In2 = []"
+		print "Filters_Out2 = []"
+		print "Join = 'supdated_by=id'"
+		print "r = request.get_2tables(Table1, Columns1, Filters_In1, Filters_Out1, Table2, Columns2, Filters_In2, Filters_Out2, Join)"
+		print "print r"
+		print ''
+		print "request.close_db()"
+		print ''
+		print ''
+		print '[todo]'
+		print "- docs variables"
+		print "- return error friendly"
+		print ''
+		print '[wiki]'
+		print 'http://wiki.alkymia.lan/devwiki/index.php/ShotgunSql'
+
