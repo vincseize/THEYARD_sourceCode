@@ -431,5 +431,5 @@ class SaAMSql():
 		print "- return error friendly"
 		print ''
 		print '[wiki]'
-		print 'http://wiki.alkymia.lan/devwiki/index.php/ShotgunSql'
+		print 'http://wiki.xxx'
 
