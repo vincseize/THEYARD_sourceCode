@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-""" SQL Wrapper class to ONLY SELECT data content from Shotgun Database. """
+""" SQL Wrapper class to ONLY SELECT data content, derivated from Shotgun Db r & d. """
 
 ######################################################################################
-# (*) Copyright 2011 Alkymia, SAS. TOUS DROITS RESERVES.							 #
-# Ce document est un code source de la societe Alkymia, SAS.						 #
+# (*) Copyright 2011 Alkymia, SAS. TOUS DROITS RESERVES.			     #
+# Ce document est un code source de la societe Alkymia, SAS.			     #
 # Il contient des informations confidentielles qui sont la propriete de Alkymia, SAS.#
-# Toute utilisation, duplication ou publication de tout ou partie de ce			 	 #
-# Document non explicitement autoris�e par Alkymia est STRICTEMENT INTERDITE.		 #
+# Toute utilisation, duplication ou publication de tout ou partie de ce		     #
+# Document non explicitement autoris�e par Alkymia est STRICTEMENT INTERDITE.	    #
 ######################################################################################
 
 ######################################################################################
