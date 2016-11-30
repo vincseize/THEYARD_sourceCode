@@ -60,7 +60,6 @@ class SaAMSql():
 		self.password = password
 		self.port = port
 		self.conn = psycopg2.connect("dbname='"+str(dbname)+"' user='"+str(user)+"' host='"+str(host)+"' password='"+str(password)+"' port='"+str(port)+"'")
-		#self.conn = psycopg2.connect("dbname='"+str(dbname)+"' user='"+str(user)+"' host='"+str(host)+"'")
 		self.cur = None
 
 
