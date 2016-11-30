@@ -51,8 +51,7 @@ import json
 class SaAMSql():
 
 	################# DB BIND ########################################################
-	def __init__(self,dbname='saam',user='lrds',password='lrds2013',host='87.106.191.175',port='3306'):
-	#def __init__(self,dbname='saam',user='root',password='poiazemlkqsd',host='87.106.191.175',port='3306'):
+	def __init__(self,dbname='saamXXX',user='lrdXXX',password='lrdsXXX',host='87.106.191.XXX',port='XXXX'):
 		""" class definition """
 
 		self.dbname = dbname
